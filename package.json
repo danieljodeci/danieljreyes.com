@@ -1,0 +1,11 @@
+{
+  "name": "danieljreyes",
+  "version": "1.0.0",
+  "description": "Personal website of Daniel J Reyes",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "author": "Daniel J Reyes",
+  "license": "ISC"
+}
