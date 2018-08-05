@@ -7,10 +7,6 @@ class Home extends Component {
   render(){
     return (
       <div>
-        <Link href="/projects"><a>projects</a></Link>
-        <Link href="/about"><a>about</a></Link>
-        <Link href="/sounds"><a>sounds</a></Link>
-        <Link href="/writing"><a>writing</a></Link>
         <Animation />
       </div>
     )

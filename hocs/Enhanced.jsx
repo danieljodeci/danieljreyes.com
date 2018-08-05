@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react'
 import Head from 'next/head'
 import shortid from 'shortid'
+import styles from '../containers/Home/styles/main'
 
 // Helps with debugging so you know what component was wrapped
 function getDisplayName(WrappedComponent) {
@@ -72,7 +73,10 @@ export default function EnhancedComponent(WrappedComponent, {
             <link rel="icon" sizes="152x152" href="/static/favicon.ico" />
             {this.getMetaData()}
           </Head>
-          <WrappedComponent {...this.props} />
+          <div className="app">
+            <WrappedComponent {...this.props} />
+          </div>
+          <style jsx global>{styles}</style>
         </div>
       )
     }
