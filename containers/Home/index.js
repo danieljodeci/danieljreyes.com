@@ -6,8 +6,16 @@ import Animation from './components/Animation'
 class Home extends Component {
   render(){
     return (
-      <div>
+      <div className="container">
         <Animation />
+        <style jsx>{`
+          .container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+          }
+        `}</style>
       </div>
     )
   }
