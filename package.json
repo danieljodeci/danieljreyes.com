@@ -1,7 +1,7 @@
 {
   "name": "danieljreyes",
   "version": "1.0.0",
-  "description": "Personal website of Daniel J Reyes",
+  "description": "Portfolio website of Daniel Jodeci Reyes",
   "main": "server.js",
   "scripts": {
     "dev": "next",
@@ -11,8 +11,13 @@
   "author": "Daniel J Reyes",
   "license": "ISC",
   "dependencies": {
-    "next": "^5.1.0",
-    "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "next": "^6.1.1",
+    "react": "^16.4.2",
+    "react-anime": "^2.0.1",
+    "react-dom": "^16.4.2",
+    "shortid": "^2.2.12"
+  },
+  "devDependencies": {
+    "prettier": "1.14.0"
   }
 }
