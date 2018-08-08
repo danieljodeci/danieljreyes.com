@@ -1,10 +1,12 @@
 import P5Wrapper from '../../../hocs/P5Wrapper'
+import {primary} from '../../../hocs/Page/styles/colors';
 
 const sketch = p => {
   let img_scale, scale_factor, particles;
+  const SPACING = 2;
 
   p.preload = function() {
-    img_scale = p.loadImage('https://farm9.staticflickr.com/8695/28568124855_d4fb57c3c5_b.jpg');
+    img_scale = p.loadImage('http://www.homewebprofits.net/wp-content/uploads/2018/02/off-white-color-intended-for-off-white-color-palette.png');
   }
 
   p.setup = function() {
@@ -17,34 +19,33 @@ const sketch = p => {
 
     for(let i = 0; i < img_scale.width; i++) {
       for(let j = 0; j < img_scale.height; j++) {
-        let index = (i * 4) + (j * img_scale.width * 4);
-        particles[index] = new Particle(p, p.createVector(i * scale_factor, j * scale_factor), {
-        })
+        let index = (i * SPACING) + (j * img_scale.width * SPACING);
+        particles[index] = new Particle(p, p.createVector(i * scale_factor, j * scale_factor), {})
       }
     }
-
-    p.background(250);
+    p.background(primary.neutral);
     
   }
 
   p.draw = function() {
-    p.background(250, 4);
+    p.background(255, 4);
     img_scale.loadPixels();
 
     
     p.translate(100, 100);
 
-    //p.ellipse((p.sin(p.frameCount * 0.02) * 100) + 300, (p.cos(p.frameCount * 0.02) * 100) + 200, 5, 5);
+    // p.ellipse((p.sin(p.frameCount * 0.02) * 100) + 300, (p.cos(p.frameCount * 0.02) * 100) + 200, 5, 5);
 
     for(let i = 0; i < img_scale.width; i++) {
       for(let j = 0; j < img_scale.height; j++) {
-        let index = (i * 4) + (j * img_scale.width * 4);
+        let index = (i * SPACING) + (j * img_scale.width * SPACING);
 
         let limit = 1;
         let scale = 0.8
         let repeller = p.createVector(
           (p.sin(p.frameCount * 0.02) * 100) + 300,
           (p.cos(p.frameCount * 0.02) * 100) + 300);
+
         let attr = p.createVector(
           (i * scale_factor),
           (j * scale_factor)
@@ -69,7 +70,7 @@ const sketch = p => {
   }
 };
 
-var Particle = function(renderer, loc, params) {
+let Particle = function(renderer, loc, params) {
   this.params = params || {}
   this.renderer = renderer;
   this.loc = loc;
@@ -123,7 +124,7 @@ var Particle = function(renderer, loc, params) {
 
   this.display = function(fill, size) {
     this.renderer.fill(fill);
-    this.renderer.ellipse(this.loc.x, this.loc.y, size, size);
+    this.renderer.rect(this.loc.x, this.loc.y, size, size);
   };
 }
 

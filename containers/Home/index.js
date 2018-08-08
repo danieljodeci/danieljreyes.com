@@ -1,15 +1,25 @@
 import React, {Component} from 'react'
 import Link from 'next/link'
-import enhancedComponent from '../../hocs/Enhanced'
+import PageWrapper from '../../hocs/Page'
 import dynamic from 'next/dynamic';
 const Sketch = dynamic(import('./components/Sketch'), {ssr: false})
+import Modal from './components/Modal'
+import Animation from './components/Animation'
 
 class Home extends Component {
+  state = {
+    active: true
+  }
+
   render(){
     return (
       <div className="container">
-        {/* <Animation /> */}
         <Sketch />
+        <Modal active={this.state.active}>
+          <div className="align-center full-height full-width">
+            <Animation onComplete={() => this.setState({active: false})} />
+          </div>
+        </Modal>
         <style jsx>{`
           .container {
             display: flex;
@@ -23,7 +33,7 @@ class Home extends Component {
   }
 }
 
-export default enhancedComponent(Home, {
+export default PageWrapper(Home, {
   metaData: {
     title: 'DANIEL JODECI',
     link: [],

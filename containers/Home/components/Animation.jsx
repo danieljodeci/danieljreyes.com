@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import Anime from 'react-anime'
 import styles from '../styles/animation';
+import {primary} from '../../../hocs/Page/styles/colors';
 
 export default class Animation extends Component {
   shouldComponentUpdate(nextProps, nextState){
@@ -21,8 +22,8 @@ export default class Animation extends Component {
 
           <defs>
             <linearGradient id="MyGradient">
-              <stop offset="5%" stopColor="#11998e" />
-              <stop offset="95%" stopColor="#79e46d" />
+              <stop offset="5%" stopColor={primary.neutral} />
+              <stop offset="95%" stopColor={primary.neutral} />
             </linearGradient>
           </defs>
 
@@ -36,6 +37,7 @@ export default class Animation extends Component {
                 a.direction = "reverse"
               }
               a.restart()
+              this.props.onComplete()
             }}
             delay={(el, index) => index * 400}
             strokeDashoffset={ (el) => {
@@ -66,4 +68,8 @@ export default class Animation extends Component {
       </span>
     )
   }
+}
+
+Animation.defaultProps = {
+  onComplete: () => null
 }

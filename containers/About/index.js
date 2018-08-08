@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Link from 'next/link'
-import enhancedComponent from '../../hocs/Enhanced'
+import PageWrapper from '../../hocs/Page'
 
 class About extends Component {
   render(){
@@ -12,7 +12,7 @@ class About extends Component {
   }
 }
 
-export default enhancedComponent(About, {
+export default PageWrapper(About, {
   metaData: {
     title: 'About - DANIEL JODECI',
     link: [],

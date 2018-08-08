@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import Link from 'next/link'
-import enhancedComponent from '../../hocs/Enhanced'
+import PageWrapper from '../../hocs/Page'
 
 class Sounds extends Component {
   render(){
@@ -12,7 +12,7 @@ class Sounds extends Component {
   }
 }
 
-export default enhancedComponent(Sounds, {
+export default PageWrapper(Sounds, {
   metaData: {
     title: 'Sounds - DANIEL JODECI',
     link: [],

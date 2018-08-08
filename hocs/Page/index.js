@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react'
 import Head from 'next/head'
 import shortid from 'shortid'
-import styles from '../containers/Home/styles/main'
+import styles from './styles/main'
 
 // Helps with debugging so you know what component was wrapped
 function getDisplayName(WrappedComponent) {
@@ -10,7 +10,7 @@ function getDisplayName(WrappedComponent) {
         'Component'
 }
 
-export default function EnhancedComponent(WrappedComponent, {
+export default function PageWrapper(WrappedComponent, {
   metaData,
   willMount,
   didMount,
