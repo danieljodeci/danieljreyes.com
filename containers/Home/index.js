@@ -1,13 +1,15 @@
 import React, {Component} from 'react'
 import Link from 'next/link'
 import enhancedComponent from '../../hocs/Enhanced'
-import Animation from './components/Animation'
+import dynamic from 'next/dynamic';
+const Sketch = dynamic(import('./components/Sketch'), {ssr: false})
 
 class Home extends Component {
   render(){
     return (
       <div className="container">
-        <Animation />
+        {/* <Animation /> */}
+        <Sketch />
         <style jsx>{`
           .container {
             display: flex;
