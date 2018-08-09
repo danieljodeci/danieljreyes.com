@@ -8,7 +8,7 @@ export default global`
 
   html, body {
     margin: 0 0;
-    font-family: var(--fontAvenirNext)!important;
+    font-family: Arial;
     min-height: 100%;
     overflow: auto;
     overflow-x: hidden;
@@ -42,5 +42,15 @@ export default global`
 
   .full-height {
     height: 100%;
+  }
+
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .flex-row {
+    display: flex;
+    flex-direction: row;
   }
 `

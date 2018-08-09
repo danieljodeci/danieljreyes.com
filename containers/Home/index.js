@@ -5,30 +5,32 @@ import dynamic from 'next/dynamic';
 const Sketch = dynamic(import('./components/Sketch'), {ssr: false})
 import Modal from './components/Modal'
 import Animation from './components/Animation'
+import Introduction from './components/Introduction'
+import DJ808 from './components/DJ808';
+import styles from './styles/home'
 
 class Home extends Component {
   state = {
-    active: true
+    active: false
   }
 
   render(){
     return (
-      <div className="container">
-        <Sketch />
-        <Modal active={this.state.active}>
-          <div className="align-center full-height full-width">
-            <Animation onComplete={() => this.setState({active: false})} />
+      <section id="intro">
+        <div className="container">
+          <div className="flex-column full-height">
+            <Modal active={this.state.active}>
+              <div className="align-center full-height full-width">
+                <Animation onComplete={() => this.setState({active: false})} />
+              </div>
+            </Modal>
+            <DJ808 active={!this.state.active} />
+            <Introduction />
+            {/* <Sketch /> */}
           </div>
-        </Modal>
-        <style jsx>{`
-          .container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-          }
-        `}</style>
-      </div>
+        </div>
+        <style jsx>{styles}</style>
+      </section>
     )
   }
 }
