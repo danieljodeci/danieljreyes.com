@@ -20,11 +20,13 @@ class Sequencer extends Component {
   componentWillReceiveProps(nextProps){
     if(this.props.tempo != nextProps.tempo){
       const component = this;
-      const { steps, tempo } = nextProps;
+      const { steps, tempo, onIncrement } = nextProps;
       clearInterval(this.counter)
       this.counter = setInterval(() => {
         const { index } = component.state;
-        this.setState({index: (index + 1) % steps})
+        this.setState({index: (index + 1) % steps}, () => {
+          onIncrement(component.state.index)
+        })
       }, 60000 / tempo / 4)
     }
     if(this.props.paused != nextProps.paused){
@@ -32,10 +34,12 @@ class Sequencer extends Component {
         clearInterval(this.counter)
       }else{
         const component = this;
-        const { steps, tempo } = nextProps;
+        const { steps, tempo, onIncrement } = nextProps;
         this.counter = setInterval(() => {
           const { index } = component.state;
-          this.setState({index: (index + 1) % steps})
+          this.setState({index: (index + 1) % steps}, () => {
+            onIncrement(component.state.index)
+          })
         }, 60000 / tempo / 4)
       }
     }
@@ -78,6 +82,7 @@ Sequencer.defaultProps = {
   paused: true,
   tempo: 120,
   sequence: [],
+  onIncrement: () => null,
   onButtonPress: () => null
 }
 

@@ -5,17 +5,19 @@ import Button from './Button'
 import Sequencer from './Sequencer'
 import ActivableRenderer from '../../../../hocs/ActivableRenderer';
 import cn from 'classnames';
+import {Howl} from 'howler';
 
 class DJ808 extends Component {
   constructor(props){
     super(props);
+    let instruments = ['BD', 'SD', 'LT', 'MT', 'HT', 'RS', 'CP', 'CB', 'CY', 'OH', 'CH']
     let arr = []
     for (let i = 0; i < props.steps; i++) {
       arr.push(false)
     }
     this.state = {
       instrument: 10,
-      instruments: ['BD', 'SD', 'LT', 'MT', 'HT', 'RS', 'CP', 'CB', 'CY', 'OH', 'CH'],
+      instruments,
       tempo: 150,
       paused: true,
       sequences: {
@@ -32,6 +34,11 @@ class DJ808 extends Component {
         CH: arr
       }
     }
+    for (let i = 0; i < instruments.length; i++) {
+      this[`${instruments[i]}_sound`] = new Howl({
+        src: [`/static/sounds/${instruments[i]}.wav`]
+      });
+    }
   }
 
   render(){
@@ -44,6 +51,13 @@ class DJ808 extends Component {
           paused={paused} 
           steps={steps} 
           sequence={sequences[instruments[instrument]]}
+          onIncrement={index => {
+            for(let k in this.state.sequences){
+              if(this.state.sequences[k][index]){
+                this[`${k}_sound`].play()
+              }
+            }
+          }}
           onButtonPress={(index) => {
             const selInst = instruments[instrument];
             let arr = sequences[selInst].slice(0);
