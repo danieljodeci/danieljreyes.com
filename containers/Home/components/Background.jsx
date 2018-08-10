@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import styles from '../styles/background'
 import {primary} from '../../../hocs/Page/styles/colors'
 import Anime from 'react-anime';
+import shortid from 'shortid'
 
 const START = 76
 const SPACING = 6
@@ -10,6 +11,10 @@ const TOTAL = Math.round(300 / GROUP)
 const DIFF = START - (START - ((GROUP - 1) * SPACING)) + 4
 
 export default class Background extends Component {
+  shouldComponentUpdate(nextProps, nextState){
+    // Prevent Anime from rerendering animation
+    return false;
+  }
   render(){
     return (
       <div className="background">
@@ -23,7 +28,7 @@ export default class Background extends Component {
 
           {Array.apply(null, Array(TOTAL)).map((a, i) => {
             return (
-              <Anime key={i}
+              <Anime key={shortid.generate()}
                 easing="easeInOutCirc"
                 duration={500}
                 direction="normal"
