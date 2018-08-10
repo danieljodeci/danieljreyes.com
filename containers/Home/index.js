@@ -12,7 +12,7 @@ import styles from './styles/home'
 
 class Home extends Component {
   state = {
-    active: false
+    active: true
   }
 
   render(){
