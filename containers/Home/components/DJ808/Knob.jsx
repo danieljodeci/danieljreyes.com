@@ -90,12 +90,12 @@ export default class Knob extends Component {
     return (
       <div className="ticks">
         {ticks.map((tick, i) => {
-          const xpos = Math.round((size - 15) * (Math.cos(theta[i]))) + (size / 2) - 3 + 'px'
+          const xpos = Math.round((size - 15) * (Math.cos(theta[i]))) + (size / 2) + 'px'
           const ypos = Math.round((size - 15) * (Math.sin(theta[i]))) - (size / 2) + 'px'
           return (
             <span key={i} style={{
-              top: ((size / 2) - parseInt(ypos.slice(0, -2))) + 'px',
-              left: ((size / 2) + parseInt(xpos.slice(0, -2))) + 'px'
+              top: ((size / 2) - parseInt(ypos.slice(0, -2))) - 24 + 'px',
+              left: ((size / 2) + parseInt(xpos.slice(0, -2))) - 28 + 'px'
             }}>{tick}</span>
           )
         })}
@@ -105,13 +105,12 @@ export default class Knob extends Component {
   }
 
   render(){
-    const { flat, size, label, ticks } = this.props;
+    const { flat, size, label } = this.props;
     let knobStyle = this.dcpy({
       width: size,
       height: size,
     });
     knobStyle.transform = "rotate(" + this.state.deg + "deg)";
-    if(ticks.length) knobStyle.margin = 50;
     let indicatorStyle = this.dcpy({
       width: size / 3,
       height: size,

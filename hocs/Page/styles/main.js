@@ -15,6 +15,7 @@ export default global`
   }
 
   .app {
+    height: 100%;
     min-height: 100vh;
     width: 100%;
     font-weight: normal;
@@ -27,7 +28,7 @@ export default global`
   }
 
   .app {
-    background-color: ${primary.neutral}
+    background-color: ${primary.neutral}A1;
   }
 
   .align-center {

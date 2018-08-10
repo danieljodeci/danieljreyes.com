@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { white, secondary, primary } from '../../../hocs/Page/styles/colors';
+import { white, secondary, tertiary, red } from '../../../hocs/Page/styles/colors';
 
 export default css`
   .container {
@@ -46,15 +46,19 @@ export default css`
     top: 50%;
     transform: translateY(-50%);
     left: -46px;
+    width: 310px;
+    height: 200px;
   }
 
-  .description p {
-    font-family: "Inconsolata", monospace;
-    line-height: 28px;
-    transform: rotate(-90deg);
-    font-weight: 300;
-    font-size: 18px;
-    transition: color .4s ease;
-    color: ${primary.dark};
+  svg {
+    font: 900 20px 'Futura', sans-serif;
+    font-style: italic;
+    opacity: 0.9;
   }
+
+
+  .knockout-text-bg {
+    fill: ${white.light};
+  }
+  
 `

@@ -87,14 +87,17 @@ class DJ808 extends Component {
             min={0}
             max={instruments.length-1}
             degrees={360}
+            size={70}
             value={instrument}
           />
-          <Button 
-            big
-            label="Start/Stop"
-            enabled={!paused}
-            onClick={() => this.setState({paused: !paused})}
-          />
+          <div style={{marginLeft: 20}}>
+            <Button 
+              big
+              label="Start/Stop"
+              enabled={!paused}
+              onClick={() => this.setState({paused: !paused})}
+            />
+          </div>
         </div>
         <style jsx>{styles}</style>
       </section>

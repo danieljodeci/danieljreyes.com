@@ -1,7 +1,7 @@
 export const primary = {
   light: '#fff',
-  neutral: '#f5e9e5',
-  dark: '#c2b7b3',
+  neutral: '#efe2e0',
+  dark: '#bcb0ae',
   darker: '#99918e'
 };
 
@@ -34,3 +34,9 @@ export const red = {
   neutral: '#f44242',
   dark: '#ba001a'
 };
+
+export const tertiary = {
+  light: '#e9ffff',
+  neutral: '#b6efdf',
+  dark: '#85bcad'
+}

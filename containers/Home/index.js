@@ -7,6 +7,7 @@ import Modal from './components/Modal'
 import Animation from './components/Animation'
 import Introduction from './components/Introduction'
 import DJ808 from './components/DJ808';
+import Background from './components/Background';
 import styles from './styles/home'
 
 class Home extends Component {
@@ -16,15 +17,23 @@ class Home extends Component {
 
   render(){
     return (
-      <section id="intro">
+      <section id="home">
+        {/* Intro Modal */}
+        <Modal active={this.state.active}>
+          <div className="align-center full-height full-width">
+            <Animation onComplete={() => this.setState({active: false})} />
+          </div>
+        </Modal>
+
+        {/* Drum Machine */}
+        <DJ808 active={!this.state.active} />
+
+        {/* Background */}
+        <Background />
+        
+        {/* Body */}
         <div className="container">
           <div className="flex-column full-height">
-            <Modal active={this.state.active}>
-              <div className="align-center full-height full-width">
-                <Animation onComplete={() => this.setState({active: false})} />
-              </div>
-            </Modal>
-            <DJ808 active={!this.state.active} />
             <Introduction />
             {/* <Sketch /> */}
           </div>

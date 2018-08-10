@@ -11,6 +11,7 @@ export default css`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    z-index: 10;
 
     transform: translate(-50%, -150px);
     transition: transform 800ms ease-in;
@@ -49,6 +50,7 @@ export default css`
     align-items: center;
     flex-direction: column;
     background-color: ${primary.dark};
+    transition: 500ms
   }
 
   .button.big section {
@@ -74,6 +76,17 @@ export default css`
     position: absolute;
     bottom: 8%;
     box-shadow: 0px 0px 15px ${primary.darker};
+    transition: 500ms
+  }
+
+  .button:hover section {
+    background-color: ${secondary.neutral};
+    transition: 500ms
+  }
+
+  .button:hover section div:not(.led) {
+    background-color: ${secondary.dark};
+    transition: 500ms
   }
 
   .button.big section div:not(.led) {
@@ -103,7 +116,7 @@ export default css`
   }
 
   .control-panel {
-    margin: 10px 0px;
+    margin: 20px 0px;
     width: 100%;
     align-items: center;
     justify-content: center;
