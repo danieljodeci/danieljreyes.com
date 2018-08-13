@@ -7,16 +7,6 @@ class Sequencer extends Component {
     index: 0,
   }
 
-  componentDidMount() {
-    const { tempo, paused, steps } = this.props 
-    const component = this;
-    if(paused) return;
-    this.counter = setInterval(() => {
-      const { index } = component.state;
-      this.setState({index: (index + 1) % steps})
-    }, 60000 / tempo / 4)
-  }
-
   componentWillReceiveProps(nextProps){
     if(this.props.tempo != nextProps.tempo){
       const component = this;
