@@ -5,7 +5,7 @@ import Button from './Button'
 import Sequencer from './Sequencer'
 import ActivableRenderer from '../../../../hocs/ActivableRenderer';
 import cn from 'classnames';
-import {Howl} from 'howler';
+import Tone from 'tone';
 
 class DJ808 extends Component {
   constructor(props){
@@ -34,11 +34,12 @@ class DJ808 extends Component {
         CH: arr
       }
     }
+    let samples = {};
     for (let i = 0; i < instruments.length; i++) {
-      this[`${instruments[i]}_sound`] = new Howl({
-        src: [`/static/sounds/${instruments[i]}.wav`]
-      });
+      samples[instruments[i]] = `/static/sounds/${instruments[i]}.wav`
     }
+
+    this.multiPlayer = new Tone.Players(samples).toMaster();
   }
 
   render(){
@@ -51,10 +52,10 @@ class DJ808 extends Component {
           paused={paused} 
           steps={steps} 
           sequence={sequences[instruments[instrument]]}
-          onIncrement={index => {
+          onIncrement={(time, value, index) => {
             for(let k in this.state.sequences){
               if(this.state.sequences[k][index]){
-                this[`${k}_sound`].play()
+                this.multiPlayer.get(k).start(time, 0, '16n')
               }
             }
           }}

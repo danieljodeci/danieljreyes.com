@@ -1,42 +1,46 @@
 import React, {Component, Fragment} from 'react'
 import styles from '../../styles/sequencer'
 import Button from './Button';
+import Tone from 'tone';
+import position from '../../../../config/position';
 
 class Sequencer extends Component {
-  state = {
-    index: 0,
+  constructor(props){
+    super(props);
+
+    this.state = {
+      index: 0
+    }
+
+    this.sequencer = new Tone.Sequence((time, value) => {
+      const i = position[Tone.Transport.position.slice(0, 5)]
+      this.props.onIncrement(time, value, i)
+    }, this.props.sequence, '16n');
+    this.sequencer.start();
+    this.sequencer.loop = true;
+    Tone.Transport.setLoopPoints(0, '1m')
+    Tone.Transport.loop = true;
+    Tone.Transport.scheduleRepeat(this.updateIndex, '16n');
+    Tone.Transport.bpm.value = this.props.tempo;
+    Tone.Master.volume.value = 1;
   }
 
   componentWillReceiveProps(nextProps){
     if(this.props.tempo != nextProps.tempo){
-      const component = this;
-      const { steps, tempo, onIncrement } = nextProps;
-      clearInterval(this.counter)
-      this.counter = setInterval(() => {
-        const { index } = component.state;
-        this.setState({index: (index + 1) % steps}, () => {
-          onIncrement(component.state.index)
-        })
-      }, 60000 / tempo / 4)
+      Tone.Transport.bpm.value = nextProps.tempo;
     }
+
     if(this.props.paused != nextProps.paused){
       if(nextProps.paused) {
-        clearInterval(this.counter)
+        Tone.Transport.stop()
       }else{
-        const component = this;
-        const { steps, tempo, onIncrement } = nextProps;
-        this.counter = setInterval(() => {
-          const { index } = component.state;
-          this.setState({index: (index + 1) % steps}, () => {
-            onIncrement(component.state.index)
-          })
-        }, 60000 / tempo / 4)
+        Tone.Transport.start('+0.25')
       }
     }
   }
 
-  componentWillUnmount() {
-    clearInterval(this.counter);
+  updateIndex = () => {
+    this.setState({ index: position[Tone.Transport.position.slice(0, 5)] });
   }
 
   generateButtons = () => {
