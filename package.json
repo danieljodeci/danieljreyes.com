@@ -12,14 +12,14 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
-    "howler": "^2.0.14",
     "next": "^6.1.1",
     "p5": "^0.6.1",
     "react": "^16.4.2",
     "react-anime": "^2.0.1",
     "react-dom": "^16.4.2",
     "react-style-proptype": "^3.2.1",
-    "shortid": "^2.2.12"
+    "shortid": "^2.2.12",
+    "tone": "^0.12.80"
   },
   "devDependencies": {
     "prettier": "1.14.0"
