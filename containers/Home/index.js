@@ -6,7 +6,7 @@ const Sketch = dynamic(import('./components/Sketch'), {ssr: false})
 import Modal from './components/Modal'
 import Animation from './components/Animation'
 import Introduction from './components/Introduction'
-import DJ808 from './components/DJ808';
+const DJ808 = dynamic(import('./components/DJ808'), {ssr: false});
 import Background from './components/Background';
 import styles from './styles/home'
 
