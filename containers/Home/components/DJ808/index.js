@@ -55,7 +55,7 @@ class DJ808 extends Component {
           onIncrement={(time, value, index) => {
             for(let k in this.state.sequences){
               if(this.state.sequences[k][index]){
-                this.multiPlayer.get(k).start(time, 0, '16n')
+                this.multiPlayer.get(k).start(time, 0)
               }
             }
           }}
