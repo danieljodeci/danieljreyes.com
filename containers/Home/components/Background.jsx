@@ -5,10 +5,10 @@ import Anime from 'react-anime';
 import shortid from 'shortid'
 
 const START = 76
-const SPACING = 6
+const SPACING = 4
 const GROUP = 60
-const TOTAL = Math.round(300 / GROUP)
-const DIFF = START - (START - ((GROUP - 1) * SPACING)) + 4
+const TOTAL = Math.round(400 / GROUP)
+const DIFF = START - (START - ((GROUP - 1) * SPACING)) + 3
 
 export default class Background extends Component {
   shouldComponentUpdate(nextProps, nextState){
@@ -32,7 +32,7 @@ export default class Background extends Component {
                 easing="easeInOutCirc"
                 duration={500}
                 direction="normal"
-                translateY="2px"
+                translateY="1px"
                 autoplay
                 loop
                 delay={(el, index) => index * 100}
