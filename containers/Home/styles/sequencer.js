@@ -6,7 +6,6 @@ export default css`
   .container {
     position: fixed;
     left: 50%;
-    transform: translateX(-50%);
     display: flex;
     flex-direction: column;
     align-items: center;

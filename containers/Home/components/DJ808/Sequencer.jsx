@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react'
 import styles from '../../styles/sequencer'
 import Button from './Button';
 import Tone from 'tone';
-import position from '../../../../config/position';
+import position from '../../../../utils/position';
 
 class Sequencer extends Component {
   constructor(props){
@@ -12,17 +12,31 @@ class Sequencer extends Component {
       index: 0
     }
 
+    // Set up sequencer
     this.sequencer = new Tone.Sequence((time, value) => {
       const i = position[Tone.Transport.position.slice(0, 5)]
       this.props.onIncrement(time, value, i)
     }, this.props.sequence, '16n');
     this.sequencer.start();
     this.sequencer.loop = true;
+
+    // Set up transport
     Tone.Transport.setLoopPoints(0, '1m')
     Tone.Transport.loop = true;
-    Tone.Transport.scheduleRepeat(this.updateIndex, '16n');
+    this.tickEventId = Tone.Transport.scheduleRepeat(this.updateIndex, '16n');
     Tone.Transport.bpm.value = this.props.tempo;
-    Tone.Master.volume.value = 1;
+  }
+
+  componentDidMount(){
+    this._mounted = true;
+    if(!this.props.paused) Tone.Transport.start('+0.25');
+  }
+
+  componentWillUnmount(){
+    this._mounted = false;
+    Tone.Transport.stop()
+    Tone.Transport.cancel(this.tickEventId);
+    this.sequencer.dispose();
   }
 
   componentWillReceiveProps(nextProps){
@@ -40,6 +54,7 @@ class Sequencer extends Component {
   }
 
   updateIndex = () => {
+    if(!this._mounted) return;
     this.setState({ index: position[Tone.Transport.position.slice(0, 5)] });
   }
 
