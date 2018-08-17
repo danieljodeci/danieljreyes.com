@@ -1,5 +1,5 @@
 import {global} from 'styled-jsx/css'
-import {primary} from './colors'
+import {primary, secondary} from './colors'
 
 export default global`
   .* {
@@ -8,7 +8,7 @@ export default global`
 
   html, body {
     margin: 0 0;
-    font-family: Arial;
+    font-family: 'Avenir Next', Nunito;
     min-height: 100%;
     overflow: auto;
     overflow-x: hidden;
@@ -53,5 +53,10 @@ export default global`
   .flex-row {
     display: flex;
     flex-direction: row;
+  }
+
+  .text strong {
+    font-weight: 600;
+    color: ${secondary.light};
   }
 `
