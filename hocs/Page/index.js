@@ -55,7 +55,7 @@ export default function PageWrapper(WrappedComponent, {
 
     render(){
       return (
-        <div>
+        <div className="app">
           <Head>
             <title>DANIEL JODECI</title>
             <meta charset='utf-8' />
@@ -73,9 +73,7 @@ export default function PageWrapper(WrappedComponent, {
             <link rel="icon" sizes="152x152" href="/static/favicon.ico" />
             {this.getMetaData()}
           </Head>
-          <div className="app">
-            <WrappedComponent {...this.props} />
-          </div>
+          <WrappedComponent {...this.props} />
           <style jsx global>{styles}</style>
         </div>
       )
