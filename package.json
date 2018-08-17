@@ -12,12 +12,16 @@
   "license": "ISC",
   "dependencies": {
     "classnames": "^2.2.6",
+    "lodash.throttle": "^4.1.1",
     "next": "^6.1.1",
     "p5": "^0.6.1",
     "react": "^16.4.2",
     "react-anime": "^2.0.1",
     "react-dom": "^16.4.2",
+    "react-rellax": "^1.0.2",
     "react-style-proptype": "^3.2.1",
+    "react-text-transition": "^0.1.6",
+    "react-waypoint": "^8.0.3",
     "shortid": "^2.2.12",
     "tone": "^0.12.80"
   },
