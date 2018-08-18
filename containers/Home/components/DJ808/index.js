@@ -43,7 +43,7 @@ class DJ808 extends Component {
       volume 
     } = this.props
     return (
-      <section className={cn('container', {active})}>
+      <header id="sequencer" className={cn('container', {active})}>
         <Sequencer 
           tempo={tempo}
           paused={paused} 
@@ -130,7 +130,7 @@ class DJ808 extends Component {
           </div>
         </div>
         <style jsx>{styles}</style>
-      </section>
+      </header>
     )
   }
 }
@@ -172,6 +172,10 @@ export default class Wrapper extends Component {
     }
     this.multiPlayer = new Tone.Players(samples).toMaster();
     Tone.Master.volume.value = volume;
+  }
+
+  componentWillUnmount(){
+    this.multiPlayer.dispose();
   }
 
   render(){
