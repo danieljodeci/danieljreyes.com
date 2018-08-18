@@ -14,15 +14,13 @@ export default class WiggleWorm extends Component {
   }
 
   render(){
-    const { top, left, size, color, speed } = this.props
+    const { top, left, bottom, right, size, color, speed, animate } = this.props
     return (
-      <section className="wiggle-container" style={{top, left, width: size, height: size}}>
+      <div className="wiggle-container" style={{top, left, bottom, right, width: size, height: size}}>
         <Parallax speed={speed}>
           <div style={{position: 'relative'}}>
             <svg id="wiggle-worm" width="100%" height="100%" viewBox="0 0 631 631">
-
-              <circle fillOpacity="1" cx="315" cy="315" r="315" fill={color} mask="url(#wiggle-mask)"/>
-
+              <circle fillOpacity="1" cx="315" cy="315" r="315" fill={color} mask="url(#wiggle-mask)" />
               <mask id="wiggle-mask">
                 <circle width="100%" height="100%" fill="#fff" fillOpacity="1" cx="315.5" cy="315.5" r="315"/>
 
@@ -1128,16 +1126,13 @@ export default class WiggleWorm extends Component {
             </svg>
           </div>
         </Parallax>
-        
         <style jsx>{styles}</style>
-      </section>
+      </div>
     )
   }
 }
 
 WiggleWorm.defaultProps = {
-  top: 50,
-  left: 50,
   size: 80,
   speed: 5,
   color: "black"
