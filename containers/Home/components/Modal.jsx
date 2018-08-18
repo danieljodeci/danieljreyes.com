@@ -55,7 +55,7 @@ class Modal extends Component {
 Modal.defaultProps = {
   active: false,
   onToggleModal: () => null,
-  delay: 500
+  delay: 800
 };
 
 export default ActivableRenderer()(Modal)
