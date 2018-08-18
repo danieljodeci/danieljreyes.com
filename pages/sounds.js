@@ -1,3 +1,3 @@
-import Sounds from '../containers/Sounds'
+import Home from '../containers/Home'
 
-export default Sounds
+export default Home

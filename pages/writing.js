@@ -1,3 +1,3 @@
-import Writing from '../containers/Writing'
+import Home from '../containers/Home'
 
-export default Writing
+export default Home
