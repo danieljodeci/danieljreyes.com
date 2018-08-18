@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 
 export default css`
-  #home {
+  #page-content {
     position: relative;
     z-index: 1;
     width: 100%;

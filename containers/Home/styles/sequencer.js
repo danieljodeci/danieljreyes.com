@@ -12,7 +12,7 @@ export default css`
     justify-content: center;
     z-index: 10;
 
-    transform: translate(-50%, -150px);
+    transform: translate(-50%, -200px);
     transition: transform 800ms ease-in;
   }
 
