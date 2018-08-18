@@ -39,44 +39,51 @@ export default class Introduction extends Component {
   render(){
     return (
       <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave}>
-        <section id="intro" className="full-height">
-          <div className="container">
-            <h1>Hi<strong>,</strong></h1>
-            <h3>I go by</h3>
-            <h2 id="text-animation">
-              <ReactTextTransition
-                text={TEXTS[this.state.index]}
-                spring={{ stiffness: 50, damping: 20 }}
-              />
-            </h2>
+        <section id="intro">
+          <div className="section-container" style={{marginTop: 65}}>
+            <div className="section-row">
+
+              {/* Text Animation */}
+              <div className="welcome-animation">
+                <h1>Hi<strong>,</strong></h1>
+                <h3>I go by</h3>
+                <h2 id="text-animation">
+                  <ReactTextTransition
+                    text={TEXTS[this.state.index]}
+                    spring={{ stiffness: 50, damping: 20 }}
+                  />
+                </h2>
+              </div>  
+
+
+              {/* Background text */}
+              <div className="background-text">
+                <h4>CRE_<br />ATE</h4>
+              </div>
+
+              {/* Short Bio */}
+              <div className="description">
+                <svg className="knockout-text-container" width="100%" height="100%" transform="rotate(-90)">
+                  <rect className="knockout-text-bg" width="100%" height="100%" x="0" y="0" fillOpacity="1" mask="url(#knockout-text)" />
+                  <mask id="knockout-text">
+                    <rect width="100%" height="100%" fill="#fff" x="0" y="0" />
+                    <text x="20px" y="45px" fill="#000" textAnchor="left">I am an Artist,</text> 
+                    <text x="20px" y="75px" fill="#000" textAnchor="left">Full-Stack Developer, </text>
+                    <text x="20px" y="105px" fill="#000" textAnchor="left">and maker of things </text>
+                    <text x="20px" y="135px" fill="#000" textAnchor="left">who is based in Los Angeles.</text>
+                  </mask>
+                </svg>
+              </div>
+
+              {/* Wiggle Worms */}
+              <WiggleWorm size={80} left={270} top={230} color="#9cd8c8" speed={-2} />
+              <WiggleWorm size={60} left={100} bottom={150} color={tertiary.light} speed={-6} />
+              <WiggleWorm size={70} left={420} bottom={70} color="#afeddc" speed={3} />
+              <WiggleWorm size={60} right={150} top={100} color={secondary.light} speed={-3} />
+              <WiggleWorm size={350} left={250} bottom={-300} color={primary.light} speed={-3} animate />
+
+            </div>
           </div>
-
-
-          {/* Background text */}
-          <h1>CRE<br />ATE</h1>
-
-          <div className="description">
-    
-            <svg className="knockout-text-container" width="100%" height="100%" transform="rotate(-90)">
-              
-              <rect className="knockout-text-bg" width="100%" height="100%" x="0" y="0" fillOpacity="1" mask="url(#knockout-text)" />
-              
-              <mask id="knockout-text">
-                <rect width="100%" height="100%" fill="#fff" x="0" y="0" />
-                <text x="20px" y="45px" fill="#000" textAnchor="left">I am an Artist,</text> 
-                <text x="20px" y="85px" fill="#000" textAnchor="left">Full-Stack Developer, </text>
-                <text x="20px" y="125px" fill="#000" textAnchor="left">and maker of things </text>
-                <text x="20px" y="165px" fill="#000" textAnchor="left">who is based in Los Angeles.</text>
-              </mask>
-              
-            </svg>
-            
-          </div>
-
-          <WiggleWorm size={140} left={250} top={200} color={tertiary.dark} speed={7} />
-          <WiggleWorm size={180} left={200} top={550} color={secondary.light} speed={8} />
-          <WiggleWorm size={200} left={500} top={800} color={primary.light} speed={5} />
-          <WiggleWorm size={190} left={1050} top={300} color={secondary.light} speed={9} />
 
           <style jsx>{styles}</style>
         </section>

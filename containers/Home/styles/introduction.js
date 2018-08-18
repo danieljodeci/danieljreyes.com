@@ -1,63 +1,87 @@
 import css from 'styled-jsx/css'
-import { white, secondary, tertiary, red } from '../../../hocs/Page/styles/colors';
+import { white, secondary, primary, tertiary, red } from '../../../hocs/Page/styles/colors';
 
 export default css`
   #intro {
     position: relative;
-    height: 1000px;
-    padding-left: 50px;
-    padding-right: 50px;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    min-height: 1050px;
   }
 
-  @media (min-width: 768px){
-    section {
-        width: 750px;
+  @media screen and (min-width: 1351px) and (max-width: 1450px) {
+    section#intro {
+      min-height: 900px;
     }
   }
-  @media (min-width: 992px){
-    section {
-        width: 970px;
+  
+  @media screen and (min-width: 1366px) and (max-width: 1366px) {
+    section#intro {
+      min-height: 500px;
     }
   }
-  @media (min-width: 1200px){
-    section {
-        width: 1170px;
+  
+  @media screen and (min-width: 1025px) and (max-width: 1350px) {
+    section#intro {
+      min-height: 1050px;
+    }
+  }
+  
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1024px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 1024px), only screen and (min-device-pixel-ratio: 2) and (min-width: 1024px), only screen and (min-resolution: 192dpi) and (min-width: 1024px), only screen and (min-resolution: 2dppx) and (min-width: 1024px) {
+    section#intro {
+      height: auto;
+    }
+  }
+  
+  @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-width: 1199px), only screen and (min--moz-device-pixel-ratio: 2) and (min-width: 1199px), only screen and (min-device-pixel-ratio: 2) and (min-width: 1199px), only screen and (min-resolution: 192dpi) and (min-width: 1199px), only screen and (min-resolution: 2dppx) and (min-width: 1199px) {
+    section#intro {
+      min-height: 130vh;
+      margin-top: -80px;
     }
   }
 
-  #intro > h1 {
-    font-size: 400px;
-    color: rgba(243, 234, 233, 0.8);
-    position: absolute;
+  .background-text {
+    position: relative;
+    left: 0px;
+    top: 100px;
+    color: #1F1F1F;
+    text-transform: uppercase;
     z-index: -1;
-    margin: 0;
-    line-height: 350px;
-    font-weight: 600;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
   }
 
-  .container {
+  .background-text h4 {
+    font-size: 450px;
+    line-height: 400px;
+    font-weight: 700;
+    margin: 0;
+    margin-bottom: 75px;
+    margin-left: -7px;
+    color: ${primary.neutral};
+  }
+
+  .section-container {
     display: flex;
-    flex-direction: column;
-    font-size: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .welcome-animation {
     position: absolute;
-    right: 0px;
     top: 50%;
     transform: translateY(-50%);
+    right: 0px;
+    min-width: 540px;
   }
 
-  .container h1 {
+  .section-container h1:not(.background-text) {
     font-weight: 600;
     font-size: 16em;
     color: ${white.light};
     margin: 0;
   }
 
-  .container h2 {
+  .section-container h2 {
     font-weight: 600;
     font-size: 10em;
     color: ${white.light};
@@ -66,7 +90,7 @@ export default css`
     min-width: 340px;
   }
 
-  .container h3 {
+  .section-container h3 {
     font-weight: 600;
     font-size: 6em;
     color: ${white.light};
@@ -74,7 +98,7 @@ export default css`
     padding-left: 10px;
   }
 
-  .container strong {
+  .section-container strong {
     font-weight: 600;
     color: ${secondary.light};
   }
@@ -86,7 +110,7 @@ export default css`
     transform: translateY(-50%);
     left: -46px;
     width: 310px;
-    height: 200px;
+    height: 170px;
   }
 
   .knockout-text-container {
