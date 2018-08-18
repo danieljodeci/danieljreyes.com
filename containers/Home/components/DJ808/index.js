@@ -6,10 +6,42 @@ import Sequencer from './Sequencer'
 import ActivableRenderer from '../../../../hocs/ActivableRenderer';
 import cn from 'classnames';
 import Tone from 'tone';
+import throttle from 'lodash.throttle'
 
 class DJ808 extends Component {
+  genEmptySeq = () => {
+    return {
+      BD: Array(16).fill(false),
+      SD: Array(16).fill(false),
+      LT: Array(16).fill(false),
+      MT: Array(16).fill(false),
+      HT: Array(16).fill(false),
+      RS: Array(16).fill(false),
+      CP: Array(16).fill(false),
+      CB: Array(16).fill(false),
+      CY: Array(16).fill(false),
+      OH: Array(16).fill(false),
+      CH: Array(16).fill(false)
+    }
+  }
+  componentWillReceiveProps(nextProps){
+    if(nextProps.volume != this.props.volume){
+      this.props.multiPlayer.volume.value = nextProps.volume;
+    }
+  }
   render(){
-    const { active, steps, instruments, instrument, tempo, paused, sequences, multiPlayer, updateState } = this.props
+    const { 
+      active, 
+      steps, 
+      instruments, 
+      instrument, 
+      tempo, 
+      paused, 
+      sequences, 
+      multiPlayer, 
+      updateState,
+      volume 
+    } = this.props
     return (
       <section className={cn('container', {active})}>
         <Sequencer 
@@ -17,19 +49,22 @@ class DJ808 extends Component {
           paused={paused} 
           steps={steps} 
           sequence={sequences[instruments[instrument]]}
-          onIncrement={(time, value, index) => {
-            for(let k in sequences){
-              if(sequences[k][index]){
+          onIncrement={(time, index) => {
+            for(let k in this.props.sequences){
+              if(this.props.sequences[k][index]){
                 multiPlayer.get(k).start(time, 0)
+                if(k == 'CH' && multiPlayer.get('OH').state == 'started'){
+                  multiPlayer.get('OH').stop(time)
+                }
               }
             }
           }}
           onButtonPress={(index) => {
-            const selInst = instruments[instrument];
-            let arr = sequences[selInst].slice(0);
+            const selInst = this.props.instruments[this.props.instrument];
+            let arr = this.props.sequences[selInst].slice(0);
             arr[index] = !arr[index];
             let newSeq = {
-              ...sequences,
+              ...this.props.sequences,
               [selInst]: arr
             }
             updateState({sequences: newSeq});
@@ -37,16 +72,34 @@ class DJ808 extends Component {
           }}
         />
         <div className="flex-row control-panel">
-          <Knob
-            onChange={(tempo => updateState({tempo}))}
-            min={20}
-            max={280}
-            degrees={270}
-            size={50}
-            flat
-            value={tempo}
-            label="Tempo"
-          />
+          <div style={{marginRight: 30, display: 'flex'}}>
+            <Knob
+              onChange={volume => {
+                updateState({volume: volume})
+                throttle(() => localStorage.setItem('volume', volume), 750)()
+              }}
+              min={-60}
+              max={1}
+              degrees={270}
+              size={50}
+              flat
+              value={volume}
+              label="Volume"
+            />
+            <Knob
+              onChange={tempo => {
+                updateState({tempo})
+                throttle(() => localStorage.setItem('tempo', tempo), 750)()
+              }}
+              min={20}
+              max={280}
+              degrees={270}
+              size={50}
+              flat
+              value={tempo}
+              label="Tempo"
+            />
+          </div>
           <Knob 
             onChange={(instrument) => updateState({instrument})} 
             ticks={instruments}
@@ -56,7 +109,7 @@ class DJ808 extends Component {
             size={70}
             value={instrument}
           />
-          <div style={{marginLeft: 20}}>
+          <div style={{marginLeft: 60}}>
             <Button 
               big
               label="Start/Stop"
@@ -64,23 +117,15 @@ class DJ808 extends Component {
               onClick={() => updateState({paused: !paused})}
             />
           </div>
-          <div style={{marginLeft: 20}}>
+          <div style={{marginLeft: 30}}>
             <Button 
-              big
+              alert
               label="Clear"
-              onClick={() => updateState({sequences: {
-                BD: Array(16).fill(false),
-                SD: Array(16).fill(false),
-                LT: Array(16).fill(false),
-                MT: Array(16).fill(false),
-                HT: Array(16).fill(false),
-                RS: Array(16).fill(false),
-                CP: Array(16).fill(false),
-                CB: Array(16).fill(false),
-                CY: Array(16).fill(false),
-                OH: Array(16).fill(false),
-                CH: Array(16).fill(false)
-              }})}
+              onClick={() => {
+                const emptySeq = this.genEmptySeq();
+                updateState({sequences: emptySeq})
+                localStorage.setItem('sequences', JSON.stringify(emptySeq))
+              }}
             />
           </div>
         </div>
@@ -90,42 +135,34 @@ class DJ808 extends Component {
   }
 }
 
-DJ808.defaultProps = {
-  active: false,
-  steps: 16, 
-  tempo: 120
-}
-
 DJ808 = ActivableRenderer({delay: 800})(DJ808)
 
 export default class Wrapper extends Component {
   constructor(props){
     super(props);
     let instruments = ['BD', 'SD', 'LT', 'MT', 'HT', 'RS', 'CP', 'CB', 'CY', 'OH', 'CH']
-    let arr = []
-    for (let i = 0; i < props.steps; i++) {
-      arr.push(Math.random() > .5)
+    
+    const defaultSequences = () => {
+      let output = {}
+      for (let i = 0; i < instruments.length; i++) {
+        let seq = [];
+        for (let j = 0; j < props.steps; j++) {
+          seq.push(Math.random() > .8)
+        }
+        output[instruments[i]] = seq;
+      }
+      return output;
     }
 
     let sequences = localStorage.getItem('sequences')
-    sequences = sequences ? JSON.parse(sequences) : {
-      BD: arr,
-      SD: arr,
-      LT: arr,
-      MT: arr,
-      HT: arr,
-      RS: arr,
-      CP: arr,
-      CB: arr,
-      CY: arr,
-      OH: arr,
-      CH: arr
-    };
-    
+    sequences = sequences ? JSON.parse(sequences) : defaultSequences();
+    let tempo = localStorage.getItem('tempo') || 126
+    let volume = localStorage.getItem('volume') || 1
     this.state = {
       instrument: 10,
       instruments,
-      tempo: 150,
+      tempo,
+      volume,
       paused: true,
       sequences
     }
@@ -134,7 +171,7 @@ export default class Wrapper extends Component {
       samples[instruments[i]] = `/static/sounds/${instruments[i]}.wav`
     }
     this.multiPlayer = new Tone.Players(samples).toMaster();
-    Tone.Master.volume.value = 1;
+    Tone.Master.volume.value = volume;
   }
 
   render(){
@@ -147,4 +184,10 @@ export default class Wrapper extends Component {
       />
     )
   }
+}
+
+Wrapper.defaultProps = {
+  active: false,
+  steps: 16, 
+  tempo: 120
 }

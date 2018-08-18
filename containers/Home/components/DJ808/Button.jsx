@@ -5,9 +5,13 @@ import cn from 'classnames'
 
 export default class Button extends Component {
   render(){
-    const { active, onClick, enabled, big, label } = this.props
+    const { active, enabled, big, label, alert, onClick } = this.props
+
     return (
-      <button className={cn('button', {active, enabled, big})} onClick={onClick}>
+      <button className={cn('button', {active, enabled, big, alert })} 
+        onMouseDown={onClick}
+        onMouseEnter={(e) => e.buttons == 1 || e.buttons == 3 ? onClick() : null}
+      >
         <section>
           <Led active={active} enabled={enabled} />
           <div />

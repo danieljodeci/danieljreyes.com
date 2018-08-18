@@ -12,19 +12,11 @@ class Sequencer extends Component {
       index: 0
     }
 
-    // Set up sequencer
-    this.sequencer = new Tone.Sequence((time, value) => {
-      const i = position[Tone.Transport.position.slice(0, 5)]
-      this.props.onIncrement(time, value, i)
-    }, this.props.sequence, '16n');
-    this.sequencer.start();
-    this.sequencer.loop = true;
-
     // Set up transport
     Tone.Transport.setLoopPoints(0, '1m')
     Tone.Transport.loop = true;
     this.tickEventId = Tone.Transport.scheduleRepeat(this.updateIndex, '16n');
-    Tone.Transport.bpm.value = this.props.tempo;
+    Tone.Transport.bpm.value = props.tempo;
   }
 
   componentDidMount(){
@@ -36,7 +28,6 @@ class Sequencer extends Component {
     this._mounted = false;
     Tone.Transport.stop()
     Tone.Transport.cancel(this.tickEventId);
-    this.sequencer.dispose();
   }
 
   componentWillReceiveProps(nextProps){
@@ -53,9 +44,11 @@ class Sequencer extends Component {
     }
   }
 
-  updateIndex = () => {
+  updateIndex = (time) => {
     if(!this._mounted) return;
-    this.setState({ index: position[Tone.Transport.position.slice(0, 5)] });
+    const index = position[Tone.Transport.position.slice(0, 5)]
+    this.setState({ index });
+    this.props.onIncrement(time, index)
   }
 
   generateButtons = () => {
@@ -68,7 +61,9 @@ class Sequencer extends Component {
           key={i} 
           active={index == i} 
           enabled={sequence[i]} 
-          onClick={() => onButtonPress(i)}
+          onClick={() => {
+            onButtonPress(i);
+          }}
         />)
     }
     return buttons

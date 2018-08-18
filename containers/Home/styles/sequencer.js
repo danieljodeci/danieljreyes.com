@@ -93,6 +93,14 @@ export default css`
     box-shadow: none;
   }
 
+  .button.alert section {
+    background-color: ${red.neutral};
+  }
+
+  .button.alert section div:not(.led) {
+    background-color: ${red.dark};
+  }
+
   .led {
     background-color: ${secondary.light};
     border-radius: 50%;
@@ -183,6 +191,5 @@ export default css`
     font-weight: 600;
     text-transform: uppercase;
   }
-
 
 `
