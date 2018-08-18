@@ -17,7 +17,7 @@ export default class WiggleWorm extends Component {
     const { top, left, size, color, speed } = this.props
     return (
       <section className="wiggle-container" style={{top, left, width: size, height: size}}>
-        {/* <Parallax speed={speed}> */}
+        <Parallax speed={speed}>
           <div style={{position: 'relative'}}>
             <svg id="wiggle-worm" width="100%" height="100%" viewBox="0 0 631 631">
 
@@ -1127,7 +1127,7 @@ export default class WiggleWorm extends Component {
               </mask>
             </svg>
           </div>
-        {/* </Parallax> */}
+        </Parallax>
         
         <style jsx>{styles}</style>
       </section>
