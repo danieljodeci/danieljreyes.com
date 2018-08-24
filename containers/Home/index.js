@@ -18,6 +18,7 @@ const DJ808 = dynamic(import('./components/DJ808'), {ssr: false});
 const Introduction = dynamic(import('./components/Introduction'), {ssr: false});
 const About = dynamic(import('../About'), {ssr: false})
 const Works = dynamic(import('../Works'), {ssr: false})
+const Publications = dynamic(import('../Publications'), {ssr: false})
 import Background from './components/Background';
 
 // CSS
@@ -66,6 +67,9 @@ class Home extends Component {
 
         {/* Featured Works */}
         <Works onEnter={() => console.log('works')} />
+
+        {/* Publications */}
+        <Publications onEnter={() => console.log('works')} />
 
         <style jsx>{styles}</style>
       </div>

@@ -170,4 +170,8 @@ export default global`
     padding-right: 0;
     float: left;
   }
+
+  .float-left {
+    float: left;
+  }
 `
