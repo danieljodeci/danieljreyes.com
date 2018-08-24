@@ -10,8 +10,6 @@ export default global`
     margin: 0 0;
     font-family: 'Avenir Next', Nunito;
     min-height: 100%;
-    overflow: auto;
-    overflow-x: hidden;
   }
 
   .app {
@@ -47,6 +45,10 @@ export default global`
 
   .half-width {
     width: 50%;
+  }
+
+  .float-left {
+    float: left;
   }
 
   .flex-column {
@@ -88,11 +90,12 @@ export default global`
 
   @media (min-width: 1200px){
     .section-container {
-        width: 1170px;
+        width: 1070px;
     }
   }
 
   .section-row {
+    display: table;
     position: relative;
     margin-left: 0;
     margin-right: 0;
@@ -150,5 +153,21 @@ export default global`
     left: 0;
     background-color: ${primary.light};
     z-index: -1;
+  }
+
+  .right-section {
+    width: 33.33%;
+    margin-left: 16.66666667%;
+    padding-left: 0;
+    padding-right: 0;
+    float: left;
+  }
+
+  .left-section {
+    width: 33.33%;
+    margin-left: 16.66666667%;
+    padding-left: 0;
+    padding-right: 0;
+    float: left;
   }
 `

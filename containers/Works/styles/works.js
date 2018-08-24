@@ -29,7 +29,7 @@ export default css`
     color: ${secondary.light};
   }
 
-  .half-width img {
+  .blendo {
     max-width: 100%;
     height: auto;
     display: block;
@@ -41,20 +41,86 @@ export default css`
   }
 
   .works-intro {
-    width: 33.33%;
-    margin-left: 16.66666667%;
-    padding-left: 0;
-    padding-right: 0;
-    float: right;
-  }
-
-  .works-intro p {
     font-family: "Futura", monospace;
     font-weight: 300;
     font-size: 18px;
     line-height: 38px;
     transition: color .4s ease;
     color: ${tertiary.dark};
+  }
+
+  .budspot-project {
+    position: relative;
+    z-index: 10;
+    margin: 0;
+    cursor: pointer;
+  }
+
+  .budspot-project:after {
+    content: '';
+    width: 80px;
+    height: 70%;
+    background-color: rgba(217, 217, 217, 0.4);
+    position: absolute;
+    top: -50px;
+    right: 65px;
+  }
+
+  .budspot-project:hover:after {
+    background-color: rgba(217, 217, 217, 0.9);
+    transition: all .4s ease;
+  }
+
+  .budspot-project em {
+    transform: rotate(90deg);
+    left: inherit;
+    right: 15px;
+    position: absolute;
+    top: 62px;
+    right: 43px;
+    font-family: "Futura", monospace;
+    font-size: 18px;
+    line-height: 28px;
+    color: white;
+    z-index: 5;
+    display: inline-block;
+    opacity: 0;
+    transition: all .4s ease;
+  }
+
+  .budspot-project:hover em {
+    opacity: 1;
+    transition: all .4s ease;
+  }
+
+  .budspot-project:hover img {
+    opacity: 0.2
+  }
+  
+  .budspot-project img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    opacity: 0.6;
+    position: relative;
+    z-index: 4;
+    transition: all .4s ease;
+  }
+
+  .budspot-project figcaption {
+    font-size: 60px;
+    line-height: 80px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-top: -90px;
+    position: relative;
+    z-index: 4;
+    color: #4a4a4a;
+    text-align: center;
+  }
+
+  .budspot-project strong {
+    color: #43B13E;
   }
 
 `

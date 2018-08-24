@@ -1,32 +1,29 @@
 import React, {Component} from 'react'
-import Waypoint from 'react-waypoint'
-import styles, {globalStyles} from './styles/works'
-import Parallax from 'react-rellax';
+
+// Components
+import Intro from './components/Intro';
+import BudSpot from './components/BudSpot';
+import Robopiano from './components/Robopiano';
+import HPISO16 from './components/HPISO16';
+import FoldableCase from './components/FoldableCase';
+import ResonantSpectra from './components/ResonantSpectra';
+import Artifacts from './components/Artifacts';
+import PostWave from './components/PostWave';
 import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
+import Waypoint from 'react-waypoint'
+import Parallax from 'react-rellax';
+
+// CSS
 import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
+import styles from './styles/works'
 
 export default class Works extends Component {
 
   renderWorksImg = () => {
     return (
-      <Parallax speed={4}>
-        <div className="half-width">
-          <img src="/static/images/post-wave.jpg" />
-          <style jsx>{styles}</style>
-        </div>
-      </Parallax>
-    )
-  }
-
-  renderWorksIntro = () => {
-    return (
-      <Parallax speed={7}>
-        <div className="works-intro">
-          
-          <p>I started my exploration into technology as a musician, attempting to recreate physical phenomena found in sound into experiential environments. With this curiousity, came the need to learn a multitude of tech stacks in order to execute the final product. Familiarizing myself with multiple languages over time increased my ability to adapt and pick up a new technology as efficiently as possible. Here you can view some of the selected works that helped me develop these skills.</p>
-          <style jsx>{styles}</style>
-
-        </div>
+      <Parallax className="half-width float-left" speed={4}>
+        <img className="blendo" src="/static/images/blendo.jpg" />
+        <style jsx>{styles}</style>
       </Parallax>
     )
   }
@@ -53,9 +50,34 @@ export default class Works extends Component {
               {this.renderWorksImg()}
 
               {/* Works intro... */}
-              {this.renderWorksIntro()}
+              <Intro />
+
+              {/* BudSpot */}
+              <BudSpot />
 
             </div>
+
+            <div className="section-row">
+              {/* Robopiano */}
+              <Robopiano />
+
+              {/* HPISO16 */}
+              <HPISO16 />
+
+              {/* HPISO16 */}
+              <FoldableCase />
+
+              {/* Resonant Spectra */}
+              <ResonantSpectra />
+
+              {/* Artifacts */}
+              <Artifacts />
+
+              {/* Post-Wave */}
+              <PostWave />
+
+            </div>
+
 
           </div>
           <style jsx>{styles}</style>

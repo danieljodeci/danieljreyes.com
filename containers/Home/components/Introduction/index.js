@@ -5,7 +5,7 @@ import WiggleWorm from './WiggleWorm';
 import Waypoint from 'react-waypoint'
 import { primary, secondary, tertiary, red } from '../../../../hocs/Page/styles/colors';
 
-const TEXTS = ["Daniel.", "Daníel.", "D-rey.", "D.", "Jodeci."]
+const NAMES = ["Daniel.", "Daníel.", "D-rey.", "D.", "Jodeci."]
 
 export default class Introduction extends Component {
   state = {
@@ -15,7 +15,7 @@ export default class Introduction extends Component {
   componentDidMount(){
     this.insertStrongTag();
     this.interval = setInterval(() => 
-      this.setState({index: (this.state.index + 1) % TEXTS.length}, () => {
+      this.setState({index: (this.state.index + 1) % NAMES.length}, () => {
         setTimeout(this.insertStrongTag, 100)
       }), 2000)
   }
@@ -49,7 +49,7 @@ export default class Introduction extends Component {
                 <h3>I go by</h3>
                 <h2 id="text-animation">
                   <ReactTextTransition
-                    text={TEXTS[this.state.index]}
+                    text={NAMES[this.state.index]}
                     spring={{ stiffness: 50, damping: 20 }}
                   />
                 </h2>

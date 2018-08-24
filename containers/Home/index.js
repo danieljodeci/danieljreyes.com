@@ -11,7 +11,6 @@ import PageWrapper from '../../hocs/Page'
 const Sketch = dynamic(import('./components/Sketch'), {ssr: false})
 import Modal from './components/Modal'
 import Animation from './components/Animation'
-import Waypoint from 'react-waypoint'
 import SmoothScroll from '../../utils/SmoothScroll';
 
 // Containers
@@ -23,8 +22,6 @@ import Background from './components/Background';
 
 // CSS
 import styles from './styles/home'
-import { primary } from '../../hocs/Page/styles/colors';
-
 
 class Home extends Component {
   state = {
