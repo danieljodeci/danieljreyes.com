@@ -8,7 +8,6 @@ import throttle from 'lodash.throttle';
 import PageWrapper from '../../hocs/Page'
 
 // Components
-const Sketch = dynamic(import('./components/Sketch'), {ssr: false})
 import Modal from './components/Modal'
 import Animation from './components/Animation'
 import SmoothScroll from '../../utils/SmoothScroll';
