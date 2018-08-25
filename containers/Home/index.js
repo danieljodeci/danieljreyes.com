@@ -60,25 +60,32 @@ class Home extends Component {
         {/* Background */}
         <Background />
 
+        {/* Navigator */}
         <Nav active={navVisible} />
 
         {/* Drum Machine */}
         <DJ808 active={drumVisible} />
         
         {/* Introduction */}
-        <Introduction onEnter={() => !navVisible && this.setState({navVisible: true})}/>
+        <Introduction onEnter={() => {
+          !navVisible && this.setState({navVisible: true});
+          window.history.replaceState('', '', '/')
+        }}/>
 
         {/* About */}
-        <About onEnter={() => console.log('about')} />
+        <About onEnter={() => window.history.replaceState('', '', '/about')} />
 
         {/* Featured Works */}
-        <Works onEnter={() => navVisible && this.setState({navVisible: false})} />
+        <Works onEnter={() => {
+          navVisible && this.setState({navVisible: false});
+          window.history.replaceState('', '', '/works');
+        }} />
 
         {/* Sounds */}
-        <Sounds onEnter={() => console.log('sounds')} />
+        <Sounds onEnter={() => window.history.replaceState('', '', '/sounds')} />
 
         {/* Publications */}
-        <Publications onEnter={() => console.log('publications')} />
+        <Publications onEnter={() => window.history.replaceState('', '', '/publications')} />
 
         {/* Footer */}
         <Footer />
