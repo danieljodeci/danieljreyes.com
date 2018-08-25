@@ -166,4 +166,8 @@ export default global`
   .float-left {
     float: left;
   }
+
+  em svg {
+    vertical-align: middle;
+  }
 `
