@@ -31,6 +31,7 @@ export default css`
     font-size: 18px;
     transition: color .4s ease;
     color: rgba(255, 255, 255, 0.8);
+    color: ${tertiary.dark};
   }
 
   section#publications ul {
@@ -47,7 +48,23 @@ export default css`
     font-family: "Product Sans", sans-serif;
     font-weight: 700;
     margin-bottom: 50px;
+    color: ${secondary.light};
   }
+
+  section#publications a {
+    text-decoration: line-through;
+    margin: 0;
+    font-size: 24px;
+    line-height: 30px;
+    font-family: "Product Sans", sans-serif;
+    font-weight: 700;
+    margin-bottom: 50px;
+    color: ${primary.dark};
+  }
+
+  section#publications a:hover {
+    text-decoration: none;
+  } 
 
   section#publications span {
     margin: 0;
