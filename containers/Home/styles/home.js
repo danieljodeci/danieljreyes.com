@@ -7,7 +7,7 @@ export default css`
     width: 100%;
     height: 100%;
     display: block;
-    margin-bottom: 230px;
+    margin-bottom: 130px;
   }
 
   .container {

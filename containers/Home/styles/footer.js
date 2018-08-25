@@ -35,10 +35,13 @@ export default css`
 
   footer span {
     color: ${tertiary.neutral};
+  }
+
+  footer span a {
     text-decoration: line-through;
   }
 
-  footer span:hover {
+  footer span a:hover {
     text-decoration: none;
   }
 
@@ -60,5 +63,17 @@ export default css`
     margin-right: 36px;
     text-decoration: none;
     display: inline-block;
+    transition: all 400ms ease;
+  }
+
+  .social-nav a:hover {
+    color: ${tertiary.neutral};
+    transition: all 400ms ease;
+  }
+
+  .bottom-text {
+    position: absolute;
+    bottom: -5px;
+    right: 0;
   }
 `
