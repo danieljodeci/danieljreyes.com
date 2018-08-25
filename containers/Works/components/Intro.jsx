@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import styles from '../styles/works'
 import Parallax from 'react-rellax';
 
-export default class BudSpot extends Component {
+export default class Intro extends Component {
   render(){
     return (
       <Parallax className="right-section" speed={7}>

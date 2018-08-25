@@ -6,7 +6,7 @@ export default class Robopiano extends Component {
   render(){
     return (
       <Parallax className="left-section" speed={3}>
-        <figure className="budspot-project">
+        <figure className="project">
           <em>view project -></em>
           <img src="/static/images/robopiano.jpg" />
           <figcaption>Robopiano</figcaption>

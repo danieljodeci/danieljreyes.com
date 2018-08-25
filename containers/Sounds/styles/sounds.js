@@ -2,11 +2,12 @@ import css, {global} from 'styled-jsx/css'
 import { primary, tertiary, secondary } from '../../../hocs/Page/styles/colors';
 
 export default css`
-  section#works {
+  section#sounds {
     height: auto;
     position: relative;
     z-index: 1;
     width: 100%;
+    padding-top: 250px;
   }
 
   .title {
@@ -40,7 +41,7 @@ export default css`
     transition: all .4s ease;
   }
 
-  .works-intro {
+  .sounds-intro {
     font-family: "Futura", monospace;
     font-weight: 300;
     font-size: 18px;
@@ -54,21 +55,6 @@ export default css`
     z-index: 10;
     margin: 0;
     cursor: pointer;
-  }
-
-  .project:after {
-    content: '';
-    width: 80px;
-    height: 70%;
-    background-color: rgba(217, 217, 217, 0.4);
-    position: absolute;
-    top: -50px;
-    right: 65px;
-  }
-
-  .project:hover:after {
-    background-color: rgba(217, 217, 217, 0.9);
-    transition: all .4s ease;
   }
 
   .project em {

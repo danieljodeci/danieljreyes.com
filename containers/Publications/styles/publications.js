@@ -3,7 +3,7 @@ import { primary, tertiary, secondary } from '../../../hocs/Page/styles/colors';
 
 export default css`
   section#publications {
-    padding-top: 250px;
+    margin-top: 580px;
     height: auto;
     width: 100%;
     position: relative;

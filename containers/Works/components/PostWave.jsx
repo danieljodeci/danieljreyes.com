@@ -6,7 +6,7 @@ export default class PostWave extends Component {
   render(){
     return (
       <Parallax className="left-section" speed={1}>
-        <figure className="budspot-project">
+        <figure className="project">
           <em>view project -></em>
           <img src="/static/images/post-wave.jpg" />
           <figcaption>Post-Wave</figcaption>

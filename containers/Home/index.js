@@ -15,10 +15,13 @@ import SmoothScroll from '../../utils/SmoothScroll';
 
 // Containers
 const DJ808 = dynamic(import('./components/DJ808'), {ssr: false});
+const Nav = dynamic(import('./components/Nav'), {ssr: false});
 const Introduction = dynamic(import('./components/Introduction'), {ssr: false});
 const About = dynamic(import('../About'), {ssr: false})
 const Works = dynamic(import('../Works'), {ssr: false})
 const Publications = dynamic(import('../Publications'), {ssr: false})
+const Sounds = dynamic(import('../Sounds'), {ssr: false})
+const Footer = dynamic(import('./components/Footer'), {ssr: false})
 import Background from './components/Background';
 
 // CSS
@@ -27,7 +30,8 @@ import styles from './styles/home'
 class Home extends Component {
   state = {
     introModal: false,
-    drumVisible: true
+    drumVisible: true,
+    navVisible: true
   }
 
   componentDidMount(){
@@ -43,7 +47,7 @@ class Home extends Component {
   }
 
   render(){
-    const { introModal, drumVisible } = this.state;
+    const { introModal, drumVisible, navVisible } = this.state;
     return (
       <div id="page-content">
         {/* Intro Modal */}
@@ -56,21 +60,29 @@ class Home extends Component {
         {/* Background */}
         <Background />
 
+        <Nav active={navVisible} />
+
         {/* Drum Machine */}
         <DJ808 active={drumVisible} />
         
         {/* Introduction */}
-        <Introduction onEnter={() => console.log('intro')}/>
+        <Introduction onEnter={() => !navVisible && this.setState({navVisible: true})}/>
 
         {/* About */}
         <About onEnter={() => console.log('about')} />
 
         {/* Featured Works */}
-        <Works onEnter={() => console.log('works')} />
+        <Works onEnter={() => navVisible && this.setState({navVisible: false})} />
+
+        {/* Sounds */}
+        <Sounds onEnter={() => console.log('sounds')} />
 
         {/* Publications */}
-        <Publications onEnter={() => console.log('works')} />
+        <Publications onEnter={() => console.log('publications')} />
 
+        {/* Footer */}
+        <Footer />
+        
         <style jsx>{styles}</style>
       </div>
     )

@@ -2,7 +2,6 @@ import React, {Component} from 'react'
 
 // Components
 import Waypoint from 'react-waypoint'
-import Parallax from 'react-rellax';
 import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
 
 // CSS
