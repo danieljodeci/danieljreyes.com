@@ -6,7 +6,7 @@ export default class Artifacts extends Component {
   render(){
     return (
       <Parallax className="right-section" speed={-1}>
-        <figure className="project">
+        <figure className="project right">
           <em>view project -></em>
           <img src="/static/images/artifacts.png" />
           <figcaption>Artifacts</figcaption>

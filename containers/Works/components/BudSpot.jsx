@@ -6,7 +6,7 @@ export default class BudSpot extends Component {
   render(){
     return (
       <Parallax className="right-section" speed={4}>
-        <figure className="project">
+        <figure className="project right">
           <em>view project -></em>
           <img src="/static/images/budspot.png" />
           <figcaption>BudSpot<strong>.</strong></figcaption>

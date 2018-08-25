@@ -6,7 +6,7 @@ export default class ResonantSpectra extends Component {
   render(){
     return (
       <Parallax className="right-section" speed={0}>
-        <figure className="project">
+        <figure className="project right">
           <em>view project -></em>
           <img src="/static/images/resonant_spectra.jpg" />
           <figcaption>Resonant Spectra</figcaption>

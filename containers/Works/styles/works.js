@@ -56,7 +56,7 @@ export default css`
     cursor: pointer;
   }
 
-  .project:after {
+  .right.project:after {
     content: '';
     width: 80px;
     height: 70%;
@@ -66,18 +66,42 @@ export default css`
     right: 65px;
   }
 
+  .left.project:after {
+    content: '';
+    width: 80%;
+    height: 80px;
+    background-color: rgba(217, 217, 217, 0.4);
+    position: absolute;
+    top: 50px;
+    left: -50px;
+  }
+
   .project:hover:after {
     background-color: rgba(217, 217, 217, 0.9);
     transition: all .4s ease;
   }
 
-  .project em {
+  .right.project em {
     transform: rotate(90deg);
     left: inherit;
     right: 15px;
     position: absolute;
     top: 62px;
     right: 43px;
+    font-family: "Futura", monospace;
+    font-size: 18px;
+    line-height: 28px;
+    color: white;
+    z-index: 5;
+    display: inline-block;
+    opacity: 0;
+    transition: all .4s ease;
+  }
+
+  .left.project em {
+    position: absolute;
+    top: 77px;
+    left: 25px;
     font-family: "Futura", monospace;
     font-size: 18px;
     line-height: 28px;
