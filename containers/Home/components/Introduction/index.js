@@ -83,7 +83,7 @@ export default class Introduction extends Component {
               </div>
 
               {/* Wiggle Worms */}
-              <WiggleWorm size={80} left={270} top={230} color="#9cd8c8" speed={-2} />
+              <WiggleWorm size={80} left={270} top={230} color="#9cd8c8" speed={-2} animate />
               <WiggleWorm size={60} left={100} bottom={150} color={tertiary.light} speed={-6} />
               <WiggleWorm size={70} left={420} bottom={70} color="#afeddc" speed={3} />
               <WiggleWorm size={60} right={150} top={100} color={secondary.light} speed={-3} />
