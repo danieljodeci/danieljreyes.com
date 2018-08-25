@@ -25,7 +25,7 @@ export default class Footer extends Component {
               <div className="text-top">
                 <h3>HIRE<br/>ME</h3>
               </div>
-              <h2>I am always interested about unique ideas and challenging projects. Do you have a cool idea or project? <br/><span>Hit me up</span></h2>
+              <h2>I am always interested about unique ideas and challenging projects. Do you have a cool idea or project? <br/><span><a>Hit me up.</a></span></h2>
               <div className="social-nav">
                 <ul>
                   <li><a><IoIosMail /></a></li>

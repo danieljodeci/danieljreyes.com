@@ -3,6 +3,7 @@ import React, {Component} from 'react'
 // Components
 import Waypoint from 'react-waypoint'
 import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
+import { Element } from 'react-scroll';
 
 // CSS
 import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
@@ -21,6 +22,7 @@ export default class Publications extends Component {
 
             <div className="section-row">
               <div className="full-width">
+                <Element name="publications" />
                 <div className="half-width float-left">
                   <h2>Public_<br/>ations<strong>:</strong></h2>
                 </div>

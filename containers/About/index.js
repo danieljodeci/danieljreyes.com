@@ -1,8 +1,13 @@
 import React, {Component} from 'react'
+
+// Components
 import Waypoint from 'react-waypoint'
-import styles, {globalStyles} from './styles/about'
-import Parallax from 'react-rellax';
 import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
+import Parallax from 'react-rellax';
+import { Element } from 'react-scroll';
+
+// CSS
+import styles, {globalStyles} from './styles/about'
 import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
 
 export default class About extends Component {
@@ -31,6 +36,7 @@ export default class About extends Component {
 
             {/* Bio */}
             <div className="section-row">
+              <Element name="about" />
               <div className="bio">
                 <h2>Ab_<br />out<strong>:</strong></h2>
                 <p>I am an artist, software developer, entrepeneur, and musician residing in Los Angeles, CA. I am a graduate of CalArts and a founder of BudSpot. I spend my days dwelling upon how I can create things that will make tomorrow feel a bit more comfortable. I love synthesizers and kinetic sound sculptures.</p>

@@ -6,7 +6,7 @@ import Vault from './components/Vault';
 import BennysManual from './components/BennysManual';
 import Bombses from './components/Bombses';
 import DisciplesOfSaturn from './components/DisciplesOfSaturn';
-
+import { Element } from 'react-scroll';
 import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
 import Waypoint from 'react-waypoint'
 import Parallax from 'react-rellax';
@@ -38,7 +38,8 @@ export default class Sounds extends Component {
             <WiggleWorm size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
 
             <div className="section-row">
-
+              <Element name="sounds" />
+              
               {/* Title */}
               <div className="title">
                 <h3>Sou_<br/>nds<strong>:</strong></h3>

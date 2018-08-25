@@ -1,10 +1,17 @@
 import React, {Component} from 'react'
-import styles from '../../styles/introduction'
+
+// Components
 import ReactTextTransition from 'react-text-transition';
 import WiggleWorm from './WiggleWorm';
 import Waypoint from 'react-waypoint'
-import { primary, secondary, tertiary, red } from '../../../../hocs/Page/styles/colors';
+import { Element } from 'react-scroll'
 
+// CSS
+import styles from '../../styles/introduction'
+import { primary, secondary, tertiary } from '../../../../hocs/Page/styles/colors';
+
+
+// Constants
 const NAMES = ["Daniel.", "Daníel.", "D-rey.", "D.", "Jodeci."]
 
 export default class Introduction extends Component {
@@ -42,7 +49,7 @@ export default class Introduction extends Component {
         <section id="intro">
           <div className="section-container" style={{marginTop: 65}}>
             <div className="section-row">
-
+              <Element name="intro" />
               {/* Text Animation */}
               <div className="welcome-animation">
                 <h1>Hi<strong>,</strong></h1>
@@ -84,7 +91,6 @@ export default class Introduction extends Component {
 
             </div>
           </div>
-
           <style jsx>{styles}</style>
         </section>
       </Waypoint>

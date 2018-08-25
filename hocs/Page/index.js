@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react'
 import Head from 'next/head'
 import shortid from 'shortid'
 import styles from './styles/main'
+import { withRouter } from 'next/router'
 
 // Helps with debugging so you know what component was wrapped
 function getDisplayName(WrappedComponent) {
@@ -80,5 +81,5 @@ export default function PageWrapper(WrappedComponent, {
     }
   }
 
-  return enhancedComponent
+  return withRouter(enhancedComponent)
 }

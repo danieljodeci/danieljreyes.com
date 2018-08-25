@@ -12,6 +12,7 @@ import PostWave from './components/PostWave';
 import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
 import Waypoint from 'react-waypoint'
 import Parallax from 'react-rellax';
+import { Element } from 'react-scroll';
 
 // CSS
 import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
@@ -40,7 +41,7 @@ export default class Works extends Component {
             <WiggleWorm size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
 
             <div className="section-row">
-
+              <Element name="works" />
               {/* Title */}
               <div className="title">
                 <h3>Selected_<br /> works<strong>:</strong></h3>
