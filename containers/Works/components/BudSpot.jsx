@@ -5,7 +5,7 @@ import Parallax from 'react-rellax';
 export default class BudSpot extends Component {
   render(){
     return (
-      <Parallax className="right-section" speed={4}>
+      <Parallax className="project-section" speed={4}>
         <figure className="project right">
           <em>view project -></em>
           <img src="/static/images/budspot.png" />

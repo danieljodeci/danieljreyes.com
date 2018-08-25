@@ -5,7 +5,7 @@ import Parallax from 'react-rellax';
 export default class ResonantSpectra extends Component {
   render(){
     return (
-      <Parallax className="right-section" speed={0}>
+      <Parallax className="project-section" speed={0}>
         <figure className="project right">
           <em>view project -></em>
           <img src="/static/images/resonant_spectra.jpg" />

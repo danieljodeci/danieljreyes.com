@@ -155,15 +155,7 @@ export default global`
     z-index: -1;
   }
 
-  .right-section {
-    width: 33.33%;
-    margin-left: 16.66666667%;
-    padding-left: 0;
-    padding-right: 0;
-    float: left;
-  }
-
-  .left-section {
+  .project-section {
     width: 33.33%;
     margin-left: 16.66666667%;
     padding-left: 0;

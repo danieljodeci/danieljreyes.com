@@ -5,7 +5,7 @@ import Parallax from 'react-rellax';
 export default class Robopiano extends Component {
   render(){
     return (
-      <Parallax className="left-section" speed={3}>
+      <Parallax className="project-section" speed={3}>
         <figure className="project left">
           <em>view project -></em>
           <img src="/static/images/robopiano.jpg" />

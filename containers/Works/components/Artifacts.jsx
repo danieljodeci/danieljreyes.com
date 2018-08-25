@@ -5,7 +5,7 @@ import Parallax from 'react-rellax';
 export default class Artifacts extends Component {
   render(){
     return (
-      <Parallax className="right-section" speed={-1}>
+      <Parallax className="project-section" speed={-1}>
         <figure className="project right">
           <em>view project -></em>
           <img src="/static/images/artifacts.png" />

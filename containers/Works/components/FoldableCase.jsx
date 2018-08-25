@@ -5,7 +5,7 @@ import Parallax from 'react-rellax';
 export default class FoldableCase extends Component {
   render(){
     return (
-      <Parallax className="left-section" speed={1}>
+      <Parallax className="project-section" speed={1}>
         <figure className="project left">
           <em>view project -></em>
           <img src="/static/images/foldable_case.jpg" />
