@@ -18,9 +18,44 @@ export default class Robopiano extends Component {
       <Fragment>
         <Modal active={this.state.active} horizontal onToggleModal={() => this.setState({active: !this.state.active})}>
           <div className="section-container">
-            <div className="section-row">
-              <p>Robopiano</p>
+            <div className="full-width full-height align-center">
+              <div className="flex-row project-body">
+
+                {/* Project Media */}
+                <div className="project-media">
+                  <video key={1} 
+                    id="video-player" 
+                    loop={true} 
+                    autoPlay={true} 
+                    muted={true} 
+                    playsInline={true}
+                    preload="metadata"
+                  >
+                    <source 
+                      type="video/mp4" 
+                      src="https://storage.googleapis.com/budspot-storage/robopiano.mp4" 
+                    />
+                  </video>
+                </div>
+
+                {/* Description */}
+                <div className="project-description">
+                  <h3>Robopiano</h3>
+                  <p>Robopiano is an attempt to actuate the guts of an upright piano. A custom Arduino shield was developed in order to multiplex 3 PWM outputs to 256 independently controlled variable high powered outputs.</p>
+                  <p>Tech used to complete this project: </p>
+                  <ul>
+                    <li><p>Arduino</p></li>
+                    <li><p>Altium</p></li>
+                    <li><p>Solidworks</p></li>
+                    <li><p>Processing</p></li>
+                    <li><p>Ableton</p></li>
+                    <li><p>ChucK</p></li>
+                  </ul>
+                  <p>This project was commissioned by composer Brian Parkhurst.</p>
+                </div>
+              </div>
             </div>
+            <style jsx>{styles}</style>
           </div>
         </Modal>
         <Parallax className="project-section" speed={3}>

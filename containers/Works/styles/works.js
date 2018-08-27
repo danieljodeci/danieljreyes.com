@@ -147,6 +147,10 @@ export default css`
     color: #43B13E;
   }
 
+  .project-body {
+    position: relative;
+  }
+
   .project-description {
     padding: 10px 40px;
   }
@@ -173,11 +177,26 @@ export default css`
     flex-direction: row;
   }
 
+  .project-description li p {
+    margin: 5px 0;
+  }
+
   .project-description li:before {
     content: "•";
     color: #79e46d;
     align-self: center;
     margin-right: 20px;
+  }
+
+  .project-media {
+    width: 100%;
+    height: auto;
+    min-width: 300px;
+  }
+
+  .project-media video {
+    width: 100%;
+    height: 100%;
   }
 
 `

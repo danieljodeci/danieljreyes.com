@@ -20,19 +20,25 @@ export default class BudSpot extends Component {
           <div className="section-container">
             <div className="full-width full-height align-center">
               <div className="flex-row">
-                <video key={1} 
-                  id="video-player" 
-                  loop={true} 
-                  autoPlay={true} 
-                  muted={true} 
-                  playsInline={true}
-                  preload="metadata"
-                >
-                  <source 
-                    type="video/mp4" 
-                    src="https://storage.googleapis.com/budspot-storage/budspot_demo.mp4" 
-                  />
-                </video>
+
+                {/* Project Media */}
+                <div className="project-media">
+                  <video key={1} 
+                    id="video-player" 
+                    loop={true} 
+                    autoPlay={true} 
+                    muted={true} 
+                    playsInline={true}
+                    preload="metadata"
+                  >
+                    <source 
+                      type="video/mp4" 
+                      src="https://storage.googleapis.com/budspot-storage/budspot_demo.mp4" 
+                    />
+                  </video>
+                </div>
+
+                {/* Description */}
                 <div className="project-description">
                   <h3>BudSpot<strong>.</strong></h3>
                   <p><a href="https://budspot.com">BudSpot</a> is a peer to peer experience marketplace that aims to connect hosts offering cannabis friendly locations to the general public. BudSpot's platform allows hosts to monetize their residential space as a place for guests to consume cannabis. Hosts can create menus, manage their session times, and set their own price per session. For legal purposes, all cannabis must be consumed at the location and cannot be taken home. Currently operating in Los Angeles, CA.</p>
