@@ -60,7 +60,10 @@ class Sequencer extends Component {
         <Button 
           key={i} 
           active={index == i} 
-          enabled={sequence[i]} 
+          enabled={sequence[i]}
+          alert={i >= 4 && i <= 7} 
+          secondary={i >= 8 && i <= 11} 
+          tertiary={i >= 12 && i <= 15} 
           onClick={() => {
             onButtonPress(i);
           }}

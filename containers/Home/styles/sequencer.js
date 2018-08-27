@@ -78,6 +78,23 @@ export default css`
     transition: 500ms
   }
 
+  .button.secondary section {
+    background-color: ${secondary.neutral};
+  }
+
+  .button.secondary section div:not(.led) {
+    background-color: ${secondary.dark};
+  }
+
+  .button.tertiary section {
+    background-color: ${white.neutral};
+  }
+
+  .button.tertiary section div:not(.led) {
+    background-color: ${gray.neutral};
+    box-shadow: none;
+  }
+
   .button:hover section {
     background-color: ${secondary.neutral};
     transition: 500ms
