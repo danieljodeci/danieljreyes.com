@@ -17,10 +17,42 @@ export default class HPISO16 extends Component {
     return (
       <Fragment>
         <Modal active={this.state.active} onToggleModal={() => this.setState({active: !this.state.active})}>
-          <div className="section-container">
-            <div className="section-row">
-              <p>HPISO16</p>
+        <div className="section-container">
+            <div className="full-width full-height align-center">
+              <div className="flex-row project-body">
+
+                {/* Project Media */}
+                <div className="project-media">
+                  <video key={1} 
+                    id="video-player" 
+                    loop={true} 
+                    autoPlay={true} 
+                    muted={true} 
+                    playsInline={true}
+                    preload="metadata"
+                  >
+                    <source 
+                      type="video/mp4" 
+                      src="https://storage.googleapis.com/budspot-storage/HPISO16.mp4" 
+                    />
+                  </video>
+                </div>
+
+                {/* Description */}
+                <div className="project-description">
+                  <h3>HPISO16</h3>
+                  <p>HPISO-16 is an optically-isolated, high-power driver shield for the Arduino Uno. The stackable shield can control up to 16 high powered solenoids/servos/motors, but can also be expanded up to 256 actuators when stacked.</p>
+                  <p>Tech used to complete this project: </p>
+                  <ul>
+                    <li><p>Arduino</p></li>
+                    <li><p>Altium</p></li>
+                    <li><p>SPICE</p></li>
+                  </ul>
+                  <p>This project was commissioned by composer Brian Parkhurst.</p>
+                </div>
+              </div>
             </div>
+            <style jsx>{styles}</style>
           </div>
         </Modal>
         <Parallax className="project-section" speed={1}>
