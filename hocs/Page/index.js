@@ -67,8 +67,8 @@ export default function PageWrapper(WrappedComponent, {
             <meta property="og:type" content="image/png" />
             <meta property="og:image" content="/static/cover.jpg" />
             <meta property="og:image:type" content="image/jpeg" />
-            <meta property="og:image:width" content="640" />
-            <meta property="og:image:height" content="640" />
+            <meta property="og:image:width" content="1080" />
+            <meta property="og:image:height" content="1349" />
             <meta property="og:image:type" content="" />
             <link rel="icon" href="/static/favicon.ico" />
             <link rel="icon" sizes="152x152" href="/static/favicon.ico" />
