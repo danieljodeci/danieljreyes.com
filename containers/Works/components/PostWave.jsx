@@ -18,9 +18,40 @@ export default class PostWave extends Component {
       <Fragment>
         <Modal active={this.state.active} horizontal onToggleModal={() => this.setState({active: !this.state.active})}>
           <div className="section-container">
-            <div className="section-row">
-              <p>Post-Wave</p>
+            <div className="full-width full-height align-center">
+              <div className="flex-row project-body">
+
+                {/* Project Media */}
+                <div className="project-media">
+                  <video key={1} 
+                    id="video-player" 
+                    loop={true} 
+                    autoPlay={true} 
+                    muted={true} 
+                    playsInline={true}
+                    preload="metadata"
+                  >
+                    <source 
+                      type="video/mp4" 
+                      src="https://storage.googleapis.com/budspot-storage/Post-Wave.mp4" 
+                    />
+                  </video>
+                </div>
+
+                {/* Description */}
+                <div className="project-description">
+                  <h3>Post-Wave</h3>
+                  <p>A kinetic wood sculpture inspired by the work of Reuben Margolin. An Xbox Kinect is used to control a pair of DC motors to activate the waves of the sculpture.</p>
+                  <p>Tech used to complete this project: </p>
+                  <ul>
+                    <li><p>Arduino</p></li>
+                    <li><p>Processing</p></li>
+                    <li><p>Xbox Kinect</p></li>
+                  </ul>
+                </div>
+              </div>
             </div>
+            <style jsx>{styles}</style>
           </div>
         </Modal>
         <Parallax className="project-section" speed={1}>
