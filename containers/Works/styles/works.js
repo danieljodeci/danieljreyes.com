@@ -1,5 +1,5 @@
 import css, {global} from 'styled-jsx/css'
-import { primary, tertiary, secondary } from '../../../hocs/Page/styles/colors';
+import { primary, tertiary, secondary, gray } from '../../../hocs/Page/styles/colors';
 
 export default css`
   section#works {
@@ -60,7 +60,7 @@ export default css`
     content: '';
     width: 80px;
     height: 70%;
-    background-color: rgba(217, 217, 217, 0.4);
+    background-color: ${gray.light};
     position: absolute;
     top: -50px;
     right: 65px;
@@ -70,14 +70,14 @@ export default css`
     content: '';
     width: 80%;
     height: 80px;
-    background-color: rgba(217, 217, 217, 0.4);
+    background-color: ${gray.light};
     position: absolute;
     top: 50px;
     left: -50px;
   }
 
   .project:hover:after {
-    background-color: rgba(217, 217, 217, 0.9);
+    background-color: ${gray.neutral};
     transition: all .4s ease;
   }
 

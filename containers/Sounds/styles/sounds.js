@@ -93,20 +93,5 @@ export default css`
     transition: all .4s ease;
   }
 
-  .project figcaption {
-    font-size: 60px;
-    line-height: 80px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-top: -90px;
-    position: relative;
-    z-index: 4;
-    color: #4a4a4a;
-    text-align: center;
-  }
-
-  .project strong {
-    color: #43B13E;
-  }
 
 `

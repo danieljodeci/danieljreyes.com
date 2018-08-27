@@ -1,4 +1,5 @@
 export const primary = {
+  lighter: '#ead8d57d',
   light: '#fff',
   neutral: '#efe2e0',
   dark: '#bcb0ae',
@@ -12,8 +13,8 @@ export const secondary = {
 };
 
 export const gray = {
-  light: '#fbfbfb',
-  neutral: '#c8c8c8',
+  light: 'rgba(217, 217, 217, 0.4)',
+  neutral: 'rgba(217, 217, 217, 0.9)',
   dark: '#979797'
 };
 
@@ -36,7 +37,11 @@ export const red = {
 };
 
 export const tertiary = {
-  light: '#e9ffff',
+  lighter: '#e9ffff',
+  light: '#afeddc',
   neutral: '#b6efdf',
-  dark: '#85bcad'
+  dark: '#85bcad',
+  darker: '#9cd8c8'
 }
+
+export const transparent = 'rgba(0, 0, 0, 0)';

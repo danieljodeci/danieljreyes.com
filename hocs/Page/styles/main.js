@@ -106,7 +106,7 @@ export default global`
     top: 50%;
     transform: translateY(-50%);
     right: 0px;
-    background-color: #ead8d57d;
+    background-color: ${primary.lighter};
     padding: 36px;
     min-width: 35%;
     box-shadow: 0 0 38px ${primary.neutral}, 0 0 12px ${primary.neutral};

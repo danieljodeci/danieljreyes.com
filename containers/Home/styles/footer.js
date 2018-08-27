@@ -11,7 +11,6 @@ export default css`
     position: absolute;
     right: 0;
     top: -150px;
-    color: #1F1F1F;
     text-transform: uppercase;
     z-index: -1;
   }

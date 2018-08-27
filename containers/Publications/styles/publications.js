@@ -30,7 +30,6 @@ export default css`
     font-weight: 300;
     font-size: 18px;
     transition: color .4s ease;
-    color: rgba(255, 255, 255, 0.8);
     color: ${tertiary.dark};
   }
 

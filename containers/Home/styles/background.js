@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+import { transparent } from '../../../hocs/Page/styles/colors';
 
 export default css`
   .background {
@@ -8,7 +9,7 @@ export default css`
     height: 100%;
   }
   .path {
-    fill: rgba(0, 0, 0, 0);
+    fill: ${transparent};
     stroke-width: .5;
     stroke-linecap: round;
     stroke-miterlimit: 2;

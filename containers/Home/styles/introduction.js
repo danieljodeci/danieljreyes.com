@@ -45,7 +45,6 @@ export default css`
     position: relative;
     left: 0px;
     top: 100px;
-    color: #1F1F1F;
     text-transform: uppercase;
     z-index: -1;
   }
