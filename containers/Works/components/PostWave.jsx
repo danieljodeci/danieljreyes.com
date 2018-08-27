@@ -58,7 +58,7 @@ export default class PostWave extends Component {
           <figure className="project left" onClick={() => this.setState({active: true})}>
             <em>view project <IoMdArrowForward /></em>
             <img src="/static/images/post-wave.jpg" />
-            <figcaption>Post-Wave</figcaption>
+            <figcaption>Post-<br/>Wave</figcaption>
           </figure>
           <style jsx>{styles}</style>
         </Parallax>

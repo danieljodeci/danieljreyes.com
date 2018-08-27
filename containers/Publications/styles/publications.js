@@ -48,7 +48,7 @@ export default css`
     font-family: "Product Sans", sans-serif;
     font-weight: 700;
     margin-bottom: 50px;
-    color: ${secondary.light};
+    color: ${primary.dark};
   }
 
   section#publications a {
@@ -59,7 +59,7 @@ export default css`
     font-family: "Product Sans", sans-serif;
     font-weight: 700;
     margin-bottom: 50px;
-    color: ${primary.dark};
+    color: ${secondary.light};
   }
 
   section#publications a:hover {

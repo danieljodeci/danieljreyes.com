@@ -139,8 +139,13 @@ export default css`
     margin-top: -90px;
     position: relative;
     z-index: 4;
-    color: #4a4a4a;
+    color: white;
     text-align: center;
+    text-shadow:
+      -1px -1px 0 ${primary.dark},
+      1px -1px 0 ${primary.dark},
+      -1px 1px 0 ${primary.dark},
+      1px 1px 0 ${primary.dark};
   }
 
   .project strong {
@@ -193,7 +198,7 @@ export default css`
   }
 
   .project-media {
-    width: 50%;
+    width: 75%;
     height: auto;
     min-width: 300px;
   }
