@@ -17,7 +17,7 @@ export default class HPISO16 extends Component {
     return (
       <Fragment>
         <Modal active={this.state.active} onToggleModal={() => this.setState({active: !this.state.active})}>
-        <div className="section-container">
+          <div className="section-container">
             <div className="full-width full-height align-center">
               <div className="flex-row project-body">
 

@@ -18,9 +18,38 @@ export default class FoldableCase extends Component {
       <Fragment>
         <Modal active={this.state.active} horizontal onToggleModal={() => this.setState({active: !this.state.active})}>
           <div className="section-container">
-            <div className="section-row">
-              <p>9U 104HP</p>
+            <div className="full-width full-height align-center">
+              <div className="flex-row project-body">
+
+                {/* Project Media */}
+                <div className="project-media">
+                  <video key={1} 
+                    id="video-player" 
+                    loop={true} 
+                    autoPlay={true} 
+                    muted={true} 
+                    playsInline={true}
+                    preload="metadata"
+                  >
+                    <source 
+                      type="video/mp4" 
+                      src="https://storage.googleapis.com/budspot-storage/9u104hp.mp4" 
+                    />
+                  </video>
+                </div>
+
+                {/* Description */}
+                <div className="project-description">
+                  <h3>9U 104HP</h3>
+                  <p>I designed and assembled a foldable case in Solidworks to host Eurorack synthesizer modules. Designs were sent to a local metal shop to have manufactured.</p>
+                  <p>Tech used to complete this project: </p>
+                  <ul>
+                    <li><p>Solidworks</p></li>
+                  </ul>
+                </div>
+              </div>
             </div>
+            <style jsx>{styles}</style>
           </div>
         </Modal>
         <Parallax className="project-section" speed={1}>
