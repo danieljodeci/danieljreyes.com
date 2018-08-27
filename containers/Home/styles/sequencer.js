@@ -84,7 +84,7 @@ export default css`
 
   .button.secondary section div:not(.led) {
     background-color: ${secondary.dark};
-    box-shadow: 0px 0px 25px ${secondary.dark};
+    box-shadow: 0px 0px 15px ${secondary.dark};
   }
 
   .button.tertiary section {
