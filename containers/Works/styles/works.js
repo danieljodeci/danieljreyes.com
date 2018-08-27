@@ -149,10 +149,14 @@ export default css`
 
   .project-body {
     position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
   }
 
   .project-description {
     padding: 10px 40px;
+    width: 90%;
   }
 
   .project-description h3 {
@@ -189,7 +193,7 @@ export default css`
   }
 
   .project-media {
-    width: 100%;
+    width: 50%;
     height: auto;
     min-width: 300px;
   }
