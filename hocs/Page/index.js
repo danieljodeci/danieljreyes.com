@@ -65,8 +65,8 @@ export default function PageWrapper(WrappedComponent, {
             <meta property="og:title" content="DANIEL JODECI - Artist / Developer / Engineer" />
             <meta property="og:description" content="Portfolio Site" />
             <meta property="og:type" content="image/png" />
-            <meta property="og:image" content="/static/cover.png" />
-            <meta property="og:image:type" content="image/png" />
+            <meta property="og:image" content="/static/cover.jpg" />
+            <meta property="og:image:type" content="image/jpeg" />
             <meta property="og:image:width" content="640" />
             <meta property="og:image:height" content="640" />
             <meta property="og:image:type" content="" />
