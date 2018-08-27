@@ -66,7 +66,7 @@ export default function PageWrapper(WrappedComponent, {
             <meta property="og:description" content="Portfolio Site" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content="https://danieljreyes.com/" />
-            <meta property="og:image" content="https://danieljreyes.com/static/cover.jpg" />
+            <meta property="og:image" content="/static/images/cover.jpg" />
             <meta property="og:image:type" content="image/jpeg" />
             <meta property="og:image:width" content="1080" />
             <meta property="og:image:height" content="1349" />
