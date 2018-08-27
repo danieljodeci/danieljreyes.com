@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { primary, tertiary } from '../../../hocs/Page/styles/colors';
+import { primary, tertiary, white } from '../../../hocs/Page/styles/colors';
 
 export default css`
   footer > div > div > div {
@@ -19,7 +19,7 @@ export default css`
     font-size: 400px;
     line-height: 400px;
     font-weight: 700;
-    color: ${primary.neutral};
+    color: ${primary.dark};
   }
 
   footer h2 {
@@ -29,7 +29,7 @@ export default css`
     font-weight: 700;
     margin-bottom: 75px;
     margin-left: -7px;
-    color: ${primary.light};
+    color: ${white.neutral};
   }
 
   footer span {
@@ -56,7 +56,7 @@ export default css`
 
   .social-nav a {
     text-decoration: none;
-    color: white;
+    color: ${white.neutral};
     font-size: 40px;
     line-height: 28px;
     margin-right: 36px;
@@ -74,5 +74,6 @@ export default css`
     position: absolute;
     bottom: -5px;
     right: 0;
+    color: ${white.neutral};
   }
 `

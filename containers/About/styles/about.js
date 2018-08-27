@@ -36,6 +36,6 @@ export default css`
     font-size: 18px;
     line-height: 38px;
     transition: color .4s ease;
-    color: ${tertiary.dark};
+    color: ${secondary.neutral};
   }
 `

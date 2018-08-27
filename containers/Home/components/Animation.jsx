@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import Anime from 'react-anime'
 import styles from '../styles/animation';
-import {primary} from '../../../hocs/Page/styles/colors';
+import {primary, secondary, tertiary} from '../../../hocs/Page/styles/colors';
 
 export default class Animation extends Component {
   shouldComponentUpdate(nextProps, nextState){
@@ -22,8 +22,11 @@ export default class Animation extends Component {
 
           <defs>
             <linearGradient id="MyGradient">
-              <stop offset="5%" stopColor={primary.neutral} />
-              <stop offset="95%" stopColor={primary.neutral} />
+              <stop offset="5%" stopColor={secondary.light} />
+              <stop offset="25%" stopColor={secondary.neutral} />
+              <stop offset="25%" stopColor={secondary.dark} />
+              <stop offset="25%" stopColor={secondary.neutral} />
+              <stop offset="20%" stopColor={secondary.light} />
             </linearGradient>
           </defs>
 

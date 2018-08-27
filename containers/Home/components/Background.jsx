@@ -21,8 +21,8 @@ export default class Background extends Component {
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1287.99 1544.62">
           <defs>
             <linearGradient id="grad">
-              <stop offset="5%" stopColor={primary.dark} />
-              <stop offset="95%" stopColor={primary.dark} />
+              <stop offset="5%" stopColor={primary.darker} />
+              <stop offset="95%" stopColor={primary.darker} />
             </linearGradient>
           </defs>
 

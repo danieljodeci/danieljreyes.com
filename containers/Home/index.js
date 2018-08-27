@@ -37,6 +37,7 @@ class Home extends Component {
 
   componentDidMount(){
     const { router:{pathname} } = this.props;
+    window.scrollTo(0, 0);
     window.addEventListener('scroll', throttle(e => {
       if(!this.state.introModal){
         if(window.scrollY > 0 && this.state.drumVisible){

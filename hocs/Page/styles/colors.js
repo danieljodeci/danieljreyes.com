@@ -1,15 +1,15 @@
 export const primary = {
-  lighter: '#ead8d57d',
-  light: '#fff',
-  neutral: '#efe2e0',
-  dark: '#bcb0ae',
-  darker: '#99918e'
+  lighter: '#aaa2a2',
+  light: '#918787',
+  neutral: '#7F7474',
+  dark: '#433d3d',
+  darker: '#282525'
 };
 
 export const secondary = {
   light: '#fff79a',
-  neutral: '#ffc46a',
-  dark: '#c9943c'
+  neutral: '#E8C0A8',
+  dark: '#DDBB8F'
 };
 
 export const gray = {
@@ -26,14 +26,14 @@ export const black = {
 
 export const white = {
   light: '#fff',
-  neutral: '#f9f9f9',
+  neutral: '#FCFCF4',
   dark: '#f3f3f3'
 };
 
 export const red = {
-  light: '#ff786e',
-  neutral: '#f44242',
-  dark: '#ba001a'
+  light: '#E07564',
+  neutral: '#d2655a',
+  dark: '#B85241'
 };
 
 export const tertiary = {

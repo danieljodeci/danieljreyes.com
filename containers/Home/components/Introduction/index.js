@@ -73,7 +73,7 @@ export default class Introduction extends Component {
                 <svg className="knockout-text-container" width="100%" height="100%" transform="rotate(-90)">
                   <rect className="knockout-text-bg" width="100%" height="100%" x="0" y="0" fillOpacity="1" mask="url(#knockout-text)" />
                   <mask id="knockout-text">
-                    <rect width="100%" height="100%" fill={white.light} x="0" y="0" />
+                    <rect width="100%" height="100%" fill={white.neutral} x="0" y="0" />
                     <text x="20px" y="45px" fill="#000" textAnchor="left">I am an Artist,</text> 
                     <text x="20px" y="75px" fill="#000" textAnchor="left">Full-Stack Developer, </text>
                     <text x="20px" y="105px" fill="#000" textAnchor="left">and maker of things </text>
@@ -87,7 +87,7 @@ export default class Introduction extends Component {
               <WiggleWorm size={60} left={100} bottom={150} color={tertiary.lighter} speed={-6} />
               <WiggleWorm size={70} left={420} bottom={70} color={tertiary.light} speed={3} />
               <WiggleWorm size={60} right={150} top={100} color={secondary.light} speed={-3} />
-              <WiggleWorm size={350} left={250} bottom={-300} color={primary.light} speed={-3} animate />
+              <WiggleWorm size={350} left={250} bottom={-300} color={white.neutral} speed={-3} animate />
 
             </div>
           </div>

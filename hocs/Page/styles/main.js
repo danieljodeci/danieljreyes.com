@@ -1,5 +1,5 @@
 import {global} from 'styled-jsx/css'
-import {primary, secondary, tertiary} from './colors'
+import {primary, secondary, tertiary, white} from './colors'
 
 export default global`
   .* {
@@ -26,7 +26,7 @@ export default global`
   }
 
   .app {
-    background-color: ${primary.neutral}A1;
+    background-color: ${primary.dark};
   }
 
   .align-center {
@@ -106,10 +106,10 @@ export default global`
     top: 50%;
     transform: translateY(-50%);
     right: 0px;
-    background-color: ${primary.lighter};
+    background-color: ${primary.darker}57;
     padding: 36px;
     min-width: 35%;
-    box-shadow: 0 0 38px ${primary.neutral}, 0 0 12px ${primary.neutral};
+    box-shadow: 0 0 38px ${primary.dark}, 0 0 12px ${primary.dark};
     z-index: 1;
   }
 
@@ -119,7 +119,7 @@ export default global`
     font-weight: 700;
     margin-bottom: 25px;
     font-weight: 600;
-    color: ${primary.light};
+    color: ${tertiary.neutral};
   }
 
   .skills ul {
@@ -135,7 +135,7 @@ export default global`
     position: relative;
     margin: 0;
     margin-bottom: 15px;
-    color: ${tertiary.dark};
+    color: ${white.neutral};
   }
 
   .skills span {
@@ -151,7 +151,7 @@ export default global`
     position: absolute;
     bottom: 9px;
     left: 0;
-    background-color: ${primary.light};
+    background-color: ${tertiary.dark};
     z-index: -1;
   }
 

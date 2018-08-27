@@ -33,7 +33,7 @@ export default class About extends Component {
           <div className="section-container">
             {/* More wiggle worms */}
             <WiggleWorm size={60} left={350} top={350} color={secondary.light} speed={-2} />
-            <WiggleWorm size={80} top={50} right={350} color={primary.light} speed={2} />
+            <WiggleWorm size={80} top={50} right={350} color={secondary.neutral} speed={2} />
 
             {/* Bio */}
             <div className="section-row">

@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { primary, secondary, black, white, gray, red } from '../../../hocs/Page/styles/colors';
+import { primary, secondary, black, white, gray, red, tertiary } from '../../../hocs/Page/styles/colors';
 
 export default css`
 
@@ -48,7 +48,7 @@ export default css`
     display: flex;
     align-items: center;
     flex-direction: column;
-    background-color: ${primary.dark};
+    background-color: ${primary.neutral};
     transition: 500ms
   }
 
@@ -71,10 +71,10 @@ export default css`
   .button section div:not(.led) {
     width: 80%;
     height: 50%;
-    background-color: ${primary.darker};
+    background-color: ${primary.dark};
     position: absolute;
     bottom: 8%;
-    box-shadow: 0px 0px 15px ${primary.darker};
+    box-shadow: 0px 0px 15px ${primary.dark};
     transition: 500ms
   }
 
@@ -84,6 +84,7 @@ export default css`
 
   .button.secondary section div:not(.led) {
     background-color: ${secondary.dark};
+    box-shadow: 0px 0px 25px ${secondary.dark};
   }
 
   .button.tertiary section {
@@ -93,16 +94,6 @@ export default css`
   .button.tertiary section div:not(.led) {
     background-color: ${gray.neutral};
     box-shadow: none;
-  }
-
-  .button:hover section {
-    background-color: ${secondary.neutral};
-    transition: 500ms
-  }
-
-  .button:hover section div:not(.led) {
-    background-color: ${secondary.dark};
-    transition: 500ms
   }
 
   .button.big section div:not(.led) {
@@ -116,6 +107,7 @@ export default css`
 
   .button.alert section div:not(.led) {
     background-color: ${red.dark};
+    box-shadow: 0px 0px 15px ${red.dark};
   }
 
   .led {
@@ -128,11 +120,11 @@ export default css`
   }
 
   .led.active {
-    background-color: ${secondary.neutral};
+    background-color: ${red.dark};
   }
 
   .led.enabled {
-    background-color: ${red.neutral};
+    background-color: ${tertiary.neutral};
   }
 
   .led.enabled.active {

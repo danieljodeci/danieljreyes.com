@@ -1,5 +1,5 @@
 import css, {global} from 'styled-jsx/css'
-import { primary, tertiary, secondary, gray } from '../../../hocs/Page/styles/colors';
+import { primary, tertiary, secondary, gray, white } from '../../../hocs/Page/styles/colors';
 
 export default css`
   section#works {
@@ -46,7 +46,7 @@ export default css`
     font-size: 18px;
     line-height: 38px;
     transition: color .4s ease;
-    color: ${tertiary.dark};
+    color: ${secondary.neutral};
   }
 
   .project {
@@ -91,7 +91,7 @@ export default css`
     font-family: "Futura", monospace;
     font-size: 18px;
     line-height: 28px;
-    color: white;
+    color: ${white.neutral};
     z-index: 5;
     display: inline-block;
     opacity: 0;
@@ -105,7 +105,7 @@ export default css`
     font-family: "Futura", monospace;
     font-size: 18px;
     line-height: 28px;
-    color: white;
+    color: ${white.neutral};
     z-index: 5;
     display: inline-block;
     opacity: 0;
@@ -139,13 +139,8 @@ export default css`
     margin-top: -90px;
     position: relative;
     z-index: 4;
-    color: white;
+    color: ${white.neutral};
     text-align: center;
-    text-shadow:
-      -1px -1px 0 ${primary.dark},
-      1px -1px 0 ${primary.dark},
-      -1px 1px 0 ${primary.dark},
-      1px 1px 0 ${primary.dark};
   }
 
   .project strong {
@@ -166,7 +161,7 @@ export default css`
 
   .project-description h3 {
     font-size: 30px;
-    color: white;
+    color: ${white.neutral};
   }
 
   .project-description strong {
@@ -174,7 +169,7 @@ export default css`
   }
 
   .project-description p {
-    color: white;
+    color: ${white.neutral};
   }
 
   .project-description ul {

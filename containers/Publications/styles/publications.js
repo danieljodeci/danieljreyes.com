@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { primary, tertiary, secondary } from '../../../hocs/Page/styles/colors';
+import { primary, tertiary, secondary, white } from '../../../hocs/Page/styles/colors';
 
 export default css`
   section#publications {
@@ -17,7 +17,7 @@ export default css`
     margin: 0;
     margin-bottom: 75px;
     margin-left: -7px;
-    color: ${tertiary.neutral};
+    color: ${tertiary.light};
   }
 
   section#publications strong {
@@ -30,7 +30,7 @@ export default css`
     font-weight: 300;
     font-size: 18px;
     transition: color .4s ease;
-    color: ${tertiary.dark};
+    color: ${secondary.neutral};
   }
 
   section#publications ul {
@@ -47,7 +47,7 @@ export default css`
     font-family: "Product Sans", sans-serif;
     font-weight: 700;
     margin-bottom: 50px;
-    color: ${primary.dark};
+    color: ${secondary.light};
   }
 
   section#publications a {
@@ -58,7 +58,7 @@ export default css`
     font-family: "Product Sans", sans-serif;
     font-weight: 700;
     margin-bottom: 50px;
-    color: ${secondary.light};
+    color: ${white.neutral};
   }
 
   section#publications a:hover {

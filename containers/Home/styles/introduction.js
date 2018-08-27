@@ -56,7 +56,7 @@ export default css`
     margin: 0;
     margin-bottom: 75px;
     margin-left: -7px;
-    color: ${primary.neutral};
+    color: ${primary.dark};
   }
 
   .section-container {
@@ -120,7 +120,7 @@ export default css`
 
 
   .knockout-text-bg {
-    fill: ${white.light};
+    fill: ${secondary.light};
   }
   
   .wiggle-container {

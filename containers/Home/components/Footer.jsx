@@ -37,7 +37,7 @@ export default class Footer extends Component {
                 </ul>
               </div>
               <div className="bottom-text">
-                <p>You can view the source for this site on <a href="https://github.com/danieljodeci/danieljreyes.com">Github</a></p>
+                <p>You can view the source for this site on <a href="https://github.com/danieljodeci/danieljreyes.com" target="_blank">Github</a></p>
               </div>
             </div>
           </div>

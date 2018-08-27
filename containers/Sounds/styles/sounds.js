@@ -1,5 +1,5 @@
 import css, {global} from 'styled-jsx/css'
-import { primary, tertiary, secondary } from '../../../hocs/Page/styles/colors';
+import { primary, tertiary, secondary, white } from '../../../hocs/Page/styles/colors';
 
 export default css`
   section#sounds {
@@ -47,7 +47,7 @@ export default css`
     font-size: 18px;
     line-height: 38px;
     transition: color .4s ease;
-    color: ${tertiary.dark};
+    color: ${secondary.neutral};
   }
 
   .project {
@@ -67,7 +67,7 @@ export default css`
     font-family: "Futura", monospace;
     font-size: 18px;
     line-height: 28px;
-    color: white;
+    color: ${white.neutral};
     z-index: 5;
     display: inline-block;
     opacity: 0;

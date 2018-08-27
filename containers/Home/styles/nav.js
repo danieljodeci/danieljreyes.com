@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { tertiary } from '../../../hocs/Page/styles/colors';
+import { tertiary, white } from '../../../hocs/Page/styles/colors';
 
 export default css`
   nav {
@@ -27,7 +27,7 @@ export default css`
 
   nav a {
     text-decoration: none;
-    color: white;
+    color: ${white.neutral};
     font-size: 40px;
     line-height: 28px;
     margin-right: 36px;

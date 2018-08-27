@@ -36,7 +36,7 @@ export default class Sounds extends Component {
             <WiggleWorm size={40} right={50} top={250} color={secondary.light} speed={2} />
             <WiggleWorm size={50} top={850} left={450} color={primary.light} speed={2} />
             <WiggleWorm size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
-            <WiggleWorm size={350} left={190} top={200} color={tertiary.dark} speed={-1} animate />
+            <WiggleWorm size={350} left={190} top={200} color={secondary.neutral} speed={-1} animate />
 
             <div className="section-row">
               <Element name="sounds" />
