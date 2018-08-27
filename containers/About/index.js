@@ -23,8 +23,9 @@ export default class About extends Component {
               <li><span>Front-End Dev</span></li>
               <li><span>Back-End Dev</span></li>
               <li><span>CAD Design</span></li>
+              <li><span>Circuit Design</span></li>
               <li><span>Hardware Programming</span></li>
-              <li><span>Music Composition</span></li>
+              <li><span>Music Production</span></li>
             </ul>
           </Parallax>
           
