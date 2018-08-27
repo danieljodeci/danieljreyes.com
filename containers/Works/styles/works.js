@@ -147,4 +147,37 @@ export default css`
     color: #43B13E;
   }
 
+  .project-description {
+    padding: 10px 40px;
+  }
+
+  .project-description h3 {
+    font-size: 30px;
+    color: white;
+  }
+
+  .project-description strong {
+    color: #79e46d;
+  }
+
+  .project-description p {
+    color: white;
+  }
+
+  .project-description ul {
+    list-style: none;
+  }
+
+  .project-description li {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .project-description li:before {
+    content: "•";
+    color: #79e46d;
+    align-self: center;
+    margin-right: 20px;
+  }
+
 `

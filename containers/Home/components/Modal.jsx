@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import styles from '../styles/modal';
 
+// CSS
+import styles from '../styles/modal';
+import cn from 'classnames'
+
+// HOC
 import Portal from '../../../hocs/Portal'
 import ActivableRenderer from '../../../hocs/ActivableRenderer'
+
+// Components
+import { IoIosClose } from 'react-icons/io'
 
 class Modal extends Component {
 
@@ -38,10 +44,17 @@ class Modal extends Component {
   }
   
   render() {
-    const { active, onToggleModal } = this.props
+    const { active, onToggleModal, horizontal } = this.props
     return (
       <Portal className='wrapper'>
-        <div className={active ? 'modal active' : 'modal'} data-id="overlay">
+        <div className={cn('modal', {active, horizontal})} data-id="overlay">
+          {onToggleModal && (
+            <div className="close-container">
+              <button onClick={onToggleModal}>
+                <IoIosClose />
+              </button>
+            </div>
+          )}
           <div className={'body'}>
             {this.props.children}
           </div>
@@ -54,7 +67,6 @@ class Modal extends Component {
 
 Modal.defaultProps = {
   active: false,
-  onToggleModal: () => null,
   delay: 800
 };
 

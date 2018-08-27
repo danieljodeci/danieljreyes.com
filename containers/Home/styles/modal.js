@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { primary, white } from '../../../hocs/Page/styles/colors';
+import { primary, white, tertiary } from '../../../hocs/Page/styles/colors';
 
 export default css`
   .wrapper {
@@ -25,12 +25,17 @@ export default css`
     overflow: hidden;
     overflow-y: visible;
 
-    transform: translateY(100vh);
+    transform: translate(0, 100vh);
+    transition: transform 800ms ease-in;
+  }
+
+  .modal.horizontal {
+    transform: translate(100vw, 0);
     transition: transform 800ms ease-in;
   }
 
   .modal.active {
-    transform: translateY(0);
+    transform: translate(0, 0);
     transition: transform 800ms ease-in;
   }
 
@@ -47,5 +52,31 @@ export default css`
 
   .body {
     width: 100%;
+  }
+  
+  .close-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+
+  .close-container button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border: none;
+    -webkit-appearance: none;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    font-size: 50px;
+    color: ${primary.light};
+    transition: color 400ms ease-in;
+  }
+
+  .close-container button:hover {
+    color: ${tertiary.neutral};
+    transition: color 400ms ease-in;
   }
 `

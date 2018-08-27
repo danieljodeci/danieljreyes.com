@@ -65,7 +65,7 @@ export default class Introduction extends Component {
 
               {/* Background text */}
               <div className="background-text">
-                <h4>CRE_<br />ATE</h4>
+                <h4>JOD_<br />ECI</h4>
               </div>
 
               {/* Short Bio */}
