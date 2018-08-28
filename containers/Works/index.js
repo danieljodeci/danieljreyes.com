@@ -55,29 +55,29 @@ export default class Works extends Component {
             <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 
             {/* BudSpot */}
-            <BudSpot />
+            <BudSpot {...this.props} />
 
           </div>
 
 
           <div className="section-row">
             {/* Robopiano */}
-            <Robopiano />
+            <Robopiano {...this.props} />
 
             {/* HPISO16 */}
-            <HPISO16 />
+            <HPISO16 {...this.props} />
 
             {/* HPISO16 */}
-            <FoldableCase />
+            <FoldableCase {...this.props} />
 
             {/* Resonant Spectra */}
-            <ResonantSpectra />
+            <ResonantSpectra {...this.props} />
 
             {/* Artifacts */}
-            <Artifacts />
+            <Artifacts {...this.props} />
 
             {/* Post-Wave */}
-            <PostWave />
+            <PostWave {...this.props} />
 
           </div>
 

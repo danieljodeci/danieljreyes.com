@@ -16,6 +16,19 @@ export default class PostWave extends Component {
     muted: true
   }
 
+  componentDidMount(){
+    const { router:{pathname} } = this.props;
+    const arr = pathname.split('/')
+    if(arr[1] == 'works' && arr[2] == 'post-wave'){
+      const component = this;
+      this.timeout = setTimeout(() => component.setState({active: true}), 500)
+    }
+  }
+
+  componentWillUnmount(){
+    clearTimeout(this.timeout)
+  }
+
   render(){
     return (
       <Fragment>

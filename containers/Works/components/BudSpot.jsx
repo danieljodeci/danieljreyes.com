@@ -14,6 +14,19 @@ export default class BudSpot extends Component {
     active: false
   }
 
+  componentDidMount(){
+    const { router:{pathname} } = this.props;
+    const arr = pathname.split('/')
+    if(arr[1] == 'works' && arr[2] == 'budspot'){
+      const component = this;
+      this.timeout = setTimeout(() => component.setState({active: true}), 500)
+    }
+  }
+
+  componentWillUnmount(){
+    clearTimeout(this.timeout)
+  }
+
   render(){
     return (
       <Fragment>

@@ -12,6 +12,7 @@ import Modal from './components/Modal'
 import Animation from './components/Animation'
 import { scroller, Events } from 'react-scroll'
 import SmoothScroll from '../../utils/SmoothScroll';
+import Router from 'next/router';
 
 // Containers
 const DJ808 = dynamic(import('./components/DJ808'), {ssr: false, loading: () => null});
@@ -38,7 +39,8 @@ class Home extends Component {
   componentDidMount(){
     const { router:{pathname} } = this.props;
     window.scrollTo(0, 0);
-    window.addEventListener('scroll', throttle(e => {
+
+    this.handleScroll = throttle(e => {
       if(!this.state.introModal){
         if(window.scrollY > 0 && this.state.drumVisible){
           this.setState({drumVisible: false})
@@ -46,7 +48,9 @@ class Home extends Component {
           this.setState({drumVisible: true})
         }
       }
-    }, 500), {passive: true})
+    })
+
+    window.addEventListener('scroll', this.handleScroll, 500, {passive: true})
 
     // Scroll to section if pathname applies
     const arr = pathname.split('/')
@@ -57,7 +61,7 @@ class Home extends Component {
           delay: 100,
           smooth: true
         })
-      }, 1000)
+      }, 2000)
     }else{
       this.setState({isScrolling: false})
     }
@@ -68,13 +72,13 @@ class Home extends Component {
     });
     Events.scrollEvent.register('end', function(to, element) {
       component.setState({isScrolling: false})
-      window.history.replaceState('', '', `/${to}`)
     });
   }
 
   componentWillUnmount(){
     Events.scrollEvent.remove('begin');
     Events.scrollEvent.remove('end');
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   render(){
@@ -101,23 +105,23 @@ class Home extends Component {
         {/* Introduction */}
         <Introduction onEnter={() => {
           !navVisible && this.setState({navVisible: true});
-          !isScrolling && window.history.replaceState('', '', '/')
+          Router.push('/')
         }}/>
 
         {/* About */}
-        <About onEnter={() => !isScrolling && window.history.replaceState('', '', '/about')} />
+        <About onEnter={() => Router.push('/about')} />
 
         {/* Featured Works */}
         <Works onEnter={() => {
           navVisible && this.setState({navVisible: false});
-          !isScrolling && window.history.replaceState('', '', '/works');
-        }} />
+          Router.push('/works');
+        }} {...this.props} />
 
         {/* Sounds */}
-        <Sounds onEnter={() => !isScrolling && window.history.replaceState('', '', '/sounds')} />
+        <Sounds onEnter={() => Router.push('/sounds')} />
 
         {/* Publications */}
-        <Publications onEnter={() => !isScrolling && window.history.replaceState('', '', '/publications')} />
+        <Publications onEnter={() => Router.push('/publications')} />
 
         {/* Footer */}
         <Footer />
