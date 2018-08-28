@@ -4,6 +4,7 @@ import React, {Component, Fragment} from 'react'
 import Parallax from 'react-rellax';
 import { IoMdArrowForward } from 'react-icons/io';
 import Modal from '../../Home/components/Modal';
+import Router from 'next/router'
 
 // CSS
 import styles from '../styles/works'
@@ -16,7 +17,11 @@ export default class BudSpot extends Component {
   render(){
     return (
       <Fragment>
-        <Modal active={this.state.active} onToggleModal={() => this.setState({active: !this.state.active})}>
+        <Modal active={this.state.active} onToggleModal={() => {
+          this.setState({active: !this.state.active}, () => {
+            Router.back()
+          })
+        }}>
           <div className="section-container">
             <div className="full-width full-height align-center justify-center">
               <div className="flex-row">
@@ -60,7 +65,11 @@ export default class BudSpot extends Component {
           </div>
         </Modal>
         <Parallax className="project-section" speed={4}>
-          <figure className="project right" onClick={() => this.setState({active: true})}>
+          <figure className="project right" onClick={() => {
+            this.setState({active: true}, () => {
+              Router.push('/works/budspot')
+            })
+          }}>
             <em>view project <IoMdArrowForward /></em>
             <img src="/static/images/budspot.png" />
             <figcaption>BudSpot<strong>.</strong></figcaption>

@@ -5,9 +5,16 @@ import Parallax from 'react-rellax';
 import { IoMdArrowForward } from 'react-icons/io';
 import Modal from '../../Home/components/Modal';
 import {IoMdVolumeOff, IoMdVolumeHigh} from 'react-icons/io'
+import Router from 'next/router'
 
 // CSS
 import styles from '../styles/works'
+
+Router.beforePopState(({ url, as, options }) => {
+  
+  console.log({url})
+  return false
+});
 
 export default class Robopiano extends Component {
   state = {
@@ -18,7 +25,11 @@ export default class Robopiano extends Component {
   render(){
     return (
       <Fragment>
-        <Modal active={this.state.active} horizontal onToggleModal={() => this.setState({active: !this.state.active})}>
+        <Modal active={this.state.active} horizontal onToggleModal={() => {
+          this.setState({active: !this.state.active}, () => {
+            Router.back();
+          })
+        }}>
           <div className="section-container">
             <div className="full-width full-height align-center justify-center">
               <div className="flex-row project-body">
@@ -64,7 +75,11 @@ export default class Robopiano extends Component {
           </div>
         </Modal>
         <Parallax className="project-section" speed={3}>
-          <figure className="project left" onClick={() => this.setState({active: true})}>
+          <figure className="project left" onClick={() => {
+            this.setState({active: true}, () => {
+              Router.push('/works/robopiano')
+            })
+          }}>
             <em>view project <IoMdArrowForward /></em>
             <img src="/static/images/robopiano.jpg" />
             <figcaption>Robopiano</figcaption>
