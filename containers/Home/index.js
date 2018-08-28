@@ -30,16 +30,13 @@ import styles from './styles/home'
 
 class Home extends Component {
   state = {
-    introModal: false,
-    drumVisible: true,
-    navVisible: true,
+    introModal: true,
+    drumVisible: false,
+    navVisible: false,
     isScrolling: true
   }
 
   componentDidMount(){
-    const { router:{pathname} } = this.props;
-    window.scrollTo(0, 0);
-
     this.handleScroll = throttle(e => {
       if(!this.state.introModal){
         if(window.scrollY > 0 && this.state.drumVisible){
@@ -52,6 +49,20 @@ class Home extends Component {
 
     window.addEventListener('scroll', this.handleScroll, 500, {passive: true})
 
+    const component = this;
+    Events.scrollEvent.register('begin', function(to, element) {
+      component.setState({isScrolling: true})
+    });
+    Events.scrollEvent.register('end', function(to, element) {
+      component.setState({isScrolling: false})
+    });
+  }
+
+  onAnimationComplete = () => {
+    if(!this.state.introModal) return;
+    const { router:{pathname} } = this.props;
+
+    window.scrollTo(0, 0);
     // Scroll to section if pathname applies
     const arr = pathname.split('/')
     if(arr[1] && arr[1].length){
@@ -61,18 +72,12 @@ class Home extends Component {
           delay: 100,
           smooth: true
         })
-      }, 2000)
+      }, 1000)
     }else{
       this.setState({isScrolling: false})
     }
 
-    const component = this;
-    Events.scrollEvent.register('begin', function(to, element) {
-      component.setState({isScrolling: true})
-    });
-    Events.scrollEvent.register('end', function(to, element) {
-      component.setState({isScrolling: false})
-    });
+    this.setState({introModal: false, drumVisible: true, navVisible: true})
   }
 
   componentWillUnmount(){
@@ -88,7 +93,7 @@ class Home extends Component {
         {/* Intro Modal */}
         <Modal active={this.state.introModal}>
           <div className="align-center justify-center full-height full-width">
-            <Animation onComplete={() => introModal && this.setState({introModal: false, drumVisible: true, navVisible: true})} />
+            <Animation onComplete={this.onAnimationComplete} />
             <Background />
           </div>
         </Modal>
@@ -105,23 +110,23 @@ class Home extends Component {
         {/* Introduction */}
         <Introduction onEnter={() => {
           !navVisible && this.setState({navVisible: true});
-          Router.push('/')
+          !isScrolling && Router.push('/')
         }}/>
 
         {/* About */}
-        <About onEnter={() => Router.push('/about')} />
+        <About onEnter={() => !isScrolling && Router.push('/about')} />
 
         {/* Featured Works */}
         <Works onEnter={() => {
           navVisible && this.setState({navVisible: false});
-          Router.push('/works');
+          !isScrolling && Router.push('/works');
         }} {...this.props} />
 
         {/* Sounds */}
-        <Sounds onEnter={() => Router.push('/sounds')} />
+        <Sounds onEnter={() => !isScrolling && Router.push('/sounds')} />
 
         {/* Publications */}
-        <Publications onEnter={() => Router.push('/publications')} />
+        <Publications onEnter={() => !isScrolling && Router.push('/publications')} />
 
         {/* Footer */}
         <Footer />
