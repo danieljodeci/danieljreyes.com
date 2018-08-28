@@ -69,6 +69,7 @@ export default class BudSpot extends Component {
                     <li><p>Stripe for peer to peer transactions</p></li>
                     <li><p>Google Maps for location based services</p></li>
                     <li><p>Google Cloud Storage for media uploads</p></li>
+                    <li><p>Workbox for service workers and caching</p></li>
                   </ul>
                   <p> I also set up the devop infrastructure using Google Cloud Platform for web hosting, cron jobs, load balancing, pub/sub messaging, and cloud storage.</p>
                 </div>
