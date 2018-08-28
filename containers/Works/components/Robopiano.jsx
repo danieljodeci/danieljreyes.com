@@ -4,13 +4,15 @@ import React, {Component, Fragment} from 'react'
 import Parallax from 'react-rellax';
 import { IoMdArrowForward } from 'react-icons/io';
 import Modal from '../../Home/components/Modal';
+import {IoMdVolumeOff, IoMdVolumeHigh} from 'react-icons/io'
 
 // CSS
 import styles from '../styles/works'
 
 export default class Robopiano extends Component {
   state = {
-    active: false
+    active: false,
+    muted: true
   }
 
   render(){
@@ -27,7 +29,7 @@ export default class Robopiano extends Component {
                     id="video-player" 
                     loop={true} 
                     autoPlay={true} 
-                    muted={true} 
+                    muted={this.state.muted} 
                     playsInline={true}
                     preload="metadata"
                   >
@@ -36,6 +38,9 @@ export default class Robopiano extends Component {
                       src="https://storage.googleapis.com/budspot-storage/robopiano.mp4" 
                     />
                   </video>
+                  <button onClick={() => this.setState({muted: !this.state.muted})}>
+                    {this.state.muted ? <IoMdVolumeOff /> : <IoMdVolumeHigh />}
+                  </button>
                 </div>
 
                 {/* Description */}

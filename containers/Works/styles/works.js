@@ -196,11 +196,26 @@ export default css`
     width: 75%;
     height: auto;
     min-width: 300px;
+    position: relative;
   }
 
   .project-media video {
     width: 100%;
     height: 100%;
+  }
+
+  .project-media button {
+    position: absolute;
+    bottom: 13px;
+    right: 13px;
+    border: none;
+    -webkit-appearance: none;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    color: ${white.neutral};
+    font-size: 30px;
   }
 
 `
