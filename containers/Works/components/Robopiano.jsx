@@ -10,12 +10,6 @@ import Router from 'next/router'
 // CSS
 import styles from '../styles/works'
 
-Router.beforePopState(({ url, as, options }) => {
-  
-  console.log({url})
-  return false
-});
-
 export default class Robopiano extends Component {
   state = {
     active: false,
