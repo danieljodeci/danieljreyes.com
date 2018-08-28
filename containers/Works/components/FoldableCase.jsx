@@ -19,7 +19,7 @@ export default class FoldableCase extends Component {
     const arr = pathname.split('/')
     if(arr[1] == 'works' && arr[2] == 'foldable-case'){
       const component = this;
-      this.timeout = setTimeout(() => component.setState({active: true}), 500)
+      this.timeout = setTimeout(() => component.setState({active: true}), 1500)
     }
   }
 
