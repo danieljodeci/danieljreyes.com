@@ -135,7 +135,7 @@ const Sketch = P5Wrapper()(sketch)
 export default class Wrapper extends Component {
   render(){
     return (
-      <section id="sketch" className="align-center full-width">
+      <section id="sketch" className="align-center justify-center full-width">
         <Sketch />
       </section>
     )

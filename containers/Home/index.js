@@ -29,9 +29,9 @@ import styles from './styles/home'
 
 class Home extends Component {
   state = {
-    introModal: true,
-    drumVisible: false,
-    navVisible: false,
+    introModal: false,
+    drumVisible: true,
+    navVisible: true,
     isScrolling: true
   }
 
@@ -83,7 +83,7 @@ class Home extends Component {
       <div id="page-content">
         {/* Intro Modal */}
         <Modal active={this.state.introModal}>
-          <div className="align-center full-height full-width">
+          <div className="align-center justify-center full-height full-width">
             <Animation onComplete={() => introModal && this.setState({introModal: false, drumVisible: true, navVisible: true})} />
             <Background />
           </div>

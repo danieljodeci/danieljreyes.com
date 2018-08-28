@@ -3,12 +3,12 @@ import React, {Component} from 'react'
 // Components
 import Waypoint from 'react-waypoint'
 import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
-import Parallax from 'react-rellax';
 import { Element } from 'react-scroll';
+import Skills from './components/Skills'
 
 // CSS
-import styles, {globalStyles} from './styles/about'
-import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
+import styles from './styles/about'
+import { secondary } from '../../hocs/Page/styles/colors';
 
 export default class About extends Component {
   render(){
@@ -17,17 +17,7 @@ export default class About extends Component {
         <section id="about">
 
           {/* Skills */}
-          <Parallax className="skills" speed={5}>
-            <h4>Skills</h4>
-            <ul>
-              <li><span>Front-End Dev</span></li>
-              <li><span>Back-End Dev</span></li>
-              <li><span>CAD Design</span></li>
-              <li><span>Circuit Design</span></li>
-              <li><span>Hardware Programming</span></li>
-              <li><span>Music Production</span></li>
-            </ul>
-          </Parallax>
+          <Skills />
           
           {/* About Paragram */}
           <div className="section-container">

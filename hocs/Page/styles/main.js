@@ -31,8 +31,12 @@ export default global`
 
   .align-center {
     display: flex;
-    justify-content: center;
     align-items: center;
+  }
+
+  .justify-center {
+    display: flex;
+    justify-content: center;
   }
 
   .full-width {
@@ -103,7 +107,7 @@ export default global`
 
   .skills {
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     right: 0px;
     background-color: ${primary.darker}57;
@@ -125,9 +129,10 @@ export default global`
   .skills ul {
     list-style: none;
     padding: 0;
+    z-index: 2;
   }
 
-  .skills li {
+  .skills > ul > li {
     font-family: "Futura", monospace;
     font-weight: 200;
     font-size: 18px;
@@ -138,13 +143,21 @@ export default global`
     color: ${white.neutral};
   }
 
+  .skills > ul > li > div > span {
+    cursor: pointer;
+  }
+
+  .skills > ul > li div svg {
+    cursor: pointer;
+  }
+
   .skills span {
     display: inline-block;
     position: relative;
     z-index: 2;
   }
 
-  .skills li span:after {
+  .skills > ul > li span:after {
     content: '';
     width: 101%;
     height: 7px;
@@ -152,6 +165,34 @@ export default global`
     bottom: 9px;
     left: 0;
     background-color: ${tertiary.dark};
+    z-index: -1;
+  }
+
+  .skills li div svg {
+    font-size: 20px;
+    margin-right: 5px;
+  }
+
+  .skills li > ul li {
+    font-family: "Futura", monospace;
+    font-weight: 200;
+    font-size: 14px;
+    line-height: 24px;
+    position: relative;
+    margin: 0;
+    margin-bottom: 5px;
+    color: ${white.neutral};
+    margin-left: 30px;
+  }
+
+  .skills li > ul li span:after {
+    content: '';
+    width: 101%;
+    height: 7px;
+    position: absolute;
+    bottom: 9px;
+    left: 0;
+    background-color: ${primary.dark};
     z-index: -1;
   }
 

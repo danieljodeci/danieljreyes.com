@@ -18,7 +18,7 @@ export default class Robopiano extends Component {
       <Fragment>
         <Modal active={this.state.active} horizontal onToggleModal={() => this.setState({active: !this.state.active})}>
           <div className="section-container">
-            <div className="full-width full-height align-center">
+            <div className="full-width full-height align-center justify-center">
               <div className="flex-row project-body">
 
                 {/* Project Media */}
