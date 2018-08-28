@@ -13,31 +13,30 @@ import { secondary } from '../../hocs/Page/styles/colors';
 export default class About extends Component {
   render(){
     return (
-      <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave}>
-        <section id="about">
+      <section id="about">
 
-          {/* Skills */}
-          <Skills />
-          
-          {/* About Paragram */}
-          <div className="section-container">
-            {/* More wiggle worms */}
-            <WiggleWorm size={60} left={350} top={350} color={secondary.light} speed={-2} />
-            <WiggleWorm size={80} top={50} right={350} color={secondary.neutral} speed={2} />
+        {/* Skills */}
+        <Skills />
+        
+        {/* About Paragram */}
+        <div className="section-container">
+          {/* More wiggle worms */}
+          <WiggleWorm size={60} left={350} top={350} color={secondary.light} speed={-2} />
+          <WiggleWorm size={80} top={50} right={350} color={secondary.neutral} speed={2} />
 
-            {/* Bio */}
-            <div className="section-row">
-              <Element name="about" />
-              <div className="bio">
-                <h2>Ab_<br />out<strong>:</strong></h2>
-                <p>I am an artist, software developer, entrepeneur, and musician residing in Los Angeles, CA. I am a graduate of CalArts and a founder of BudSpot. I spend my days dwelling upon how I can create things that will make tomorrow feel a bit more comfortable. I love synthesizers and kinetic sound sculptures.</p>
-              </div>
+          {/* Bio */}
+          <div className="section-row">
+            <Element name="about" />
+            <div className="bio">
+              <h2>Ab_<br />out<strong>:</strong></h2>
+              <p>I am an artist, software developer, entrepeneur, and musician residing in Los Angeles, CA. I am a graduate of CalArts and a founder of BudSpot. I spend my days dwelling upon how I can create things that will make tomorrow feel a bit more comfortable. I love synthesizers and kinetic sound sculptures.</p>
             </div>
-
+            <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
           </div>
-          <style jsx>{styles}</style>
-        </section>
-      </Waypoint>
+
+        </div>
+        <style jsx>{styles}</style>
+      </section>
     )
   }
 }

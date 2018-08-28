@@ -28,52 +28,53 @@ export default class Sounds extends Component {
 
   render(){
     return (
-      <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave}>
-        <section id="sounds">
-          <div className="section-container">
+      <section id="sounds">
+        <div className="section-container">
 
-            {/* More wiggle worms */}
-            <WiggleWorm size={40} right={50} top={250} color={secondary.light} speed={2} />
-            <WiggleWorm size={50} top={850} left={450} color={primary.light} speed={2} />
-            <WiggleWorm size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
-            <WiggleWorm size={350} left={190} top={200} color={secondary.neutral} speed={-1} animate />
+          {/* More wiggle worms */}
+          <WiggleWorm size={40} right={50} top={250} color={secondary.light} speed={2} />
+          <WiggleWorm size={50} top={850} left={450} color={primary.light} speed={2} />
+          <WiggleWorm size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
+          <WiggleWorm size={350} left={190} top={200} color={secondary.neutral} speed={-1} animate />
 
-            <div className="section-row">
-              <Element name="sounds" />
-              
-              {/* Title */}
-              <div className="title">
-                <h3>Sou_<br/>nds<strong>:</strong></h3>
-              </div>
-
-              {/* Backgounr works image */}
-              {this.renderSoundsImg()}
-
-              {/* Sounds intro... */}
-              <Intro />
-
-              {/* BudSpot */}
-              <Vault />
-
+          <div className="section-row">
+            <Element name="sounds" />
+            
+            {/* Title */}
+            <div className="title">
+              <h3>Sou_<br/>nds<strong>:</strong></h3>
             </div>
 
-            <div className="section-row">
-              {/* Robopiano */}
-              <BennysManual />
+            {/* Backgounr works image */}
+            {this.renderSoundsImg()}
 
-              {/* HPISO16 */}
-              <Bombses />
+            {/* Sounds intro... */}
+            <Intro />
 
-              {/* HPISO16 */}
-              <DisciplesOfSaturn />
 
-            </div>
+            <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 
+            {/* BudSpot */}
+            <Vault />
 
           </div>
-          <style jsx>{styles}</style>
-        </section>
-      </Waypoint>
+
+          <div className="section-row">
+
+            {/* Robopiano */}
+            <BennysManual />
+
+            {/* HPISO16 */}
+            <Bombses />
+
+            {/* HPISO16 */}
+            <DisciplesOfSaturn />
+
+          </div>
+
+        </div>
+        <style jsx>{styles}</style>
+      </section>
     )
   }
 }

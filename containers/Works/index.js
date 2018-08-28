@@ -31,59 +31,60 @@ export default class Works extends Component {
 
   render(){
     return (
-      <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave}>
-        <section id="works">
-          <div className="section-container">
+      <section id="works">
+        <div className="section-container">
 
-            {/* More wiggle worms */}
-            <WiggleWorm size={40} right={50} top={250} color={secondary.light} speed={2} />
-            <WiggleWorm size={50} top={850} left={450} color={primary.light} speed={2} />
-            <WiggleWorm size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
+          {/* More wiggle worms */}
+          <WiggleWorm size={40} right={50} top={250} color={secondary.light} speed={2} />
+          <WiggleWorm size={50} top={850} left={450} color={primary.light} speed={2} />
+          <WiggleWorm size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
 
-            <div className="section-row">
-              <Element name="works" />
-              {/* Title */}
-              <div className="title">
-                <h3>Selected_<br /> works<strong>:</strong></h3>
-              </div>
-
-              {/* Backgounr works image */}
-              {this.renderWorksImg()}
-
-              {/* Works intro... */}
-              <Intro />
-
-              {/* BudSpot */}
-              <BudSpot />
-
+          <div className="section-row">
+            <Element name="works" />
+            {/* Title */}
+            <div className="title">
+              <h3>Selected_<br /> works<strong>:</strong></h3>
             </div>
 
-            <div className="section-row">
-              {/* Robopiano */}
-              <Robopiano />
+            {/* Backgounr works image */}
+            {this.renderWorksImg()}
 
-              {/* HPISO16 */}
-              <HPISO16 />
+            {/* Works intro... */}
+            <Intro />
 
-              {/* HPISO16 */}
-              <FoldableCase />
+            <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 
-              {/* Resonant Spectra */}
-              <ResonantSpectra />
-
-              {/* Artifacts */}
-              <Artifacts />
-
-              {/* Post-Wave */}
-              <PostWave />
-
-            </div>
-
+            {/* BudSpot */}
+            <BudSpot />
 
           </div>
-          <style jsx>{styles}</style>
-        </section>
-      </Waypoint>
+
+
+          <div className="section-row">
+            {/* Robopiano */}
+            <Robopiano />
+
+            {/* HPISO16 */}
+            <HPISO16 />
+
+            {/* HPISO16 */}
+            <FoldableCase />
+
+            {/* Resonant Spectra */}
+            <ResonantSpectra />
+
+            {/* Artifacts */}
+            <Artifacts />
+
+            {/* Post-Wave */}
+            <PostWave />
+
+          </div>
+
+
+        </div>
+        <style jsx>{styles}</style>
+      </section>
     )
   }
 }
