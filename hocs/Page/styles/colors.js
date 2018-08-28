@@ -9,7 +9,8 @@ export const primary = {
 export const secondary = {
   light: '#fff79a',
   neutral: '#E8C0A8',
-  dark: '#DDBB8F'
+  dark: '#DDBB8F',
+  darker: '#bb9e78'
 };
 
 export const gray = {
@@ -33,7 +34,8 @@ export const white = {
 export const red = {
   light: '#E07564',
   neutral: '#d2655a',
-  dark: '#B85241'
+  dark: '#B85241',
+  darker: '#a74a3a'
 };
 
 export const tertiary = {

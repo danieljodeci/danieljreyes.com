@@ -83,7 +83,7 @@ export default css`
   }
 
   .button.secondary section div:not(.led) {
-    background-color: ${secondary.dark};
+    background-color: ${secondary.darker};
     box-shadow: 0px 0px 15px ${secondary.dark};
   }
 
@@ -106,7 +106,7 @@ export default css`
   }
 
   .button.alert section div:not(.led) {
-    background-color: ${red.dark};
+    background-color: ${red.darker};
     box-shadow: 0px 0px 15px ${red.dark};
   }
 
@@ -120,11 +120,11 @@ export default css`
   }
 
   .led.active {
-    background-color: ${red.dark};
+    background-color: orange;
   }
 
   .led.enabled {
-    background-color: ${tertiary.neutral};
+    background-color: ${red.dark};
   }
 
   .led.enabled.active {
