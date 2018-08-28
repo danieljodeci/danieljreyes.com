@@ -14,14 +14,14 @@ import { scroller, Events } from 'react-scroll'
 import SmoothScroll from '../../utils/SmoothScroll';
 
 // Containers
-const DJ808 = dynamic(import('./components/DJ808'), {ssr: false});
-const Nav = dynamic(import('./components/Nav'), {ssr: false});
-const Introduction = dynamic(import('./components/Introduction'), {ssr: false});
-const About = dynamic(import('../About'), {ssr: false})
-const Works = dynamic(import('../Works'), {ssr: false})
-const Publications = dynamic(import('../Publications'), {ssr: false})
-const Sounds = dynamic(import('../Sounds'), {ssr: false})
-const Footer = dynamic(import('./components/Footer'), {ssr: false})
+const DJ808 = dynamic(import('./components/DJ808'), {ssr: false, loading: () => null});
+const Nav = dynamic(import('./components/Nav'), {ssr: false, loading: () => null});
+const Introduction = dynamic(import('./components/Introduction'), {ssr: false, loading: () => null});
+const About = dynamic(import('../About'), {ssr: false, loading: () => null})
+const Works = dynamic(import('../Works'), {ssr: false, loading: () => null})
+const Publications = dynamic(import('../Publications'), {ssr: false, loading: () => null})
+const Sounds = dynamic(import('../Sounds'), {ssr: false, loading: () => null})
+const Footer = dynamic(import('./components/Footer'), {ssr: false, loading: () => null})
 import Background from './components/Background';
 
 // CSS
@@ -85,6 +85,7 @@ class Home extends Component {
         <Modal active={this.state.introModal}>
           <div className="align-center full-height full-width">
             <Animation onComplete={() => introModal && this.setState({introModal: false, drumVisible: true, navVisible: true})} />
+            <Background />
           </div>
         </Modal>
 
