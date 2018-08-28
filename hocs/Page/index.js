@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
-import Head from 'next/head'
-import shortid from 'shortid'
+import Helmet from 'react-helmet'
 import styles from './styles/main'
 import { withRouter } from 'next/router'
 
@@ -33,48 +32,37 @@ export default function PageWrapper(WrappedComponent, {
     }
 
     getMetaData = () => {
-      let output = [];
+      let output = metaData;
       if(metaData instanceof Function) {
-        metaData = metaData(this.props);
+        output = metaData(this.props);
       }
-      if(!metaData instanceof Object) return console.warn('Metadata is not instance of Object.');
-      if(metaData.title) {
-        output.push(<title key={shortid.generate()}>{metaData.title}</title>);
-      }
-      if(metaData.link && metaData.link.length){
-        metaData.link.map(l => {
-          output.push(<link key={shortid.generate()} {...l}></link>)
-        })
-      }
-      if(metaData.meta && metaData.meta.length){
-        metaData.meta.map(m => {
-          output.push(<meta key={shortid.generate()}></meta>)
-        })
-      }
+      if(!output instanceof Object) return console.warn('Metadata is not instance of Object.');
+      output.meta = [
+        { charset: 'utf-8' },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+        { property: 'og:site_name', content: 'DANIEL JODECI' },
+        { property: 'og:title', content: 'DANIEL JODECI - Artist / Developer / Engineer' },
+        { property: 'og:description', content: 'Portfolio Site' },
+        { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://danieljreyes/com/' },
+        { property: 'og:image', content: '/static/images/cover.jpg' },
+        { property: 'og:image:type', content: 'image/png' },
+        { property: 'og:image:width', content: '1080' },
+        { property: 'og:image:height', content: '1349' },
+        ...output.meta
+      ]
+      output.link = [
+        { rel: "icon", href: "/static/favicon.ico" },
+        { rel: "icon", sizes: "152x152", href: "/static/favicon.ico" },
+        ...output.link
+      ]
       return output;
     }
 
     render(){
       return (
         <div className="app">
-          <Head>
-            <title>DANIEL JODECI</title>
-            <meta charset='utf-8' />
-            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-            <meta property="og:site_name" content="DANIEL JODECI" />
-            <meta property="og:title" content="DANIEL JODECI - Artist / Developer / Engineer" />
-            <meta property="og:description" content="Portfolio Site" />
-            <meta property="og:type" content="website" />
-            <meta property="og:url" content="https://danieljreyes.com/" />
-            <meta property="og:image" content="/static/images/cover.jpg" />
-            <meta property="og:image:type" content="image/jpeg" />
-            <meta property="og:image:width" content="1080" />
-            <meta property="og:image:height" content="1349" />
-            <meta property="og:image:type" content="" />
-            <link rel="icon" href="/static/favicon.ico" />
-            <link rel="icon" sizes="152x152" href="/static/favicon.ico" />
-            {this.getMetaData()}
-          </Head>
+          <Helmet {...this.getMetaData()} />
           <WrappedComponent {...this.props} />
           <style jsx global>{styles}</style>
         </div>

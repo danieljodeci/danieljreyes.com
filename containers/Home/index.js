@@ -138,17 +138,180 @@ class Home extends Component {
 }
 
 export default PageWrapper(Home, {
-  metaData: {
-    title: 'DANIEL JODECI',
-    link: [],
-    meta: [
-      { name: 'DANIEL JODECI - Artist / Developer / Engineer', content: 'Portfolio Site' },
-      { property: 'og:image:type', content: 'image/png' },
-      { property: 'og:image:width', content: '640' },
-      { property: 'og:image:height', content: '640' },
-      { property: "og:title", content: 'DANIEL JODECI - Artist / Developer / Engineer' },
-      { property: "og:description", content: 'Portfolio Site' },
-      { property: "og:type", content: "website" },
-    ]
+  metaData: ({router}) => {
+    const { pathname } = router;
+    const arr = pathname.split('/');
+    switch(arr[1]){
+      case 'about':
+        return {
+          title: 'About - DANIEL JODECI',
+          link: [],
+          meta: [
+            { name: 'About - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+            { property: "og:title", content: 'About - DANIEL JODECI' },
+            { property: "og:description", content: 'Artist / Developer / Engineer' },
+            { property: "og:type", content: "website" },
+          ]
+        }
+      case 'works':
+        if(arr[2] == 'budspot'){
+          return {
+            title: 'BudSpot. - DANIEL JODECI',
+            link: [],
+            meta: [
+              { name: 'BudSpot. - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+              { property: 'og:image', content: '/static/images/budspot.png' },
+              { property: 'og:image:type', content: 'image/png' },
+              { property: 'og:image:width', content: '640' },
+              { property: 'og:image:height', content: '640' },
+              { property: "og:title", content: 'BudSpot. - DANIEL JODECI' },
+              { property: "og:description", content: 'Artist / Developer / Engineer' },
+              { property: "og:type", content: "website" },
+            ]
+          }
+        }else if(arr[2] == 'robopiano'){
+          return {
+            title: 'Robopiano - DANIEL JODECI',
+            link: [],
+            meta: [
+              { name: 'Robopiano - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+              { property: 'og:image', content: '/static/images/robopiano.jpg' },
+              { property: 'og:image:type', content: 'image/png' },
+              { property: 'og:image:width', content: '640' },
+              { property: 'og:image:height', content: '640' },
+              { property: "og:title", content: 'Robopiano - DANIEL JODECI' },
+              { property: "og:description", content: 'Artist / Developer / Engineer' },
+              { property: "og:type", content: "website" },
+            ]
+          }
+        }else if(arr[2] == 'hpiso16'){
+          return {
+            title: 'HPISO16 - DANIEL JODECI',
+            link: [],
+            meta: [
+              { name: 'HPISO16 - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+              { property: 'og:image', content: '/static/images/hpiso16.jpg' },
+              { property: 'og:image:type', content: 'image/png' },
+              { property: 'og:image:width', content: '640' },
+              { property: 'og:image:height', content: '640' },
+              { property: "og:title", content: 'HPISO16 - DANIEL JODECI' },
+              { property: "og:description", content: 'Artist / Developer / Engineer' },
+              { property: "og:type", content: "website" },
+            ]
+          }
+        }else if(arr[2] == 'foldable-case'){
+          return {
+            title: '9U 104HP - DANIEL JODECI',
+            link: [],
+            meta: [
+              { name: '9U 104HP - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+              { property: 'og:image', content: '/static/images/foldable_case.jpg' },
+              { property: 'og:image:type', content: 'image/png' },
+              { property: 'og:image:width', content: '640' },
+              { property: 'og:image:height', content: '640' },
+              { property: "og:title", content: '9U 104HP - DANIEL JODECI' },
+              { property: "og:description", content: 'Artist / Developer / Engineer' },
+              { property: "og:type", content: "website" },
+            ]
+          }
+        }else if(arr[2] == 'resonant-spectra'){
+          return {
+            title: 'Resonant Spectra - DANIEL JODECI',
+            link: [],
+            meta: [
+              { name: 'Resonant Spectra - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+              { property: 'og:image', content: '/static/images/resonant_spectra.jpg' },
+              { property: 'og:image:type', content: 'image/png' },
+              { property: 'og:image:width', content: '640' },
+              { property: 'og:image:height', content: '640' },
+              { property: "og:title", content: 'Resonant Spectra - DANIEL JODECI' },
+              { property: "og:description", content: 'Artist / Developer / Engineer' },
+              { property: "og:type", content: "website" },
+            ]
+          }
+        }else if(arr[2] == 'post-wave'){
+          return {
+            title: 'Post-Wave - DANIEL JODECI',
+            link: [],
+            meta: [
+              { name: 'Post-Wave - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+              { property: 'og:image', content: '/static/images/post-wave.jpg' },
+              { property: 'og:image:type', content: 'image/png' },
+              { property: 'og:image:width', content: '640' },
+              { property: 'og:image:height', content: '640' },
+              { property: "og:title", content: 'Post-Wave - DANIEL JODECI' },
+              { property: "og:description", content: 'Artist / Developer / Engineer' },
+              { property: "og:type", content: "website" },
+            ]
+          }
+        }else if(arr[2] == 'artifacts'){
+          return {
+            title: 'Artifacts - DANIEL JODECI',
+            link: [],
+            meta: [
+              { name: 'Artifacts- DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+              { property: 'og:image', content: '/static/images/artifacts.jpg' },
+              { property: 'og:image:type', content: 'image/png' },
+              { property: 'og:image:width', content: '640' },
+              { property: 'og:image:height', content: '640' },
+              { property: "og:title", content: 'Artifacts - DANIEL JODECI' },
+              { property: "og:description", content: 'Artist / Developer / Engineer' },
+              { property: "og:type", content: "website" },
+            ]
+          }
+        }else{
+          return {
+            title: 'Selected Works - DANIEL JODECI',
+            link: [],
+            meta: [
+              { name: 'Selected Works - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+              { property: 'og:image', content: '/static/images/blendo.jpg' },
+              { property: 'og:image:type', content: 'image/png' },
+              { property: 'og:image:width', content: '640' },
+              { property: 'og:image:height', content: '640' },
+              { property: "og:title", content: 'Selected Works - DANIEL JODECI' },
+              { property: "og:description", content: 'Artist / Developer / Engineer' },
+              { property: "og:type", content: "website" },
+            ]
+          }
+        }
+      case 'sounds':
+        return {
+          title: 'Sounds - DANIEL JODECI',
+          link: [],
+          meta: [
+            { name: 'Sounds - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+            { property: 'og:image', content: '/static/images/pascual_fuentes.jpg' },
+            { property: 'og:image:type', content: 'image/png' },
+            { property: 'og:image:width', content: '640' },
+            { property: 'og:image:height', content: '640' },
+            { property: "og:title", content: 'Sounds - DANIEL JODECI' },
+            { property: "og:description", content: 'Artist / Developer / Engineer' },
+            { property: "og:type", content: "website" },
+          ]
+        }
+      case 'publications':
+        return {
+          title: 'Publications - DANIEL JODECI',
+          link: [],
+          meta: [
+            { name: 'Publications - DANIEL JODECI', content: 'Artist / Developer / Engineer' },
+            { property: "og:title", content: 'Publications - DANIEL JODECI' },
+            { property: "og:description", content: 'Artist / Developer / Engineer' },
+            { property: "og:type", content: "website" },
+          ]
+        }
+      default:
+        return {
+          title: 'DANIEL JODECI',
+          link: [],
+          meta: [
+            { name: 'DANIEL JODECI - Artist / Developer / Engineer', content: 'Portfolio Site' },
+            { property: "og:title", content: 'DANIEL JODECI - Artist / Developer / Engineer' },
+            { property: "og:description", content: 'Portfolio Site' },
+            { property: "og:type", content: "website" },
+          ]
+        }
+    }
   },
 })
