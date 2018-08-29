@@ -27,7 +27,7 @@ export default class Background extends Component {
           </defs>
 
           {Array.apply(null, Array(TOTAL)).map((a, i) => {
-            return (
+            {/* return (
               <Anime key={shortid.generate()}
                 easing="easeInOutCirc"
                 duration={500}
@@ -36,8 +36,8 @@ export default class Background extends Component {
                 autoplay
                 loop
                 delay={(el, index) => index * 100}
-              >
-                {Array.apply(null, Array(GROUP)).map((a, j) => {
+              > */}
+                return Array.apply(null, Array(GROUP)).map((a, j) => {
                   let offset = (START - (j * SPACING)) - (DIFF * i);
                   if(offset < 0) {
                     offset = `,${Math.abs(offset)}`
@@ -47,9 +47,9 @@ export default class Background extends Component {
                   return (
                     <path key={j} className="path" d={`M-7.5${offset}.5c22.32-8.26,57.74-18.4,101-17,56.94,1.84,73.83,21.92,125,28,72.67,8.63,79.35-27,163-31,89.85-4.25,99.48,36.08,187,31,80.49-4.67,79.61-39.2,153-44,106.88-7,122.3,65.38,227,62,102-3.29,139.67-73.7,201-44,29.29,14.19,56.63,47.65,104,45a100.34,100.34,0,0,0,26-5`} transform="translate(8.02 111.48)"/>
                   )
-                })}
-              </Anime>
-            )
+                })
+              {/* </Anime>
+            ) */}
           })}
         </svg>
         <style jsx>{styles}</style>
