@@ -13,7 +13,8 @@ import styles from '../styles/works'
 export default class Robopiano extends Component {
   state = {
     active: false,
-    muted: true
+    muted: true,
+    root: false
   }
 
   componentDidMount(){
@@ -21,7 +22,7 @@ export default class Robopiano extends Component {
     const arr = pathname.split('/')
     if(arr[1] == 'works' && arr[2] == 'robopiano'){
       const component = this;
-      this.timeout = setTimeout(() => component.setState({active: true}), 1500)
+      this.timeout = setTimeout(() => component.setState({active: true, root: true}), 1500)
     }
   }
 
@@ -34,7 +35,7 @@ export default class Robopiano extends Component {
       <Fragment>
         <Modal active={this.state.active} horizontal onToggleModal={() => {
           this.setState({active: !this.state.active}, () => {
-            Router.back();
+            this.state.root ? Router.push('/') : Router.back()
           })
         }}>
           <div className="section-container">

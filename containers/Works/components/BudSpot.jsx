@@ -11,7 +11,8 @@ import styles from '../styles/works'
 
 export default class BudSpot extends Component {
   state = {
-    active: false
+    active: false,
+    root: false
   }
 
   componentDidMount(){
@@ -19,7 +20,7 @@ export default class BudSpot extends Component {
     const arr = pathname.split('/')
     if(arr[1] == 'works' && arr[2] == 'budspot'){
       const component = this;
-      this.timeout = setTimeout(() => component.setState({active: true}), 1500)
+      this.timeout = setTimeout(() => component.setState({active: true, root: true}), 1500)
     }
   }
 
@@ -32,7 +33,7 @@ export default class BudSpot extends Component {
       <Fragment>
         <Modal active={this.state.active} onToggleModal={() => {
           this.setState({active: !this.state.active}, () => {
-            Router.back()
+            this.state.root ? Router.push('/') : Router.back()
           })
         }}>
           <div className="section-container">
