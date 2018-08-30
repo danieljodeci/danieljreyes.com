@@ -93,7 +93,7 @@ export default css`
 
     .social-nav a {
       font-size: 30px;
-      margin-right: 20px;
+      margin-right: 15px;
     }
 
     .bottom-text {

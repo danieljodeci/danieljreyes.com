@@ -107,7 +107,7 @@ export default class Introduction extends Component {
                 mobile={mobile}
                 size={70} 
                 left={mobile ? 0 : 420} 
-                bottom={70} 
+                bottom={mobile ? -60 : 70} 
                 color={tertiary.light} 
                 speed={3} 
               />

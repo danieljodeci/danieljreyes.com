@@ -248,7 +248,7 @@ export default css`
 
   @media (max-width: 768px) {
     #works {
-      margin-top: 350px;
+      margin-top: 315px;
     }
 
     .title {
@@ -264,6 +264,14 @@ export default css`
 
     .project-container {
       padding: 40px 20px;
+    }
+
+    .right.project em {
+      top: 31px;
+    }
+
+    .left.project em {
+      left: -25px;
     }
 
   }

@@ -243,8 +243,8 @@ export default css`
     }
 
     .description {
-      right: -84px;
-      top: 90px;
+      right: -100px;
+      top: 72px;
       left: inherit;
       width: 250px;
       height: 130px;
