@@ -52,7 +52,7 @@ class Sequencer extends Component {
   }
 
   generateButtons = () => {
-    const { steps, sequence, onButtonPress } = this.props;
+    const { steps, sequence, onButtonPress, mobile } = this.props;
     const { index } = this.state;
     let buttons = [];
     for (let i = 0; i < steps; i++) {
@@ -69,7 +69,18 @@ class Sequencer extends Component {
           }}
         />)
     }
-    return buttons
+    if(!mobile) return buttons
+
+    buttons = buttons.reduce((r, element, index) => {
+      index % 4 === 0 && r.push([]);
+      r[r.length - 1].push(element);
+      return r;
+    }, []).map((rowContent, i) => {
+      return <div key={i} className="button-row-container">{rowContent}
+      <style jsx>{styles}</style></div>
+    })
+
+    return buttons;
   }
 
   render(){

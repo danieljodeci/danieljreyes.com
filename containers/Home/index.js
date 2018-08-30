@@ -13,6 +13,7 @@ import Animation from './components/Animation'
 import { scroller, Events } from 'react-scroll'
 import Router from 'next/router';
 import SmoothScroll from '../../utils/SmoothScroll';
+import { IoMdArrowDown, IoMdArrowUp } from 'react-icons/io'
 
 // Containers
 const DJ808 = dynamic(import('./components/DJ808'), {ssr: false, loading: () => null});
@@ -107,6 +108,11 @@ class Home extends Component {
         <Nav active={navVisible} mobile={mobile} />
 
         {/* Drum Machine */}
+        {mobile ? (
+          <button className="dropdown" onClick={() => this.setState({drumVisible: !drumVisible})}>
+            {drumVisible ? <IoMdArrowUp /> : <IoMdArrowDown />}
+          </button>
+        ) : null}
         <DJ808 active={drumVisible} mobile={mobile} />
         
         {/* Introduction */}

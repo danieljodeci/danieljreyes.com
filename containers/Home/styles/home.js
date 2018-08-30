@@ -1,4 +1,5 @@
 import css from 'styled-jsx/css'
+import { white } from '../../../hocs/Page/styles/colors';
 
 export default css`
   #page-content {
@@ -18,6 +19,21 @@ export default css`
     margin-left: auto;
     margin-right: auto;
     min-height: 950px;
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    -webkit-appearance: none;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    background: none;
+    color: ${white.neutral};
+    border: none;
+    font-size: 30px;
+    z-index: 250;
   }
   
   @media (min-width: 768px){

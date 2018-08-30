@@ -40,6 +40,7 @@ export default css`
     padding: 0;
     outline: none;
     cursor: pointer;
+    background: none;
   }
 
   .button section {
@@ -49,7 +50,8 @@ export default css`
     align-items: center;
     flex-direction: column;
     background-color: ${primary.neutral};
-    transition: 500ms
+    transition: 500ms;
+    position: relative;
   }
 
   .button.big section {
@@ -201,4 +203,41 @@ export default css`
     text-transform: uppercase;
   }
 
+
+  .button-row-container {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    width: 100%;
+    position: relative;
+    flex-shrink: 0;
+    margin-bottom: 10px;
+    padding: 0;
+    justify-content: center;
+  }
+
+  @media (max-width: 768px){
+
+    .sequencer {
+      flex-wrap: wrap;
+    }
+    
+    .container {
+      background-color: ${black.neutral}e0;
+      height: 100vh;
+      transform: translate(0, -100vh);
+      left: 0;
+      width: 100vw;
+    }
+
+    .container.active {
+      transform: translate(0, 0px);
+    }
+
+    .button {
+      margin-right: 10px;
+      display: block;
+      position: relative;
+    }
+  }
 `
