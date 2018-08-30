@@ -185,6 +185,10 @@ export default global`
     float: left;
   }
 
+  .display-block {
+    display: block;
+  }
+
   .float-left {
     float: left;
   }
@@ -223,8 +227,5 @@ export default global`
       width: 100%;
     }
 
-    .section-row {
-      display: block;
-    }
   }
 `

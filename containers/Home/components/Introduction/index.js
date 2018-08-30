@@ -9,6 +9,7 @@ import { Element } from 'react-scroll'
 // CSS
 import styles from '../../styles/introduction'
 import { primary, secondary, tertiary, white } from '../../../../hocs/Page/styles/colors';
+import cn from 'classnames'
 
 
 // Constants
@@ -49,7 +50,7 @@ export default class Introduction extends Component {
       <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave}>
         <section id="intro">
           <div className="section-container" style={{marginTop: 65}}>
-            <div className="section-row">
+            <div className={cn('section-row', {['display-block']: mobile})}>
               <Element name="intro" />
               {/* Text Animation */}
               <div className="welcome-animation">
