@@ -24,10 +24,10 @@ export default function PageWrapper(WrappedComponent, {
     static async getInitialProps({ req }) {
       const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
       const md = new MobileDetect(userAgent)
-      console.log({
-        mobile: md.mobile(),
-        md
-      })
+      // console.log({
+      //   mobile: md.mobile(),
+      //   md
+      // })
       return { isMobile: md.mobile() }
     }
 
@@ -73,7 +73,7 @@ export default function PageWrapper(WrappedComponent, {
 
     render(){
       const { isMobile } = this.props
-      console.log({isMobile})
+      // console.log({isMobile})
       return (
         <div className="app">
           <Helmet {...this.getMetaData()} />

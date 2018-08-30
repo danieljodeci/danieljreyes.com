@@ -11,7 +11,7 @@ export default class Background extends Component {
   }
   render(){
     const { mobile } = this.props
-    console.log({mobile})
+    // console.log({mobile})
     this.START = 200
     this.SPACING = mobile ? 16 : 6
     this.GROUP = 60
