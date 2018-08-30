@@ -21,8 +21,9 @@ import styles from './styles/works'
 export default class Works extends Component {
 
   renderWorksImg = () => {
+    const { mobile } = this.props
     return (
-      <Parallax className="half-width float-left" speed={4}>
+      <Parallax className="half-width float-left" speed={mobile ? 0 : 4}>
         <img className="blendo" src="/static/images/blendo.jpg" />
         <style jsx>{styles}</style>
       </Parallax>
@@ -30,14 +31,15 @@ export default class Works extends Component {
   }
 
   render(){
+    const { mobile } = this.props
     return (
       <section id="works">
         <div className="section-container">
 
           {/* More wiggle worms */}
-          <WiggleWorm size={40} right={50} top={250} color={secondary.light} speed={2} />
-          <WiggleWorm size={50} top={850} left={450} color={primary.light} speed={2} />
-          <WiggleWorm size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
+          <WiggleWorm mobile={mobile} size={40} right={50} top={250} color={secondary.light} speed={2} />
+          <WiggleWorm mobile={mobile} size={50} top={850} left={450} color={primary.light} speed={2} />
+          <WiggleWorm mobile={mobile} size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
 
           <div className="section-row">
             <Element name="works" />
@@ -50,7 +52,7 @@ export default class Works extends Component {
             {this.renderWorksImg()}
 
             {/* Works intro... */}
-            <Intro />
+            <Intro  {...this.props} />
 
             <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 

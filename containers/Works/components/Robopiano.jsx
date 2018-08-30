@@ -31,6 +31,7 @@ export default class Robopiano extends Component {
   }
 
   render(){
+    const { mobile } = this.props
     return (
       <Fragment>
         <Modal active={this.state.active} horizontal onToggleModal={() => {
@@ -82,7 +83,7 @@ export default class Robopiano extends Component {
             <style jsx>{styles}</style>
           </div>
         </Modal>
-        <Parallax className="project-section" speed={3}>
+        <Parallax className="project-section" speed={mobile ? 0 : 3}>
           <figure className="project left" onClick={() => {
             this.setState({active: true}, () => {
               Router.push('/works/robopiano')

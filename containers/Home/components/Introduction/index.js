@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 
 // Components
 import ReactTextTransition from 'react-text-transition';
@@ -44,6 +44,7 @@ export default class Introduction extends Component {
   }
 
   render(){
+    const { mobile } = this.props
     return (
       <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave}>
         <section id="intro">
@@ -74,20 +75,58 @@ export default class Introduction extends Component {
                   <rect className="knockout-text-bg" width="100%" height="100%" x="0" y="0" fillOpacity="1" mask="url(#knockout-text)" />
                   <mask id="knockout-text">
                     <rect width="100%" height="100%" fill={white.neutral} x="0" y="0" />
-                    <text x="20px" y="45px" fill="#000" textAnchor="left">I am an Artist,</text> 
-                    <text x="20px" y="75px" fill="#000" textAnchor="left">Full-Stack Developer, </text>
-                    <text x="20px" y="105px" fill="#000" textAnchor="left">and maker of things </text>
-                    <text x="20px" y="135px" fill="#000" textAnchor="left">who is based in Los Angeles.</text>
+                    <text x="7%" y="25%" fill="#000" textAnchor="left">I am an Artist,</text> 
+                    <text x="7%" y="45%" fill="#000" textAnchor="left">Full-Stack Developer, </text>
+                    <text x="7%" y="65%" fill="#000" textAnchor="left">and maker of things </text>
+                    <text x="7%" y="85%" fill="#000" textAnchor="left">who is based in Los Angeles.</text>
                   </mask>
                 </svg>
               </div>
 
               {/* Wiggle Worms */}
-              <WiggleWorm size={80} left={270} top={230} color={tertiary.darker} speed={-2} animate />
-              <WiggleWorm size={60} left={100} bottom={150} color={tertiary.lighter} speed={-6} />
-              <WiggleWorm size={70} left={420} bottom={70} color={tertiary.light} speed={3} />
-              <WiggleWorm size={60} right={150} top={100} color={secondary.light} speed={-3} />
-              <WiggleWorm size={350} left={250} bottom={-300} color={white.neutral} speed={-3} animate />
+              <WiggleWorm 
+                mobile={mobile}
+                size={80} 
+                left={270} 
+                top={230} 
+                color={tertiary.darker} 
+                speed={-2} 
+                animate 
+              />
+              <WiggleWorm  
+                mobile={mobile}
+                size={60} 
+                left={mobile ? 'inherit' : 100}
+                right={mobile ? 25 : 'inherit'} 
+                bottom={mobile ? 0 : 150} 
+                color={tertiary.lighter} 
+                speed={-6} 
+              />
+              <WiggleWorm  
+                mobile={mobile}
+                size={70} 
+                left={mobile ? 0 : 420} 
+                bottom={70} 
+                color={tertiary.light} 
+                speed={3} 
+              />
+              <WiggleWorm  
+                mobile={mobile}
+                size={60} 
+                right={152} 
+                top={101} 
+                color={secondary.light} 
+                speed={-3} 
+              />
+              <WiggleWorm  
+                mobile={mobile}
+                size={350} 
+                left={250} 
+                bottom={-300} 
+                color={white.neutral} 
+                speed={-3} 
+                animate 
+              />
 
             </div>
           </div>

@@ -79,25 +79,6 @@ export default global`
     margin-right: auto;
   }
 
-
-  @media (min-width: 768px){
-    .section-container {
-        width: 750px;
-    }
-  }
-
-  @media (min-width: 992px){
-    .section-container {
-        width: 970px;
-    }
-  }
-
-  @media (min-width: 1200px){
-    .section-container {
-        width: 1070px;
-    }
-  }
-
   .section-row {
     display: table;
     position: relative;
@@ -210,5 +191,40 @@ export default global`
 
   em svg {
     vertical-align: middle;
+  }
+
+  @media (min-width: 767px){
+    .section-container {
+        width: 750px;
+    }
+  }
+
+  @media (min-width: 992px){
+    .section-container {
+        width: 970px;
+    }
+  }
+
+  @media (min-width: 1200px){
+    .section-container {
+        width: 1070px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .skills {
+      position: relative;
+      background: none;
+      box-shadow: none;
+      padding-left: 0;
+    }
+
+    .half-width {
+      width: 100%;
+    }
+
+    .section-row {
+      display: block;
+    }
   }
 `

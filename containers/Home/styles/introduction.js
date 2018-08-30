@@ -59,12 +59,6 @@ export default css`
     color: ${primary.dark};
   }
 
-  .section-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
   .welcome-animation {
     position: absolute;
     top: 50%;
@@ -215,4 +209,50 @@ export default css`
       transform: rotate(0deg);
     }
   }
+
+  @media (max-width: 767px){
+    .background-text {
+      min-height: 560px;
+    }
+
+    .background-text h4 {
+      display: none;
+    }
+
+    #intro {
+      height: auto;
+      width: auto;
+      min-height: auto;
+    }
+
+    .section-container h1:not(.background-text) {
+      font-size: 156px;
+    }
+  
+    .section-container h2 {
+      font-size: 76px;
+    }
+  
+    .section-container h3 {
+      font-size: 66px;
+    }
+
+    .welcome-animation {
+      min-width: 345px;
+      left: -4px;
+    }
+
+    .description {
+      right: -84px;
+      top: 90px;
+      left: inherit;
+      width: 250px;
+      height: 130px;
+    }
+
+    .knockout-text-container {
+      font: 900 16px 'Futura', sans-serif;
+      font-style: italic;
+      opacity: 0.9;
+    }
 `

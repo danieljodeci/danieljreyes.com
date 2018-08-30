@@ -11,13 +11,14 @@ import styles from './styles/publications'
 
 export default class Publications extends Component {
   render(){
+    const { mobile } = this.props
     return (
       <section id="publications">
         <div className="section-container">
 
           {/* A little more wiggles */}
-          <WiggleWorm size={40} right={200} top={0} color={secondary.light} speed={2} />
-          <WiggleWorm size={50} top={550} left={275} color={primary.light} speed={3} />
+          <WiggleWorm mobile={mobile} size={40} right={200} top={0} color={secondary.light} speed={2} />
+          <WiggleWorm mobile={mobile} size={50} top={550} left={275} color={primary.light} speed={3} />
 
           <div className="section-row">
             <div className="full-width">

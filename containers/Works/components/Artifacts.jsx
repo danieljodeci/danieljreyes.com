@@ -29,6 +29,7 @@ export default class Artifacts extends Component {
   }
 
   render(){
+    const { mobile } = this.props
     return (
       <Fragment>
         <Modal active={this.state.active} onToggleModal={() => {
@@ -63,7 +64,7 @@ export default class Artifacts extends Component {
             <style jsx>{styles}</style>
           </div>
         </Modal>
-        <Parallax className="project-section" speed={-1}>
+        <Parallax className="project-section" speed={mobile ? 0 : -1}>
           <figure className="project right" onClick={() => {
             this.setState({active: true}, () => {
               Router.push('/works/artifacts')

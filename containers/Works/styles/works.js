@@ -218,4 +218,21 @@ export default css`
     font-size: 30px;
   }
 
+  @media (max-width: 767px) {
+    #works {
+      margin-top: 350px;
+    }
+
+    .title {
+      width: 100%;
+    }
+
+    .title h3 {
+      font-size: 70px;
+      line-height: 90px;
+      margin-bottom: 30px;
+    }
+  }
+
+
 `

@@ -38,4 +38,20 @@ export default css`
     transition: color .4s ease;
     color: ${secondary.neutral};
   }
+
+  @media (max-width: 767px) {
+    section#about {
+      padding-top: 80px;
+    }
+
+    .bio {
+      width: 100%;
+    }
+
+    .bio h2 {
+      font-size: 80px;
+      line-height: 90px;
+      margin-bottom: 30px;
+    }
+  }
 `

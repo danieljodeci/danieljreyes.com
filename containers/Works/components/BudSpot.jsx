@@ -29,6 +29,7 @@ export default class BudSpot extends Component {
   }
 
   render(){
+    const { mobile } = this.props
     return (
       <Fragment>
         <Modal active={this.state.active} onToggleModal={() => {
@@ -79,7 +80,7 @@ export default class BudSpot extends Component {
             <style jsx>{styles}</style>
           </div>
         </Modal>
-        <Parallax className="project-section" speed={4}>
+        <Parallax className="project-section" speed={mobile ? 0 : 4}>
           <figure className="project right" onClick={() => {
             this.setState({active: true}, () => {
               Router.push('/works/budspot')

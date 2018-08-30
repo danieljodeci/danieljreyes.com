@@ -1,14 +1,8 @@
 import React, {Component} from 'react'
 import styles from '../styles/background'
-import {primary} from '../../../hocs/Page/styles/colors'
+import {primary, white} from '../../../hocs/Page/styles/colors'
 import Anime from 'react-anime';
 import shortid from 'shortid'
-
-const START = 76
-const SPACING = 4
-const GROUP = 60
-const TOTAL = Math.round(400 / GROUP)
-const DIFF = START - (START - ((GROUP - 1) * SPACING)) + 3
 
 export default class Background extends Component {
   shouldComponentUpdate(nextProps, nextState){
@@ -16,17 +10,24 @@ export default class Background extends Component {
     return false;
   }
   render(){
+    const { mobile } = this.props
+    console.log({mobile})
+    this.START = 200
+    this.SPACING = mobile ? 16 : 6
+    this.GROUP = 60
+    this.TOTAL = Math.round(400 / this.GROUP)
+    this.DIFF = this.START - (this.START - ((this.GROUP - 1) * this.SPACING)) + (mobile ? 16 : 6)
     return (
       <div className="background">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1287.99 1544.62">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox={mobile ? "0 0 1287.99 10544.62" : "0 0 1287.99 1544.62"}>
           <defs>
             <linearGradient id="grad">
-              <stop offset="5%" stopColor={primary.darker} />
-              <stop offset="95%" stopColor={primary.darker} />
+              <stop offset="5%" stopColor={white.dark} />
+              <stop offset="95%" stopColor={white.dark} />
             </linearGradient>
           </defs>
 
-          {Array.apply(null, Array(TOTAL)).map((a, i) => {
+          {Array.apply(null, Array(this.TOTAL)).map((a, i) => {
             {/* return (
               <Anime key={shortid.generate()}
                 easing="easeInOutCirc"
@@ -37,8 +38,8 @@ export default class Background extends Component {
                 loop
                 delay={(el, index) => index * 100}
               > */}
-                return Array.apply(null, Array(GROUP)).map((a, j) => {
-                  let offset = (START - (j * SPACING)) - (DIFF * i);
+                return Array.apply(null, Array(this.GROUP)).map((a, j) => {
+                  let offset = (this.START - (j * this.SPACING)) - (this.DIFF * i);
                   if(offset < 0) {
                     offset = `,${Math.abs(offset)}`
                   }else{
