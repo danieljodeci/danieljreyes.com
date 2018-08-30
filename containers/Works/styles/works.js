@@ -214,6 +214,11 @@ export default css`
     height: 100%;
   }
 
+  .project-media img {
+    width: 100%;
+    height: auto;
+  }
+
   .project-media button {
     position: absolute;
     bottom: 13px;
@@ -263,7 +268,7 @@ export default css`
     }
 
     .project-container {
-      padding: 60px 20px;
+      padding: 80px 20px;
       height: auto;
     }
 

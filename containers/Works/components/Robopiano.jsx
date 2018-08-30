@@ -9,6 +9,7 @@ import Router from 'next/router'
 
 // CSS
 import styles from '../styles/works'
+import cn from 'classnames'
 
 export default class Robopiano extends Component {
   state = {
@@ -41,7 +42,11 @@ export default class Robopiano extends Component {
         }}>
           <div className="project-container">
             <div className="full-width full-height align-center justify-center">
-              <div className="flex-row project-body">
+              <div className={cn({
+                ['flex-row']: !mobile, 
+                ['flex-column']: mobile,
+                ['align-center']: mobile
+              })}>
 
                 {/* Project Media */}
                 <div className="project-media">
