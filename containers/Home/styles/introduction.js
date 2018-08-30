@@ -210,7 +210,7 @@ export default css`
     }
   }
 
-  @media (max-width: 767px){
+  @media (max-width: 768px){
     .background-text {
       min-height: 560px;
     }

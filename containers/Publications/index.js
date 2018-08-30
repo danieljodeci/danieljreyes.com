@@ -8,6 +8,7 @@ import { Element } from 'react-scroll';
 // CSS
 import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
 import styles from './styles/publications'
+import cn from 'classnames'
 
 export default class Publications extends Component {
   render(){
@@ -23,11 +24,11 @@ export default class Publications extends Component {
           <div className="section-row">
             <div className="full-width">
               <Element name="publications" />
-              <div className="half-width float-left">
+              <div className={cn('half-width', {['float-left']: !mobile})}>
                 <h2>Public_<br/>ations<strong>:</strong></h2>
               </div>
 
-              <div className="half-width float-left">
+              <div className={cn('half-width', {['float-left']: !mobile})}>
                 <p>I have written a paper which describes my inspiration and motivation behind some of my projects.</p>
                 <ul>
                   <li>International Conference on Live Interfaces<br/>

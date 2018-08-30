@@ -53,7 +53,7 @@ export default css`
   section#publications a {
     text-decoration: line-through;
     margin: 0;
-    font-size: 24px;
+    font-size: 14px;
     line-height: 30px;
     font-family: "Product Sans", sans-serif;
     font-weight: 700;
@@ -72,4 +72,14 @@ export default css`
     font-weight: 400;
   }
 
+  @media(max-width: 768px){
+    section#publications {
+      margin-top: 50px;
+    }
+    section#publications h2 {
+      font-size: 80px;
+      line-height: 90px;
+      margin-bottom: 0;
+    }
+  }
 `

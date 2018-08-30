@@ -14,13 +14,14 @@ import Parallax from 'react-rellax';
 // CSS
 import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
 import styles from './styles/sounds'
+import cn from 'classnames'
 
 export default class Sounds extends Component {
 
   renderSoundsImg = () => {
     const { mobile } = this.props
     return (
-      <Parallax className="half-width float-left" speed={mobile ? 0 : 1}>
+      <Parallax className={cn('half-width', {['float-left']: !mobile})} speed={mobile ? 0 : 1}>
         <img className="blendo" src="/static/images/pascual_fuentes.jpg" />
         <style jsx>{styles}</style>
       </Parallax>
@@ -39,7 +40,7 @@ export default class Sounds extends Component {
           <WiggleWorm mobile={mobile} size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
           <WiggleWorm mobile={mobile} size={350} left={190} top={200} color={secondary.neutral} speed={-1} animate />
 
-          <div className="section-row">
+          <div className={cn('section-row', {['display-block']: mobile})}>
             <Element name="sounds" />
             
             {/* Title */}
@@ -61,7 +62,7 @@ export default class Sounds extends Component {
 
           </div>
 
-          <div className="section-row">
+          <div className={cn('section-row', {['display-block']: mobile})}>
 
             {/* Robopiano */}
             <BennysManual {...this.props} />

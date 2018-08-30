@@ -9,6 +9,7 @@ import Skills from './components/Skills'
 // CSS
 import styles from './styles/about'
 import { secondary } from '../../hocs/Page/styles/colors';
+import cn from 'classnames'
 
 export default class About extends Component {
   render(){
@@ -26,7 +27,7 @@ export default class About extends Component {
           <WiggleWorm mobile={mobile} size={80} top={50} right={350} color={secondary.neutral} speed={2} />
 
           {/* Bio */}
-          <div className="section-row">
+          <div className={cn('section-row', {['float-left']: mobile})}>
             <Element name="about" />
             <div className="bio">
               <h2>Ab_<br />out<strong>:</strong></h2>

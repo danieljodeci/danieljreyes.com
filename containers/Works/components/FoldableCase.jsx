@@ -37,7 +37,7 @@ export default class FoldableCase extends Component {
             this.state.root ? Router.push('/') : Router.back()
           })
         }}>
-          <div className="section-container">
+          <div className="project-container">
             <div className="full-width full-height align-center justify-center">
               <div className="flex-row project-body">
 

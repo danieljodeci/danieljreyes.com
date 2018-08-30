@@ -10,6 +10,7 @@ export default global`
     margin: 0 0;
     font-family: 'Avenir Next', Nunito;
     min-height: 100%;
+    overflow-x: hidden;
   }
 
   .app {
@@ -111,6 +112,7 @@ export default global`
     list-style: none;
     padding: 0;
     z-index: 2;
+    max-width: 400px;
   }
 
   .skills > ul > li {
@@ -185,6 +187,12 @@ export default global`
     float: left;
   }
 
+
+  .skills > ul > li > ul {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
   .display-block {
     display: block;
   }
@@ -215,7 +223,7 @@ export default global`
     }
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     .skills {
       position: relative;
       background: none;
@@ -225,6 +233,13 @@ export default global`
 
     .half-width {
       width: 100%;
+    }
+
+    .project-section {
+      width: 100%;
+      margin: 0;
+      padding: 50px 0;
+      float: none;
     }
 
   }

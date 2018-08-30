@@ -17,7 +17,7 @@ export default css`
     stroke: url(#grad);
   }
 
-  @media (max-width: 767px){
+  @media (max-width: 768px){
     .path {
       stroke-width: .5;
     }

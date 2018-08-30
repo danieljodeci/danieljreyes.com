@@ -26,7 +26,7 @@ export default css`
     margin: 0;
     font-size: 120px;
     line-height: 150px;
-    font-weight: 700;
+    font-weight: 400;
     margin-bottom: 75px;
     margin-left: -7px;
     color: ${white.neutral};
@@ -75,5 +75,29 @@ export default css`
     bottom: -5px;
     right: 0;
     color: ${white.neutral};
+  }
+
+  @media(max-width: 768px){
+    footer {
+      margin-top: 70px;
+    }
+    .text-top h3 {
+      font-size: 100px;
+      line-height: 100px;
+    }
+
+    footer h2 {
+      font-size: 50px;
+      line-height: 80px;
+    }
+
+    .social-nav a {
+      font-size: 30px;
+      margin-right: 20px;
+    }
+
+    .bottom-text {
+      bottom: -90px;
+    }
   }
 `

@@ -9,7 +9,7 @@ export default css`
     stroke-miterlimit: 2;
   }
 
-  @media (max-width: 767px){
+  @media (max-width: 768px){
     svg {
       width: 300px;
       height: 250px;

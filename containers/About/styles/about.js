@@ -39,9 +39,10 @@ export default css`
     color: ${secondary.neutral};
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: 768px) {
     section#about {
       padding-top: 80px;
+      padding-bottom: 200px;
     }
 
     .bio {
