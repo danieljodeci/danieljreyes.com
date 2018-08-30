@@ -39,7 +39,7 @@ class Home extends Component {
   componentDidMount(){
     if(!this.props.mobile) SmoothScroll()
     this.handleScroll = throttle(e => {
-      if(!this.state.introModal){
+      if(!this.state.introModal && !this.props.mobile){
         if(window.scrollY > 0 && this.state.drumVisible){
           this.setState({drumVisible: false})
         }else if(window.scrollY == 0 && !this.state.drumVisible){
