@@ -35,7 +35,7 @@ export default class Sounds extends Component {
         <div className="section-container">
 
           {/* More wiggle worms */}
-          <WiggleWorm mobile={mobile} size={40} right={50} top={250} color={secondary.light} speed={2} />
+          <WiggleWorm mobile={mobile} size={40} right={mobile ? 80 : 50} top={250} color={secondary.light} speed={2} />
           <WiggleWorm mobile={mobile} size={50} top={850} left={450} color={primary.light} speed={2} />
           <WiggleWorm mobile={mobile} size={60} left={50} top={550} color={mobile ? primary.light : secondary.neutral} speed={-2} />
           <WiggleWorm mobile={mobile} size={350} left={190} top={mobile ? -150 : 200} color={mobile ? secondary.light : secondary.neutral} speed={-1} animate />
