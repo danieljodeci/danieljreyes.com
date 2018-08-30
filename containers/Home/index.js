@@ -31,7 +31,7 @@ import styles from './styles/home'
 
 class Home extends Component {
   state = {
-    introModal: false,
+    introModal: true,
     drumVisible: false,
     navVisible: false,
     isScrolling: true
