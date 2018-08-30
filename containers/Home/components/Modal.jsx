@@ -36,7 +36,7 @@ class Modal extends Component {
       setTimeout(() => document.body.style['max-height'] = '100vh', this.props.delay);
     }
 
-    if (becomingUnactive && !document.querySelectorAll('[data-id="overlay"]')[1]) {
+    if (becomingUnactive) {
       document.body.style.overflow = '';
       document.body.style['max-height'] = ''
       window.scrollTo(0, this.scrollTop);
