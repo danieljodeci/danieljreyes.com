@@ -20,10 +20,10 @@ export default css`
     width: 100%;
     display: flex;
     background-color: ${primary.dark};
-    min-height: 100vh;
+    height: 100vh;
     overscroll-behavior: contain;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: visible;
 
     transform: translate(0, 100vh);
     transition: transform 800ms ease-in;

@@ -263,7 +263,8 @@ export default css`
     }
 
     .project-container {
-      padding: 40px 20px;
+      padding: 60px 20px;
+      height: auto;
     }
 
     .right.project em {
