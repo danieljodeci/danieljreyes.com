@@ -13,6 +13,7 @@
   "dependencies": {
     "classnames": "^2.2.6",
     "lodash.throttle": "^4.1.1",
+    "mobile-detect": "^1.4.2",
     "next": "^6.1.1",
     "p5": "^0.6.1",
     "react": "^16.4.2",
@@ -20,6 +21,7 @@
     "react-dom": "^16.4.2",
     "react-helmet": "^5.2.0",
     "react-icons": "^3.0.5",
+    "react-media": "^1.8.0",
     "react-rellax": "^1.0.2",
     "react-scroll": "^1.7.10",
     "react-style-proptype": "^3.2.1",

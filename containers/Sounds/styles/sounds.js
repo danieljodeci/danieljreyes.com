@@ -93,5 +93,19 @@ export default css`
     transition: all .4s ease;
   }
 
+  @media (max-width: 768px) {
+    section#sounds {
+      padding-top: 0;
+    }
 
+    .title {
+      width: 100%;
+    }
+
+    .title h3 {
+      font-size: 80px;
+      line-height: 90px;
+      margin-bottom: 40px;
+    }
+  }
 `

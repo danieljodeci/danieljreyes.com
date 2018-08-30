@@ -11,11 +11,11 @@ const scale = (xMin, xMax, yMin, yMax, input) => {
 
 export default class WiggleWorm extends PureComponent {
   render(){
-    const { top, left, bottom, right, size, color, speed, animate } = this.props
+    const { top, left, bottom, right, size, color, speed, animate, mobile } = this.props
     const id = shortid.generate();
     return (
       <div className="wiggle-container" style={{top, left, bottom, right, width: size, height: size}}>
-        <Parallax speed={speed}>
+        <Parallax speed={mobile ? 0 : speed}>
           <div style={{position: 'relative'}}>
             <svg id="wiggle-worm" width="100%" height="100%" viewBox="0 0 631 631">
               <circle fillOpacity="1" cx="315" cy="315" r="315" fill={color} mask={`url(#${id})`} />

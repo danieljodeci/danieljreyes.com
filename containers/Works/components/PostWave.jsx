@@ -9,6 +9,7 @@ import Router from 'next/router'
 
 // CSS
 import styles from '../styles/works'
+import cn from 'classnames'
 
 export default class PostWave extends Component {
   state = {
@@ -31,6 +32,7 @@ export default class PostWave extends Component {
   }
 
   render(){
+    const { mobile } = this.props
     return (
       <Fragment>
         <Modal active={this.state.active} horizontal onToggleModal={() => {
@@ -38,9 +40,13 @@ export default class PostWave extends Component {
             this.state.root ? Router.push('/') : Router.back()
           })
         }}>
-          <div className="section-container">
+          <div className="project-container">
             <div className="full-width full-height align-center justify-center">
-              <div className="flex-row project-body">
+              <div className={cn({
+                ['flex-row']: !mobile, 
+                ['flex-column']: mobile,
+                ['align-center']: mobile
+              })}>
 
                 {/* Project Media */}
                 <div className="project-media">
@@ -78,7 +84,7 @@ export default class PostWave extends Component {
             <style jsx>{styles}</style>
           </div>
         </Modal>
-        <Parallax className="project-section" speed={1}>
+        <Parallax className="project-section" speed={mobile ? 0 : 1}>
           <figure className="project left" onClick={() => {
             this.setState({active: true}, () => {
               Router.push('/works/post-wave')

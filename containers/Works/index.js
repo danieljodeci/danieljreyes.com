@@ -17,12 +17,14 @@ import { Element } from 'react-scroll';
 // CSS
 import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
 import styles from './styles/works'
+import cn from 'classnames'
 
 export default class Works extends Component {
 
   renderWorksImg = () => {
+    const { mobile } = this.props
     return (
-      <Parallax className="half-width float-left" speed={4}>
+      <Parallax className={cn('half-width', {['float-left']: !mobile})} speed={mobile ? 0 : 4}>
         <img className="blendo" src="/static/images/blendo.jpg" />
         <style jsx>{styles}</style>
       </Parallax>
@@ -30,16 +32,17 @@ export default class Works extends Component {
   }
 
   render(){
+    const { mobile } = this.props
     return (
       <section id="works">
         <div className="section-container">
 
           {/* More wiggle worms */}
-          <WiggleWorm size={40} right={50} top={250} color={secondary.light} speed={2} />
-          <WiggleWorm size={50} top={850} left={450} color={primary.light} speed={2} />
-          <WiggleWorm size={60} left={50} top={550} color={secondary.neutral} speed={-2} />
+          <WiggleWorm mobile={mobile} size={40} right={50} top={250} color={secondary.light} speed={2} />
+          <WiggleWorm mobile={mobile} size={50} top={850} left={450} color={primary.light} speed={2} />
+          <WiggleWorm mobile={mobile} size={60} left={50} top={550} color={mobile ? tertiary.dark : secondary.neutral} speed={-2} />
 
-          <div className="section-row">
+          <div className={cn('section-row', {['display-block']: mobile})}>
             <Element name="works" />
             {/* Title */}
             <div className="title">
@@ -50,7 +53,7 @@ export default class Works extends Component {
             {this.renderWorksImg()}
 
             {/* Works intro... */}
-            <Intro />
+            <Intro  {...this.props} />
 
             <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 
@@ -60,7 +63,7 @@ export default class Works extends Component {
           </div>
 
 
-          <div className="section-row">
+          <div className={cn('section-row', {['display-block']: mobile})}>
             {/* Robopiano */}
             <Robopiano {...this.props} />
 

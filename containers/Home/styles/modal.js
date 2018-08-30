@@ -22,7 +22,7 @@ export default css`
     background-color: ${primary.dark};
     height: 100vh;
     overscroll-behavior: contain;
-    overflow: hidden;
+    overflow-x: hidden;
     overflow-y: visible;
 
     transform: translate(0, 100vh);

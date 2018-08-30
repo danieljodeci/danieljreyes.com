@@ -11,8 +11,9 @@ import PageWrapper from '../../hocs/Page'
 import Modal from './components/Modal'
 import Animation from './components/Animation'
 import { scroller, Events } from 'react-scroll'
-import SmoothScroll from '../../utils/SmoothScroll';
 import Router from 'next/router';
+import SmoothScroll from '../../utils/SmoothScroll';
+import { IoMdArrowDown, IoMdArrowUp } from 'react-icons/io'
 
 // Containers
 const DJ808 = dynamic(import('./components/DJ808'), {ssr: false, loading: () => null});
@@ -23,22 +24,23 @@ const Works = dynamic(import('../Works'), {ssr: false, loading: () => null})
 const Publications = dynamic(import('../Publications'), {ssr: false, loading: () => null})
 const Sounds = dynamic(import('../Sounds'), {ssr: false, loading: () => null})
 const Footer = dynamic(import('./components/Footer'), {ssr: false, loading: () => null})
-import Background from './components/Background';
+import Background from './components/Background'
 
 // CSS
 import styles from './styles/home'
 
 class Home extends Component {
   state = {
-    introModal: true,
+    introModal: false,
     drumVisible: false,
     navVisible: false,
     isScrolling: true
   }
 
   componentDidMount(){
+    if(!this.props.mobile) SmoothScroll()
     this.handleScroll = throttle(e => {
-      if(!this.state.introModal){
+      if(!this.state.introModal && !this.props.mobile){
         if(window.scrollY > 0 && this.state.drumVisible){
           this.setState({drumVisible: false})
         }else if(window.scrollY == 0 && !this.state.drumVisible){
@@ -60,7 +62,7 @@ class Home extends Component {
 
   onAnimationComplete = () => {
     if(!this.state.introModal) return;
-    const { router:{pathname} } = this.props;
+    const { router:{pathname}, mobile } = this.props;
 
     window.scrollTo(0, 0);
     // Scroll to section if pathname applies
@@ -77,7 +79,7 @@ class Home extends Component {
       this.setState({isScrolling: false})
     }
 
-    this.setState({introModal: false, drumVisible: true, navVisible: true})
+    this.setState({introModal: false, drumVisible: !mobile, navVisible: !mobile})
   }
 
   componentWillUnmount(){
@@ -88,48 +90,54 @@ class Home extends Component {
 
   render(){
     const { introModal, drumVisible, navVisible, isScrolling } = this.state;
+    const { mobile } = this.props
     return (
       <div id="page-content">
         {/* Intro Modal */}
-        <Modal active={this.state.introModal}>
+        <Modal active={introModal}>
           <div className="align-center justify-center full-height full-width">
-            <Animation onComplete={this.onAnimationComplete} />
-            <Background />
+            <Animation mobile={mobile} onComplete={this.onAnimationComplete} />
+            <Background mobile={mobile} />
           </div>
         </Modal>
 
         {/* Background */}
-        <Background />
+        <Background mobile={mobile} />
 
         {/* Navigator */}
-        <Nav active={navVisible} />
+        <Nav active={navVisible} mobile={mobile} />
 
         {/* Drum Machine */}
-        <DJ808 active={drumVisible} />
+        {mobile ? (
+          <button className="dropdown" onClick={() => this.setState({drumVisible: !drumVisible})}>
+            {drumVisible ? <IoMdArrowUp /> : <IoMdArrowDown />}
+          </button>
+        ) : null}
+        <DJ808 active={drumVisible} mobile={mobile} />
         
         {/* Introduction */}
-        <Introduction onEnter={() => {
+        <Introduction mobile={mobile} onEnter={() => {
           !navVisible && this.setState({navVisible: true});
           !isScrolling && Router.push('/')
         }}/>
 
         {/* About */}
-        <About onEnter={() => !isScrolling && Router.push('/about')} />
+        <About mobile={mobile} onEnter={() => !isScrolling && Router.push('/about')} />
 
         {/* Featured Works */}
-        <Works onEnter={() => {
+        <Works mobile={mobile} onEnter={() => {
           navVisible && this.setState({navVisible: false});
           !isScrolling && Router.push('/works');
         }} {...this.props} />
 
         {/* Sounds */}
-        <Sounds onEnter={() => !isScrolling && Router.push('/sounds')} />
+        <Sounds mobile={mobile} onEnter={() => !isScrolling && Router.push('/sounds')} />
 
         {/* Publications */}
-        <Publications onEnter={() => !isScrolling && Router.push('/publications')} />
+        <Publications mobile={mobile} onEnter={() => !isScrolling && Router.push('/publications')} />
 
         {/* Footer */}
-        <Footer />
+        <Footer mobile={mobile}/>
         
         <style jsx>{styles}</style>
       </div>

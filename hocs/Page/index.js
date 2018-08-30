@@ -2,6 +2,8 @@ import React, { PureComponent } from 'react'
 import Helmet from 'react-helmet'
 import styles from './styles/main'
 import { withRouter } from 'next/router'
+import Media from 'react-media'
+import MobileDetect from 'mobile-detect'
 
 // Helps with debugging so you know what component was wrapped
 function getDisplayName(WrappedComponent) {
@@ -18,6 +20,16 @@ export default function PageWrapper(WrappedComponent, {
 }){
   class enhancedComponent extends PureComponent {
     static displayName = `HOC(${getDisplayName(WrappedComponent)})`
+      
+    static async getInitialProps({ req }) {
+      const userAgent = req ? req.headers['user-agent'] : navigator.userAgent
+      const md = new MobileDetect(userAgent)
+      // console.log({
+      //   mobile: md.mobile(),
+      //   md
+      // })
+      return { isMobile: md.mobile() }
+    }
 
     componentWillMount(){
       if(willMount) willMount()
@@ -60,10 +72,16 @@ export default function PageWrapper(WrappedComponent, {
     }
 
     render(){
+      const { isMobile } = this.props
+      // console.log({isMobile})
       return (
         <div className="app">
           <Helmet {...this.getMetaData()} />
-          <WrappedComponent {...this.props} />
+          <Media query={{maxWidth: 768}} defaultMatches={isMobile != null} >
+            {mobile => <WrappedComponent 
+              {...this.props} mobile={mobile} 
+            />}
+          </Media>
           <style jsx global>{styles}</style>
         </div>
       )

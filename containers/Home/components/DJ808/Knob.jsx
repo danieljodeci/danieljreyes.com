@@ -28,7 +28,7 @@ export default class Knob extends Component {
   };
 
   startDrag = e => {
-    e.preventDefault();
+    if(e.type != 'touchstart') e.preventDefault();
     const knob = e.target.getBoundingClientRect();
     const pts = {
       x: knob.left + knob.width / 2,
@@ -36,7 +36,13 @@ export default class Knob extends Component {
     };
 
     const moveHandler = e => {
-      this.currentDeg = this.getDeg(e.clientX, e.clientY, pts);
+      const clientX = e.type == 'touchmove' ? 
+        e.changedTouches.item(e.changedTouches.length - 1).clientX :
+        e.clientX;
+      const clientY = e.type == 'touchmove' ? 
+        e.changedTouches.item(e.changedTouches.length - 1).clientY :
+        e.clientY;
+      this.currentDeg = this.getDeg(clientX, clientY, pts);
       if (this.currentDeg === this.startAngle) this.currentDeg--;
       let newValue = Math.floor(
         this.convertRange(
@@ -50,10 +56,17 @@ export default class Knob extends Component {
       this.setState({ deg: this.currentDeg });
       this.props.onChange(newValue);
     };
-    document.addEventListener("mousemove", moveHandler);
-    document.addEventListener("mouseup", e => {
-      document.removeEventListener("mousemove", moveHandler);
-    });
+    if(e.type == 'touchstart'){
+      document.addEventListener("touchmove", moveHandler);
+      document.addEventListener("touchend", e => {
+        document.removeEventListener("touchmove", moveHandler);
+      });
+    }else{
+      document.addEventListener("mousemove", moveHandler);
+      document.addEventListener("mouseup", e => {
+        document.removeEventListener("mousemove", moveHandler);
+      });
+    }
   };
 
   getDeg = (cX, cY, pts) => {
@@ -119,7 +132,7 @@ export default class Knob extends Component {
     return (
       <section className="knob">
         {this.renderTicks()}
-        <div onMouseDown={this.startDrag} style={knobStyle}>
+        <div onMouseDown={this.startDrag} onTouchStart={this.startDrag} style={knobStyle}>
           <div className={cn({flat})} style={indicatorStyle}>
             <span style={lineStyle} />
           </div>

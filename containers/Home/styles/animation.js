@@ -8,4 +8,11 @@ export default css`
     stroke-linecap: round;
     stroke-miterlimit: 2;
   }
+
+  @media (max-width: 768px){
+    svg {
+      width: 300px;
+      height: 250px;
+    }
+  }
 `

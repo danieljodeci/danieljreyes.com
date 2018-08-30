@@ -13,7 +13,7 @@
 // without getting a written permission first.
 //
 
-(function () {
+export default function SmoothScroll () {
   if(typeof window === 'undefined') return;
 // Scroll Variables (tweakable)
 var defaultOptions = {
@@ -745,4 +745,4 @@ else if ('object' == typeof exports)
 else
     window.SmoothScroll = SmoothScroll;
 
-})();
+};

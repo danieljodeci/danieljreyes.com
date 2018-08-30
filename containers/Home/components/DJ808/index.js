@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import styles from '../../styles/sequencer'
 import Knob from './Knob';
 import Button from './Button'
@@ -24,6 +24,18 @@ class DJ808 extends Component {
       CH: Array(16).fill(false)
     }
   }
+  componentDidMount(){
+    if(this.props.mobile){
+      document.body.style.overflow = 'hidden'
+      document.body.style['max-height'] = '100vh'
+    }
+  }
+  componentWillUnmount(){
+    if(this.props.mobile){
+      document.body.style.overflow = '';
+      document.body.style['max-height'] = ''
+    }
+  }
   componentWillReceiveProps(nextProps){
     if(nextProps.volume != this.props.volume){
       this.props.multiPlayer.volume.value = nextProps.volume;
@@ -40,11 +52,13 @@ class DJ808 extends Component {
       sequences, 
       multiPlayer, 
       updateState,
-      volume 
+      volume,
+      mobile 
     } = this.props
     return (
       <header id="sequencer" className={cn('container', {active})}>
         <Sequencer 
+          mobile={mobile}
           tempo={tempo}
           paused={paused} 
           steps={steps} 
@@ -71,63 +85,130 @@ class DJ808 extends Component {
             localStorage.setItem('sequences', JSON.stringify(newSeq))
           }}
         />
-        <div className="flex-row control-panel">
-          <div style={{marginRight: 30, display: 'flex'}}>
-            <Knob
-              onChange={volume => {
-                updateState({volume: volume})
-                throttle(() => localStorage.setItem('volume', volume), 750)()
-              }}
-              min={-60}
-              max={1}
-              degrees={270}
-              size={50}
-              flat
-              value={volume}
-              label="Volume"
+        <div className={cn('control-panel', {['flex-row']: !mobile, ['flex-column']: mobile})}>
+          {!mobile && (
+            <div style={{marginRight: 30, display: 'flex'}}>
+              <Knob
+                onChange={volume => {
+                  updateState({volume: volume})
+                  throttle(() => localStorage.setItem('volume', volume), 750)()
+                }}
+                min={-60}
+                max={1}
+                degrees={270}
+                size={50}
+                flat
+                value={volume}
+                label="Volume"
+              />
+              <Knob
+                onChange={tempo => {
+                  updateState({tempo})
+                  throttle(() => localStorage.setItem('tempo', tempo), 750)()
+                }}
+                min={20}
+                max={280}
+                degrees={270}
+                size={50}
+                flat
+                value={tempo}
+                label="Tempo"
+              />
+            </div>
+          )}
+          {mobile ? (
+            <div className="flex-row align-center">
+              <Knob
+                onChange={volume => {
+                  updateState({volume: volume})
+                  throttle(() => localStorage.setItem('volume', volume), 750)()
+                }}
+                min={-60}
+                max={1}
+                degrees={270}
+                size={50}
+                flat
+                value={volume}
+                label="Volume"
+              />
+              <Knob 
+                onChange={(instrument) => updateState({instrument})} 
+                ticks={instruments}
+                min={0}
+                max={instruments.length-1}
+                degrees={360}
+                size={70}
+                value={instrument}
+              />
+              <Knob
+                onChange={tempo => {
+                  updateState({tempo})
+                  throttle(() => localStorage.setItem('tempo', tempo), 750)()
+                }}
+                min={20}
+                max={280}
+                degrees={270}
+                size={50}
+                flat
+                value={tempo}
+                label="Tempo"
+              />
+            </div>
+          ) : (
+            <Knob 
+              onChange={(instrument) => updateState({instrument})} 
+              ticks={instruments}
+              min={0}
+              max={instruments.length-1}
+              degrees={360}
+              size={70}
+              value={instrument}
             />
-            <Knob
-              onChange={tempo => {
-                updateState({tempo})
-                throttle(() => localStorage.setItem('tempo', tempo), 750)()
-              }}
-              min={20}
-              max={280}
-              degrees={270}
-              size={50}
-              flat
-              value={tempo}
-              label="Tempo"
-            />
-          </div>
-          <Knob 
-            onChange={(instrument) => updateState({instrument})} 
-            ticks={instruments}
-            min={0}
-            max={instruments.length-1}
-            degrees={360}
-            size={70}
-            value={instrument}
-          />
-          <div style={{marginLeft: 60}}>
-            <Button 
-              big
-              label="Start/Stop"
-              enabled={!paused}
-              onClick={() => updateState({paused: !paused})}
-            />
-          </div>
-          <div style={{marginLeft: 30}}>
-            <Button 
-              alert
-              label="Clear"
-              onClick={() => {
-                const emptySeq = this.genEmptySeq();
-                updateState({sequences: emptySeq})
-                localStorage.setItem('sequences', JSON.stringify(emptySeq))
-              }}
-            />
-          </div>
+          )}
+
+          {!mobile && (
+            <Fragment>
+              <div style={{marginLeft: 60}}>
+                <Button 
+                  big
+                  label="Start/Stop"
+                  enabled={!paused}
+                  onClick={() => updateState({paused: !paused})}
+                />
+              </div>
+              <div style={{marginLeft: 30}}>
+                <Button 
+                  alert
+                  label="Clear"
+                  onClick={() => {
+                    const emptySeq = this.genEmptySeq();
+                    updateState({sequences: emptySeq})
+                    localStorage.setItem('sequences', JSON.stringify(emptySeq))
+                  }}
+                />
+              </div>
+            </Fragment>
+          )}
+          {mobile && (
+            <div className="flex-row align-center" style={{marginTop: 30}}>
+              <Button 
+                big
+                label="Start/Stop"
+                enabled={!paused}
+                onClick={() => updateState({paused: !paused})}
+              />
+              <Button 
+                alert
+                big
+                label="Clear"
+                onClick={() => {
+                  const emptySeq = this.genEmptySeq();
+                  updateState({sequences: emptySeq})
+                  localStorage.setItem('sequences', JSON.stringify(emptySeq))
+                }}
+              />
+            </div>
+          )}
         </div>
         <style jsx>{styles}</style>
       </header>

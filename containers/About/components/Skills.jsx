@@ -37,8 +37,9 @@ export default class Skills extends Component {
       hardwareProgramming,
       musicProduction
     } = this.state;
+    const {mobile} = this.props
     return (
-      <Parallax className="skills" speed={5}>
+      <Parallax className="skills" speed={mobile ? 0 : 5}>
         <h4>Skills</h4>
         <ul>
           <li onClick={() => this.onToggleDropDown('frontEndDev')}>

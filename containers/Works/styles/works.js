@@ -134,8 +134,9 @@ export default css`
   .project figcaption {
     font-size: 60px;
     line-height: 80px;
-    font-weight: 700;
-    letter-spacing: 2px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    font-style: italic;
     margin-top: -90px;
     position: relative;
     z-index: 4;
@@ -145,6 +146,15 @@ export default css`
 
   .project strong {
     color: #43B13E;
+  }
+
+  .project-container {
+    position: relative;
+    height: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .project-body {
@@ -204,6 +214,11 @@ export default css`
     height: 100%;
   }
 
+  .project-media img {
+    width: 100%;
+    height: auto;
+  }
+
   .project-media button {
     position: absolute;
     bottom: 13px;
@@ -217,5 +232,55 @@ export default css`
     color: ${white.neutral};
     font-size: 30px;
   }
+
+  @media (min-width: 768px){
+    .project-container {
+        width: 750px;
+    }
+  }
+
+  @media (min-width: 992px){
+    .project-container {
+        width: 970px;
+    }
+  }
+
+  @media (min-width: 1200px){
+    .project-container {
+        width: 1070px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    #works {
+      margin-top: 315px;
+    }
+
+    .title {
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    .title h3 {
+      font-size: 65px;
+      line-height: 90px;
+      margin-bottom: 30px;
+    }
+
+    .project-container {
+      padding: 80px 20px;
+      height: auto;
+    }
+
+    .right.project em {
+      top: 31px;
+    }
+
+    .left.project em {
+      left: -25px;
+    }
+
+  }
+
 
 `

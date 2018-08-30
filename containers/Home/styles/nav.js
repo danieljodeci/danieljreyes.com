@@ -40,4 +40,10 @@ export default css`
     color: ${tertiary.neutral};
     transition: all 400ms ease;
   }
+
+  @media (max-width: 768px){
+    nav {
+      display: none;
+    }
+  }
 `
