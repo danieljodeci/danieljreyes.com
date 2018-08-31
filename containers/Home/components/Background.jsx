@@ -20,12 +20,6 @@ export default class Background extends Component {
     return (
       <div className="background">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox={mobile ? "0 0 1287.99 10544.62" : "0 0 1287.99 1544.62"}>
-          <defs>
-            <linearGradient id="grad">
-              <stop offset="5%" stopColor={white.dark} />
-              <stop offset="95%" stopColor={white.dark} />
-            </linearGradient>
-          </defs>
 
           {Array.apply(null, Array(this.TOTAL)).map((a, i) => {
             {/* return (

@@ -1,5 +1,5 @@
 import css from 'styled-jsx/css'
-import { transparent } from '../../../hocs/Page/styles/colors';
+import { transparent, white } from '../../../hocs/Page/styles/colors';
 
 export default css`
   .background {
@@ -14,7 +14,7 @@ export default css`
     stroke-width: .1;
     stroke-linecap: round;
     stroke-miterlimit: 2;
-    stroke: url(#grad);
+    stroke: ${white.dark};
   }
 
   @media (max-width: 768px){
