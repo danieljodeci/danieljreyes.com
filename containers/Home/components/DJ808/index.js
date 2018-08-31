@@ -249,7 +249,7 @@ export default class Wrapper extends Component {
     }
     let samples = {};
     for (let i = 0; i < instruments.length; i++) {
-      samples[instruments[i]] = `/static/sounds/${instruments[i]}.wav`
+      samples[instruments[i]] = `/static/sounds/${instruments[i]}.[mp3|ogg]`
     }
     this.multiPlayer = new Tone.Players(samples).toMaster();
     Tone.Master.volume.value = volume;
