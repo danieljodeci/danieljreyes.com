@@ -72,7 +72,7 @@ export default class Introduction extends Component {
 
               {/* Short Bio */}
               <div className="description">
-                <svg className="knockout-text-container" width="100%" height="100%" transform="rotate(-90)">
+                <svg className="knockout-text-container" width="100%" height="100%">
                   <rect className="knockout-text-bg" width="100%" height="100%" x="0" y="0" fillOpacity="1" mask="url(#knockout-text)" />
                   <mask id="knockout-text">
                     <rect width="100%" height="100%" fill={white.neutral} x="0" y="0" />

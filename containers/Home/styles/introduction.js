@@ -100,7 +100,7 @@ export default css`
     position: absolute;
     transform: rotate(-90deg);
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(-50%) rotate(-90deg);
     left: -46px;
     width: 310px;
     height: 170px;
