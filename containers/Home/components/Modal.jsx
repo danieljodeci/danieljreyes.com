@@ -10,6 +10,7 @@ import ActivableRenderer from '../../../hocs/ActivableRenderer'
 
 // Components
 import { IoIosClose } from 'react-icons/io'
+import { primary } from '../../../hocs/Page/styles/colors';
 
 class Modal extends Component {
 
@@ -44,10 +45,10 @@ class Modal extends Component {
   }
   
   render() {
-    const { active, onToggleModal, horizontal } = this.props
+    const { active, onToggleModal, horizontal, backgroundColor } = this.props
     return (
       <Portal className='wrapper'>
-        <div className={cn('modal', {active, horizontal})} data-id="overlay">
+        <div className={cn('modal', {active, horizontal})} style={{backgroundColor}} data-id="overlay">
           {onToggleModal && (
             <div className="close-container">
               <button onClick={onToggleModal}>
@@ -67,7 +68,8 @@ class Modal extends Component {
 
 Modal.defaultProps = {
   active: false,
-  delay: 800
+  delay: 800,
+  backgroundColor: primary.dark
 };
 
 export default ActivableRenderer()(Modal)

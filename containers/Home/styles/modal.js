@@ -19,7 +19,6 @@ export default css`
   .modal {
     width: 100%;
     display: flex;
-    background-color: ${primary.dark};
     height: 100vh;
     overscroll-behavior: contain;
     overflow-x: hidden;

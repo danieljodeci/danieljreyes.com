@@ -27,7 +27,7 @@ export default global`
   }
 
   .app {
-    background-color: ${primary.dark};
+    background-color: ${primary.darker};
   }
 
   .align-center {
