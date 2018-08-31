@@ -118,23 +118,23 @@ class Home extends Component {
         {/* Introduction */}
         <Introduction mobile={mobile} onEnter={() => {
           !navVisible && this.setState({navVisible: true});
-          !isScrolling && Router.push('/')
+          !isScrolling && Router.push('/', '/', {shallow: true})
         }}/>
 
         {/* About */}
-        <About mobile={mobile} onEnter={() => !isScrolling && Router.push('/about')} />
+        <About mobile={mobile} onEnter={() => !isScrolling && Router.push('/about', '/about', {shallow: true})} />
 
         {/* Featured Works */}
         <Works mobile={mobile} onEnter={() => {
           navVisible && this.setState({navVisible: false});
-          !isScrolling && Router.push('/works');
+          !isScrolling && Router.push('/works', '/works', {shallow: true});
         }} {...this.props} />
 
         {/* Sounds */}
-        <Sounds mobile={mobile} onEnter={() => !isScrolling && Router.push('/sounds')} />
+        <Sounds mobile={mobile} onEnter={() => !isScrolling && Router.push('/sounds', '/sounds', {shallow: true})} />
 
         {/* Publications */}
-        <Publications mobile={mobile} onEnter={() => !isScrolling && Router.push('/publications')} />
+        <Publications mobile={mobile} onEnter={() => !isScrolling && Router.push('/publications', '/publications', true)} />
 
         {/* Footer */}
         <Footer mobile={mobile}/>
