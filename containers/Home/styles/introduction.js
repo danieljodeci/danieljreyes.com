@@ -243,15 +243,15 @@ export default css`
     }
 
     .description {
-      right: -100px;
-      top: 72px;
+      right: -105px;
+      top: 76px;
       left: inherit;
-      width: 250px;
+      width: 260px;
       height: 130px;
     }
 
     .knockout-text-container {
-      font: 900 16px 'Futura', sans-serif;
+      font: 900 15px 'Futura', sans-serif;
       font-style: italic;
       opacity: 0.9;
     }
