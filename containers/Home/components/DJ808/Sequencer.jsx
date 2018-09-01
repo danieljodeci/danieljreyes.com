@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react'
 import styles from '../../styles/sequencer'
 import Button from './Button';
 import Tone from 'tone';
-import position from '../../../../utils/position';
 
 class Sequencer extends Component {
   constructor(props){
@@ -12,22 +11,41 @@ class Sequencer extends Component {
       index: 0
     }
 
-    // Set up transport
-    Tone.Transport.setLoopPoints(0, '1m')
-    Tone.Transport.loop = true;
-    this.tickEventId = Tone.Transport.scheduleRepeat(this.updateIndex, '16n');
-    Tone.Transport.bpm.value = props.tempo;
   }
 
   componentDidMount(){
     this._mounted = true;
-    if(!this.props.paused) Tone.Transport.start('+0.25');
+
+    // Create our sequence values
+    let evts = [];
+    for (let i = 0; i < this.props.steps; i++) {
+      evts.push(i)
+    }
+
+    // Set up transport
+    this.loop = new Tone.Sequence(this.updateIndex, evts, "16n");
+    Tone.Transport.bpm.value = 120;
+    Tone.Transport.start();
+    if(!this.props.paused) this.loop.start('+0.25');
+
+    // Start the AudioContext
+    var context = Tone.context;
+    var buffer = context.createBuffer(1, 1, context.sampleRate)
+		var source = context.createBufferSource()
+		source.buffer = buffer
+		source.connect(context.destination)
+		source.start(0)
+
+		// resume the audio context
+		if (context.resume){
+			context.resume()
+		}
   }
 
   componentWillUnmount(){
     this._mounted = false;
-    Tone.Transport.stop()
-    Tone.Transport.cancel(this.tickEventId);
+    Tone.Transport.stop();
+    this.loop.dispose();
   }
 
   componentWillReceiveProps(nextProps){
@@ -37,16 +55,16 @@ class Sequencer extends Component {
 
     if(this.props.paused != nextProps.paused){
       if(nextProps.paused) {
-        Tone.Transport.stop()
+        this.loop.stop();
       }else{
-        Tone.Transport.start('+0.25')
+        Tone.Transport.start();
+        this.loop.start('+0.25');
       }
     }
   }
 
-  updateIndex = (time) => {
+  updateIndex = (time, index) => {
     if(!this._mounted) return;
-    const index = position[Tone.Transport.position.slice(0, 5)]
     this.setState({ index });
     this.props.onIncrement(time, index)
   }
