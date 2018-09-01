@@ -84,6 +84,7 @@ export default css`
     .text-top h3 {
       font-size: 100px;
       line-height: 100px;
+      display: none;
     }
 
     footer h2 {

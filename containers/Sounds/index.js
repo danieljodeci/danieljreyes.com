@@ -10,6 +10,8 @@ import { Element } from 'react-scroll';
 import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
 import Waypoint from 'react-waypoint'
 import Parallax from 'react-rellax';
+import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 
 // CSS
 import { tertiary, primary, secondary, white } from '../../hocs/Page/styles/colors';
@@ -22,8 +24,12 @@ export default class Sounds extends Component {
     const { mobile } = this.props
     return (
       <Parallax className={cn('half-width', {['float-left']: !mobile})} speed={mobile ? 0 : 1}>
-        <img className="blendo" src="/static/images/pascual_fuentes.jpg" />
-        <style jsx>{styles}</style>
+        <Fade>
+          <div>
+            <img className="blendo" src="/static/images/pascual_fuentes.jpg" />
+            <style jsx>{styles}</style>
+          </div>
+        </Fade>
       </Parallax>
     )
   }
@@ -44,21 +50,26 @@ export default class Sounds extends Component {
             <Element name="sounds" />
             
             {/* Title */}
-            <div className="title">
-              <h3>Sou_<br/>nds<strong>:</strong></h3>
-            </div>
+            <Slide left={mobile}>
+              <div className="title">
+                <h3>Sou_<br/>nds<strong>:</strong></h3>
+              </div>
+            </Slide>
 
             {/* Backgounr works image */}
             {this.renderSoundsImg()}
 
             {/* Sounds intro... */}
-            <Intro {...this.props} />
+            <Fade>
+              <Intro {...this.props} />
+            </Fade>
 
 
             <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 
             {/* BudSpot */}
             <Vault {...this.props} />
+            
 
           </div>
 
@@ -66,12 +77,15 @@ export default class Sounds extends Component {
 
             {/* Robopiano */}
             <BennysManual {...this.props} />
+            
 
             {/* HPISO16 */}
             <Bombses {...this.props} />
+            
 
             {/* HPISO16 */}
             <DisciplesOfSaturn {...this.props} />
+            
 
           </div>
 

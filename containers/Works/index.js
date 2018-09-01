@@ -13,6 +13,8 @@ import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
 import Waypoint from 'react-waypoint'
 import Parallax from 'react-rellax';
 import { Element } from 'react-scroll';
+import Slide from 'react-reveal/Slide';
+import Fade from 'react-reveal/Fade';
 
 // CSS
 import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
@@ -25,8 +27,12 @@ export default class Works extends Component {
     const { mobile } = this.props
     return (
       <Parallax className={cn('half-width', {['float-left']: !mobile})} speed={mobile ? 0 : 4}>
-        <img className="blendo" src="/static/images/blendo.jpg" />
-        <style jsx>{styles}</style>
+        <Fade>
+          <div>
+            <img className="blendo" src="/static/images/blendo.jpg" />
+            <style jsx>{styles}</style>
+          </div>
+        </Fade>
       </Parallax>
     )
   }
@@ -45,42 +51,60 @@ export default class Works extends Component {
           <div className={cn('section-row', {['display-block']: mobile})}>
             <Element name="works" />
             {/* Title */}
-            <div className="title">
-              <h3>Selected_<br /> works<strong>:</strong></h3>
-            </div>
+            <Slide left={mobile}>
+              <div className="title">
+                <h3>Selected_<br /> works<strong>:</strong></h3>
+              </div>
+            </Slide>
 
             {/* Backgounr works image */}
             {this.renderWorksImg()}
 
             {/* Works intro... */}
-            <Intro  {...this.props} />
+            <Fade>
+              <Intro  {...this.props} />
+            </Fade>
 
             <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 
             {/* BudSpot */}
-            <BudSpot {...this.props} />
+            <Fade>
+              <BudSpot {...this.props} />
+            </Fade>
 
           </div>
 
 
           <div className={cn('section-row', {['display-block']: mobile})}>
             {/* Robopiano */}
-            <Robopiano {...this.props} />
+            <Fade>
+              <Robopiano {...this.props} />
+            </Fade>
 
             {/* HPISO16 */}
-            <HPISO16 {...this.props} />
+            <Fade>
+              <HPISO16 {...this.props} />
+            </Fade>
 
             {/* HPISO16 */}
-            <FoldableCase {...this.props} />
+            <Fade>
+              <FoldableCase {...this.props} />
+            </Fade>
 
             {/* Resonant Spectra */}
-            <ResonantSpectra {...this.props} />
+            <Fade>
+              <ResonantSpectra {...this.props} />
+            </Fade>
 
             {/* Artifacts */}
-            <Artifacts {...this.props} />
+            <Fade>
+              <Artifacts {...this.props} />
+            </Fade>
 
             {/* Post-Wave */}
-            <PostWave {...this.props} />
+            <Fade>
+              <PostWave {...this.props} />
+            </Fade>
 
           </div>
 

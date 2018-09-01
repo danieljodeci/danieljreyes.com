@@ -5,6 +5,7 @@ import Waypoint from 'react-waypoint'
 import WiggleWorm from '../Home/components/Introduction/WiggleWorm';
 import { Element } from 'react-scroll';
 import Skills from './components/Skills'
+import Slide from 'react-reveal/Slide';
 
 // CSS
 import styles from './styles/about'
@@ -29,10 +30,13 @@ export default class About extends Component {
           {/* Bio */}
           <div className={cn('section-row', {['float-left']: mobile})}>
             <Element name="about" />
-            <div className="bio">
-              <h2>Ab_<br />out<strong>:</strong></h2>
-              <p>I am an artist, software developer, entrepeneur, and musician residing in Los Angeles, CA. I am a graduate of CalArts and a founder of BudSpot. I spend my days dwelling upon how I can create things that will make tomorrow feel a bit more comfortable. I love synthesizers and kinetic sound sculptures.</p>
-            </div>
+
+            <Slide left={mobile} cascade>
+              <div className="bio">
+                <h2>Ab_<br />out<strong>:</strong></h2>
+                <p>I am an artist, software developer, entrepeneur, and musician residing in Los Angeles, CA. I am a graduate of CalArts and a founder of BudSpot. I spend my days dwelling upon how I can create things that will make tomorrow feel a bit more comfortable. I love synthesizers and kinetic sound sculptures.</p>
+              </div>
+            </Slide>
             <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 
             {/* Skills */}
