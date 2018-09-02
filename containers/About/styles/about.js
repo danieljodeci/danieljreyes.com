@@ -42,7 +42,7 @@ export default css`
   @media (max-width: 768px) {
     section#about {
       padding-top: 80px;
-      padding-bottom: 200px;
+      padding-bottom: 260px;
     }
 
     .bio {

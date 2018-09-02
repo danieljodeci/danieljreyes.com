@@ -253,7 +253,7 @@ export default css`
 
   @media (max-width: 768px) {
     #works {
-      margin-top: 315px;
+      margin-top: 50px;
     }
 
     .title {
@@ -274,10 +274,12 @@ export default css`
 
     .right.project em {
       top: 31px;
+      opacity: 1;
     }
 
     .left.project em {
       left: -25px;
+      opacity: 1;
     }
 
   }
