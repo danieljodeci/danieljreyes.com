@@ -108,7 +108,7 @@ class Home extends Component {
         <Nav active={navVisible} mobile={mobile} />
 
         {/* Drum Machine */}
-        {mobile ? (
+        {mobile && typeof window !== 'undefined' ? (
           <button className="dropdown" onClick={() => this.setState({drumVisible: !drumVisible})}>
             {drumVisible ? <IoMdArrowUp /> : <IoMdArrowDown />}
           </button>
