@@ -203,7 +203,7 @@ export default css`
   }
 
   .project-media {
-    width: 75%;
+    width: 100%;
     height: auto;
     min-width: 300px;
     position: relative;

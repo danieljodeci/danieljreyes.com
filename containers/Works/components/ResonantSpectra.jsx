@@ -40,10 +40,9 @@ export default class ResonantSpectra extends Component {
         }}>
           <div className="project-container">
             <div className="full-width full-height align-center justify-center">
-              <div className={cn({
+              <div className={cn('align-center', {
                 ['flex-row']: !mobile, 
-                ['flex-column']: mobile,
-                ['align-center']: mobile
+                ['flex-column']: mobile
               })}>
 
                 {/* Project Media */}

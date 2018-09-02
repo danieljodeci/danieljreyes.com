@@ -6,6 +6,7 @@ import { IoMdArrowForward } from 'react-icons/io';
 import Modal from '../../Home/components/Modal';
 import {IoMdVolumeOff, IoMdVolumeHigh} from 'react-icons/io'
 import Router from 'next/router'
+import Video from './Video'
 
 // CSS
 import styles from '../styles/works'
@@ -42,27 +43,18 @@ export default class Robopiano extends Component {
         }}>
           <div className="project-container">
             <div className="full-width full-height align-center justify-center">
-              <div className={cn({
+              <div className={cn('align-center', {
                 ['flex-row']: !mobile, 
                 ['flex-column']: mobile,
-                ['align-center']: mobile
               })}>
 
                 {/* Project Media */}
-                <div className="project-media">
-                  <video key={1} 
-                    id="video-player" 
-                    loop={true} 
-                    autoPlay={true} 
-                    muted={this.state.muted} 
-                    playsInline={true}
-                    preload="metadata"
-                  >
-                    <source 
-                      type="video/mp4" 
-                      src="https://storage.googleapis.com/budspot-storage/robopiano.mp4" 
-                    />
-                  </video>
+                <div className="project-media" style={{height: mobile ? 190 : 295}}>
+                  <Video
+                    src="https://storage.googleapis.com/budspot-storage/robo-piano.mp4"
+                    thumbnail="/static/images/robopiano_thumbnail.png"
+                    muted={this.state.muted}
+                  />
                   <button onClick={() => this.setState({muted: !this.state.muted})}>
                     {this.state.muted ? <IoMdVolumeOff /> : <IoMdVolumeHigh />}
                   </button>

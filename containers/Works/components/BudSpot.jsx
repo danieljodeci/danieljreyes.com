@@ -5,6 +5,7 @@ import Parallax from 'react-rellax';
 import { IoMdArrowForward } from 'react-icons/io';
 import Modal from '../../Home/components/Modal';
 import Router from 'next/router'
+import Video from './Video'
 
 // CSS
 import styles from '../styles/works'
@@ -40,27 +41,18 @@ export default class BudSpot extends Component {
         }}>
           <div className="project-container">
             <div className="full-width full-height align-center justify-center">
-              <div className={cn({
+              <div className={cn('align-center', {
                 ['flex-row']: !mobile, 
-                ['flex-column']: mobile,
-                ['align-center']: mobile
+                ['flex-column']: mobile
               })}>
 
                 {/* Project Media */}
-                <div className="project-media">
-                  <video key={1} 
-                    id="video-player" 
-                    loop={true} 
-                    autoPlay={true} 
-                    muted={true} 
-                    playsInline={true}
-                    preload="metadata"
-                  >
-                    <source 
-                      type="video/mp4" 
-                      src="https://storage.googleapis.com/budspot-storage/budspot_demo.mp4" 
-                    />
-                  </video>
+                <div className="project-media" style={{height: 600}}>
+                  <Video
+                    src="https://storage.googleapis.com/budspot-storage/budspot_demo.mp4"
+                    thumbnail="/static/images/budspot_demo_thumbnail.png"
+                    muted={true}
+                  />
                 </div>
 
                 {/* Description */}

@@ -23,7 +23,8 @@ export default global`
 
   a {
     cursor: pointer;
-    color: var(--colorSecondary);
+    color: ${tertiary.neutral};
+    text-decoration: line-through;
   }
 
   .app {
