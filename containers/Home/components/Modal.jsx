@@ -26,7 +26,7 @@ class Modal extends Component {
   componentWillUnmount() {
     document.body.style.overflow = '';
     document.body.style['max-height'] = ''
-    window.scrollTo(0, this.scrollTop);
+    // window.scrollTo(0, this.scrollTop);
   }
 
   componentWillUpdate(nextProps) {
@@ -34,13 +34,13 @@ class Modal extends Component {
     const becomingUnactive = !nextProps.active && this.props.active;
     if (becomingActive) {
       document.body.style.overflow = 'hidden';
-      setTimeout(() => document.body.style['max-height'] = '100vh', this.props.delay);
+      // setTimeout(() => document.body.style['max-height'] = '100vh', this.props.delay);
     }
 
     if (becomingUnactive) {
       document.body.style.overflow = '';
-      document.body.style['max-height'] = ''
-      window.scrollTo(0, this.scrollTop);
+      // document.body.style['max-height'] = ''
+      // window.scrollTo(0, this.scrollTop);
     }
   }
   
