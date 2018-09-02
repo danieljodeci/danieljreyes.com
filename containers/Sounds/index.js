@@ -12,6 +12,7 @@ import Waypoint from 'react-waypoint'
 import Parallax from 'react-rellax';
 import Slide from 'react-reveal/Slide';
 import Fade from 'react-reveal/Fade';
+import Lazyload from 'react-lazyload';
 
 // CSS
 import { tertiary, primary, secondary, white } from '../../hocs/Page/styles/colors';
@@ -24,12 +25,14 @@ export default class Sounds extends Component {
     const { mobile } = this.props
     return (
       <Parallax className={cn('half-width', {['float-left']: !mobile})} speed={mobile ? 0 : 1}>
-        <Fade>
-          <div>
-            <img className="blendo" src="/static/images/pascual_fuentes.jpg" />
-            <style jsx>{styles}</style>
-          </div>
-        </Fade>
+        <Lazyload height={300}>
+          <Fade>
+            <div>
+              <img className="blendo" src="/static/images/pascual_fuentes.jpg" />
+              <style jsx>{styles}</style>
+            </div>
+          </Fade>
+        </Lazyload>
       </Parallax>
     )
   }

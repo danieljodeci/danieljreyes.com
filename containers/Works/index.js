@@ -15,6 +15,7 @@ import Parallax from 'react-rellax';
 import { Element } from 'react-scroll';
 import Slide from 'react-reveal/Slide';
 import Fade from 'react-reveal/Fade';
+import Lazyload from 'react-lazyload';
 
 // CSS
 import { tertiary, primary, secondary } from '../../hocs/Page/styles/colors';
@@ -27,12 +28,14 @@ export default class Works extends Component {
     const { mobile } = this.props
     return (
       <Parallax className={cn('half-width', {['float-left']: !mobile})} speed={mobile ? 0 : 4}>
-        <Fade>
-          <div>
-            <img className="blendo" src="/static/images/blendo.jpg" />
-            <style jsx>{styles}</style>
-          </div>
-        </Fade>
+        <Lazyload height={300}>
+          <Fade>
+            <div>
+              <img className="blendo" src="/static/images/blendo.jpg" />
+              <style jsx>{styles}</style>
+            </div>
+          </Fade>
+        </Lazyload>
       </Parallax>
     )
   }
@@ -61,50 +64,66 @@ export default class Works extends Component {
             {this.renderWorksImg()}
 
             {/* Works intro... */}
-            <Fade>
-              <Intro  {...this.props} />
-            </Fade>
+            <Lazyload height={500}>
+              <Fade>
+                <Intro  {...this.props} />
+              </Fade>
+            </Lazyload>
 
             <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 
             {/* BudSpot */}
-            <Fade>
-              <BudSpot {...this.props} />
-            </Fade>
+            <Lazyload height={500}>
+              <Fade>
+                <BudSpot {...this.props} />
+              </Fade>
+            </Lazyload>
 
           </div>
 
 
           <div className={cn('section-row', {['display-block']: mobile})}>
             {/* Robopiano */}
-            <Fade>
-              <Robopiano {...this.props} />
-            </Fade>
+            <Lazyload height={500}>
+              <Fade>
+                <Robopiano {...this.props} />
+              </Fade>
+            </Lazyload>
 
             {/* HPISO16 */}
-            <Fade>
-              <HPISO16 {...this.props} />
-            </Fade>
+            <Lazyload height={500}>
+              <Fade>
+                <HPISO16 {...this.props} />
+              </Fade>
+            </Lazyload>
 
             {/* HPISO16 */}
-            <Fade>
-              <FoldableCase {...this.props} />
-            </Fade>
+            <Lazyload height={500}>
+              <Fade>
+                <FoldableCase {...this.props} />
+              </Fade>
+            </Lazyload>
 
             {/* Resonant Spectra */}
-            <Fade>
-              <ResonantSpectra {...this.props} />
-            </Fade>
+            <Lazyload height={500}>
+              <Fade>
+                <ResonantSpectra {...this.props} />
+              </Fade>
+            </Lazyload>
 
             {/* Artifacts */}
-            <Fade>
-              <Artifacts {...this.props} />
-            </Fade>
+            <Lazyload height={500}>
+              <Fade>
+                <Artifacts {...this.props} />
+              </Fade>
+            </Lazyload>
 
             {/* Post-Wave */}
-            <Fade>
-              <PostWave {...this.props} />
-            </Fade>
+            <Lazyload height={500}>
+              <Fade>
+                <PostWave {...this.props} />
+              </Fade>
+            </Lazyload>
 
           </div>
 
