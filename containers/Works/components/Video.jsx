@@ -41,7 +41,7 @@ export default class Video extends PureComponent {
   }
 
   onPlay = () => {
-    console.log('onPlay')
+    // console.log('onPlay')
     const { src, autoPlay, playsInline, muted, loop, delay, className } = this.props;
     const { body } = this.state;
 
@@ -49,7 +49,7 @@ export default class Video extends PureComponent {
     if(videoPlayer) {
       return videoPlayer.play()
       .then(() => {
-        console.log('Video playing from ux')
+        // console.log('Video playing from ux')
         this.setState({paused: false})
       })
       .catch((error) => {
@@ -70,17 +70,17 @@ export default class Video extends PureComponent {
       </video>
     )
 
-    console.log('Inserting video')
+    // console.log('Inserting video')
     this.refs['video-container'].className += ` incoming-video`;
     this.setState({body: [...body, video]}, () => {
       // If video isn't already playing, trigger play action
       videoPlayer = document.getElementById('video-player');
       // console.log({videoPlayer})
       if(videoPlayer.paused){
-        console.log('Video player is paused')
+        // console.log('Video player is paused')
         videoPlayer.play()
         .then(() => {
-          console.log('Video playing')
+          // console.log('Video playing')
           this.setState({paused: false})
         })
         .catch((error) => {
@@ -97,14 +97,14 @@ export default class Video extends PureComponent {
   }
 
   removeThumbnail = () => {
-    console.log('Video started playing')
+    // console.log('Video started playing')
     // Return if we have already remove the thumbnail from the DOM
     if(!document.getElementById('thumbnail')) return console.log('could not find thumbnail');
     setTimeout(() => {
       this.refs['video-container'].className += ` fade-out`
     }, this.props.delay)
     setTimeout(() => {
-      console.log('Removing thumbnail')
+      // console.log('Removing thumbnail')
       this.setState({body: this.state.body.slice(1)})
       this.refs['video-container'] = this.props.className;
     }, this.props.delay + 1000)
