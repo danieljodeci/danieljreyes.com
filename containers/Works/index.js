@@ -25,9 +25,9 @@ import cn from 'classnames'
 export default class Works extends Component {
 
   renderWorksImg = () => {
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
     return (
-      <Parallax className={cn('half-width', {['float-left']: !mobile})} speed={mobile ? 0 : 4}>
+      <Parallax className={cn('half-width', {['float-left']: !mobile && !tablet})} speed={mobile || tablet ? 0 : 4}>
         <Lazyload height={300}>
           <Fade>
             <div>
@@ -41,20 +41,20 @@ export default class Works extends Component {
   }
 
   render(){
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
     return (
       <section id="works">
         <div className="section-container">
 
           {/* More wiggle worms */}
-          <WiggleWorm mobile={mobile} size={40} right={50} top={250} color={secondary.light} speed={2} />
-          <WiggleWorm mobile={mobile} size={50} top={850} left={450} color={primary.light} speed={2} />
-          <WiggleWorm mobile={mobile} size={60} left={50} top={550} color={mobile ? tertiary.dark : secondary.neutral} speed={-2} />
+          <WiggleWorm mobile={mobile} tablet={tablet} size={40} right={50} top={250} color={secondary.light} speed={2} />
+          <WiggleWorm mobile={mobile} tablet={tablet} size={50} top={850} left={450} color={primary.light} speed={2} />
+          <WiggleWorm mobile={mobile} tablet={tablet} size={60} left={50} top={550} color={mobile || tablet ? tertiary.dark : secondary.neutral} speed={-2} />
 
-          <div className={cn('section-row', {['display-block']: mobile})}>
+          <div className={cn('section-row', {['display-block']: mobile || tablet})}>
             <Element name="works" />
             {/* Title */}
-            <Slide left={mobile}>
+            <Slide left={mobile || tablet}>
               <div className="title">
                 <h3>Selected_<br /> works<strong>:</strong></h3>
               </div>
@@ -82,7 +82,7 @@ export default class Works extends Component {
           </div>
 
 
-          <div className={cn('section-row', {['display-block']: mobile})}>
+          <div className={cn('section-row', {['display-block']: mobile || tablet})}>
             {/* Robopiano */}
             <Lazyload height={500}>
               <Fade>

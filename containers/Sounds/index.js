@@ -22,9 +22,9 @@ import cn from 'classnames'
 export default class Sounds extends Component {
 
   renderSoundsImg = () => {
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
     return (
-      <Parallax className={cn('half-width', {['float-left']: !mobile})} speed={mobile ? 0 : 1}>
+      <Parallax className={cn('half-width', {['float-left']: !mobile && !tablet})} speed={mobile || tablet ? 0 : 1}>
         <Lazyload height={300}>
           <Fade>
             <div>
@@ -38,22 +38,22 @@ export default class Sounds extends Component {
   }
 
   render(){
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
     return (
       <section id="sounds">
         <div className="section-container">
 
           {/* More wiggle worms */}
-          <WiggleWorm mobile={mobile} size={40} right={mobile ? 80 : 50} top={250} color={secondary.light} speed={2} />
-          <WiggleWorm mobile={mobile} size={50} top={850} left={450} color={primary.light} speed={2} />
-          <WiggleWorm mobile={mobile} size={60} left={50} top={550} color={mobile ? primary.light : secondary.neutral} speed={-2} />
-          <WiggleWorm mobile={mobile} size={350} left={190} top={mobile ? -150 : 200} color={mobile ? secondary.light : secondary.neutral} speed={-1} animate />
+          <WiggleWorm mobile={mobile} tablet={tablet} size={40} right={mobile || tablet ? 80 : 50} top={250} color={secondary.light} speed={2} />
+          <WiggleWorm mobile={mobile} tablet={tablet} size={50} top={850} left={450} color={primary.light} speed={2} />
+          <WiggleWorm mobile={mobile} tablet={tablet} size={60} left={50} top={550} color={mobile || tablet ? primary.light : secondary.neutral} speed={-2} />
+          <WiggleWorm mobile={mobile} tablet={tablet} size={350} left={190} top={mobile || tablet ? -150 : 200} color={mobile || tablet ? secondary.light : secondary.neutral} speed={-1} animate />
 
-          <div className={cn('section-row', {['display-block']: mobile})}>
+          <div className={cn('section-row', {['display-block']: mobile || tablet})}>
             <Element name="sounds" />
             
             {/* Title */}
-            <Slide left={mobile}>
+            <Slide left={mobile || tablet}>
               <div className="title">
                 <h3>Sou_<br/>nds<strong>:</strong></h3>
               </div>
@@ -76,7 +76,7 @@ export default class Sounds extends Component {
 
           </div>
 
-          <div className={cn('section-row', {['display-block']: mobile})}>
+          <div className={cn('section-row', {['display-block']: mobile || tablet})}>
 
             {/* Robopiano */}
             <BennysManual {...this.props} />

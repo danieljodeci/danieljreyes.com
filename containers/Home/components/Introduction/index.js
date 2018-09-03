@@ -45,12 +45,12 @@ export default class Introduction extends Component {
   }
 
   render(){
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
     return (
       <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave}>
         <section id="intro">
           <div className="section-container" style={{marginTop: 65}}>
-            <div className={cn('section-row', {['display-block']: mobile})}>
+            <div className={cn('section-row', {['display-block']: mobile || tablet})}>
               <Element name="intro" />
               {/* Text Animation */}
               <div className="welcome-animation">
@@ -87,6 +87,7 @@ export default class Introduction extends Component {
               {/* Wiggle Worms */}
               <WiggleWorm 
                 mobile={mobile}
+                tablet={tablet}
                 size={80} 
                 left={270} 
                 top={230} 
@@ -96,6 +97,7 @@ export default class Introduction extends Component {
               />
               <WiggleWorm  
                 mobile={mobile}
+                tablet={tablet}
                 size={60} 
                 left={mobile ? 'inherit' : 100}
                 right={mobile ? 25 : 'inherit'} 
@@ -105,6 +107,7 @@ export default class Introduction extends Component {
               />
               <WiggleWorm  
                 mobile={mobile}
+                tablet={tablet}
                 size={70} 
                 left={mobile ? 0 : 420} 
                 bottom={mobile ? -60 : 70} 
@@ -113,6 +116,7 @@ export default class Introduction extends Component {
               />
               <WiggleWorm  
                 mobile={mobile}
+                tablet={tablet}
                 size={60} 
                 right={152} 
                 top={101} 
@@ -121,6 +125,7 @@ export default class Introduction extends Component {
               />
               <WiggleWorm  
                 mobile={mobile}
+                tablet={tablet}
                 size={350} 
                 left={250} 
                 bottom={-300} 

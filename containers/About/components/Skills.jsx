@@ -38,14 +38,14 @@ export default class Skills extends Component {
       hardwareProgramming,
       musicProduction
     } = this.state;
-    const {mobile} = this.props
+    const {mobile, tablet} = this.props
     return (
-      <Parallax className="skills" speed={mobile ? 0 : 5}>
-        <Slide left={mobile} cascade>
+      <Parallax className="skills" speed={mobile || tablet ? 0 : 5}>
+        <Slide left={mobile || tablet} cascade>
           <h4>Skills</h4>
         </Slide>
 
-        <Slide left={mobile} cascade>
+        <Slide left={mobile || tablet} cascade>
           <ul>
             <li onClick={() => this.onToggleDropDown('frontEndDev')}>
               <div className="flex-row align-center">

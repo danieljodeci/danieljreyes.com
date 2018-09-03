@@ -33,7 +33,7 @@ export default class PostWave extends Component {
   }
 
   render(){
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
     return (
       <Fragment>
         <Modal active={this.state.active} horizontal onToggleModal={() => {
@@ -44,12 +44,12 @@ export default class PostWave extends Component {
           <div className="project-container">
             <div className="full-width full-height align-center justify-center">
               <div className={cn('align-center', {
-                ['flex-row']: !mobile, 
-                ['flex-column']: mobile,
+                ['flex-row']: !mobile && !tablet, 
+                ['flex-column']: mobile || tablet,
               })}>
 
                 {/* Project Media */}
-                <div className="project-media" style={{height: mobile ? 190 : 295}}>
+                <div className="project-media" style={{height: mobile || tablet ? 190 : 295}}>
                   <Video
                     src="https://storage.googleapis.com/budspot-storage/Post-Wave.mp4"
                     thumbnail="/static/images/post-wave_thumbnail.png"
@@ -76,7 +76,7 @@ export default class PostWave extends Component {
             <style jsx>{styles}</style>
           </div>
         </Modal>
-        <Parallax className="project-section" speed={mobile ? 0 : 1}>
+        <Parallax className="project-section" speed={mobile || tablet ? 0 : 1}>
           <figure className="project left" onClick={() => {
             this.setState({active: true}, () => {
               Router.push('/works/post-wave')

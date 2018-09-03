@@ -39,7 +39,16 @@ export default css`
     color: ${secondary.neutral};
   }
 
+
   @media (max-width: 768px) {
+    section#about {
+      padding-top: 80px;
+      padding-bottom: 0;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 375px) {
     section#about {
       padding-top: 80px;
       padding-bottom: 260px;

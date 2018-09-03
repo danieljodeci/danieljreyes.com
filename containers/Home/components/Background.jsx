@@ -10,16 +10,16 @@ export default class Background extends Component {
     return false;
   }
   render(){
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
     // console.log({mobile})
     this.START = 200
-    this.SPACING = mobile ? 16 : 6
+    this.SPACING = mobile || tablet ? 16 : 6
     this.GROUP = 60
     this.TOTAL = Math.round(400 / this.GROUP)
-    this.DIFF = this.START - (this.START - ((this.GROUP - 1) * this.SPACING)) + (mobile ? 16 : 6)
+    this.DIFF = this.START - (this.START - ((this.GROUP - 1) * this.SPACING)) + (mobile || tablet ? 16 : 6)
     return (
       <div className="background">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox={mobile ? "0 0 1287.99 10544.62" : "0 0 1287.99 1544.62"}>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox={mobile || tablet ? "0 0 1287.99 10544.62" : "0 0 1287.99 1544.62"}>
 
           {Array.apply(null, Array(this.TOTAL)).map((a, i) => {
             {/* return (

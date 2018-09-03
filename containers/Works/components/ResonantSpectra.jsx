@@ -30,7 +30,7 @@ export default class ResonantSpectra extends Component {
   }
 
   render(){
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
     return (
       <Fragment>
         <Modal active={this.state.active} onToggleModal={() => {
@@ -41,8 +41,8 @@ export default class ResonantSpectra extends Component {
           <div className="project-container">
             <div className="full-width full-height align-center justify-center">
               <div className={cn('align-center', {
-                ['flex-row']: !mobile, 
-                ['flex-column']: mobile
+                ['flex-row']: !mobile && !tablet, 
+                ['flex-column']: mobile || tablet
               })}>
 
                 {/* Project Media */}

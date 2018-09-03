@@ -221,11 +221,11 @@ export default global`
     transition: opacity 500ms ease-in;
   }
 
-  @media (min-width: 767px){
-    .section-container {
-        width: 750px;
-    }
-  }
+  // @media (min-width: 767px){
+  //   .section-container {
+  //       width: 750px;
+  //   }
+  // }
 
   @media (min-width: 992px){
     .section-container {

@@ -37,9 +37,9 @@ class Home extends Component {
   }
 
   componentDidMount(){
-    if(!this.props.mobile) SmoothScroll()
+    if(!this.props.mobile && !this.props.tablet) SmoothScroll()
     this.handleScroll = throttle(e => {
-      if(!this.state.introModal && !this.props.mobile){
+      if(!this.state.introModal && !this.props.mobile && !this.props.tablet){
         if(window.scrollY > 0 && this.state.drumVisible){
           this.setState({drumVisible: false})
         }else if(window.scrollY == 0 && !this.state.drumVisible){
@@ -61,7 +61,7 @@ class Home extends Component {
 
   onAnimationComplete = () => {
     if(!this.state.introModal) return;
-    const { router:{pathname}, mobile } = this.props;
+    const { router:{pathname}, mobile, tablet } = this.props;
 
     window.scrollTo(0, 0);
     // Scroll to section if pathname applies
@@ -78,7 +78,7 @@ class Home extends Component {
       this.setState({isScrolling: false})
     }
 
-    this.setState({introModal: false, drumVisible: !mobile, navVisible: !mobile})
+    this.setState({introModal: false, drumVisible: !mobile && !tablet, navVisible: !mobile})
   }
 
   componentWillUnmount(){
@@ -89,49 +89,50 @@ class Home extends Component {
 
   render(){
     const { introModal, drumVisible, navVisible, isScrolling } = this.state;
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
+    console.log({mobile, tablet})
     return (
       <div id="page-content">
         {/* Intro Modal */}
         <Modal active={introModal}>
           <div className="align-center justify-center full-height full-width">
-            <Animation mobile={mobile} onComplete={this.onAnimationComplete} />
-            <Background mobile={mobile} />
+            <Animation mobile={mobile} tablet={tablet} onComplete={this.onAnimationComplete} />
+            <Background mobile={mobile} tablet={tablet} />
           </div>
         </Modal>
 
         {/* Background */}
-        <Background mobile={mobile} />
+        <Background mobile={mobile}  tablet={tablet} />
 
         {/* Navigator */}
-        <Nav active={navVisible} mobile={mobile} />
+        <Nav active={navVisible} mobile={mobile} tablet={tablet} />
 
         {/* Drum Machine */}
-        <DJ808 active={drumVisible} mobile={mobile} onToggle={() => this.setState({drumVisible: !drumVisible})} />
+        <DJ808 active={drumVisible} mobile={mobile} tablet={tablet} onToggle={() => this.setState({drumVisible: !drumVisible})} />
         
         {/* Introduction */}
-        <Introduction mobile={mobile} onEnter={() => {
+        <Introduction mobile={mobile} tablet={tablet} onEnter={() => {
           !navVisible && this.setState({navVisible: true});
           !isScrolling && Router.push('/', '/', {shallow: true})
         }}/>
 
         {/* About */}
-        <About mobile={mobile} onEnter={() => !isScrolling && Router.push('/about', '/about', {shallow: true})} />
+        <About mobile={mobile} tablet={tablet} onEnter={() => !isScrolling && Router.push('/about', '/about', {shallow: true})} />
 
         {/* Featured Works */}
-        <Works mobile={mobile} onEnter={() => {
+        <Works mobile={mobile} tablet={tablet} onEnter={() => {
           navVisible && this.setState({navVisible: false});
           !isScrolling && Router.push('/works', '/works', {shallow: true});
         }} {...this.props} />
 
         {/* Sounds */}
-        <Sounds mobile={mobile} onEnter={() => !isScrolling && Router.push('/sounds', '/sounds', {shallow: true})} />
+        <Sounds mobile={mobile} tablet={tablet} onEnter={() => !isScrolling && Router.push('/sounds', '/sounds', {shallow: true})} />
 
         {/* Publications */}
-        <Publications mobile={mobile} onEnter={() => !isScrolling && Router.push('/publications', '/publications', true)} />
+        <Publications mobile={mobile} tablet={tablet} onEnter={() => !isScrolling && Router.push('/publications', '/publications', true)} />
 
         {/* Footer */}
-        <Footer mobile={mobile}/>
+        <Footer mobile={mobile} tablet={tablet} />
         
         <style jsx>{styles}</style>
       </div>

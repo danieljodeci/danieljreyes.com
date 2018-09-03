@@ -27,13 +27,15 @@ class DJ808 extends Component {
     }
   }
   componentDidMount(){
-    if(this.props.mobile){
+    const { mobile, tablet } = this.props
+    if(mobile || tablet){
       document.body.style.overflow = 'hidden'
       document.body.style['max-height'] = '100vh'
     }
   }
   componentWillUnmount(){
-    if(this.props.mobile){
+    const { mobile, tablet } = this.props
+    if(mobile || tablet){
       document.body.style.overflow = '';
       document.body.style['max-height'] = ''
     }
@@ -55,12 +57,13 @@ class DJ808 extends Component {
       multiPlayer, 
       updateState,
       volume,
-      mobile 
+      mobile,
+      tablet 
     } = this.props
     return (
       <header id="sequencer" className={cn('container', {active})}>
         <Sequencer 
-          mobile={mobile}
+          mobile={mobile || tablet}
           tempo={tempo}
           paused={paused} 
           steps={steps} 
@@ -87,8 +90,8 @@ class DJ808 extends Component {
             localStorage.setItem('sequences', JSON.stringify(newSeq))
           }}
         />
-        <div className={cn('control-panel', {['flex-row']: !mobile, ['flex-column']: mobile})}>
-          {!mobile && (
+        <div className={cn('control-panel', {['flex-row']: !mobile && !tablet, ['flex-column']: mobile || tablet})}>
+          {!mobile && !tablet && (
             <div style={{marginRight: 30, display: 'flex'}}>
               <Knob
                 onChange={volume => {
@@ -118,7 +121,7 @@ class DJ808 extends Component {
               />
             </div>
           )}
-          {mobile ? (
+          {mobile || tablet ? (
             <div className="flex-row align-center">
               <Knob
                 onChange={volume => {
@@ -168,7 +171,7 @@ class DJ808 extends Component {
             />
           )}
 
-          {!mobile && (
+          {!mobile && !tablet && (
             <Fragment>
               <div style={{marginLeft: 60}}>
                 <Button 
@@ -191,7 +194,7 @@ class DJ808 extends Component {
               </div>
             </Fragment>
           )}
-          {mobile && (
+          {mobile || tablet && (
             <div className="flex-row align-center" style={{marginTop: 30}}>
               <Button 
                 big
@@ -262,10 +265,10 @@ export default class Wrapper extends Component {
   }
 
   render(){
-    const { mobile, onToggle, active } = this.props
+    const { mobile, tablet, onToggle, active } = this.props
     return (
       <Fragment>
-        {mobile ? (
+        {mobile || tablet ? (
           <button className="dropdown" onClick={onToggle}>
             {active ? <IoMdArrowUp /> : <IoMdArrowDown />}
             <style jsx>{homeStyles}</style>

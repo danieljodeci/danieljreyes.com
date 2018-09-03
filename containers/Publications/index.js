@@ -14,27 +14,27 @@ import cn from 'classnames'
 
 export default class Publications extends Component {
   render(){
-    const { mobile } = this.props
+    const { mobile, tablet } = this.props
     return (
       <section id="publications">
         <div className="section-container">
 
           {/* A little more wiggles */}
-          <WiggleWorm mobile={mobile} size={40} right={200} top={0} color={secondary.light} speed={2} />
-          <WiggleWorm mobile={mobile} size={50} top={550} left={275} color={primary.light} speed={3} />
+          <WiggleWorm mobile={mobile} tablet={tablet} size={40} right={200} top={0} color={secondary.light} speed={2} />
+          <WiggleWorm mobile={mobile} tablet={tablet} size={50} top={550} left={275} color={primary.light} speed={3} />
 
           <div className="section-row">
             <div className="full-width">
               <Element name="publications" />
               
-              <Slide left={mobile}>
-                <div className={cn('half-width', {['float-left']: !mobile})}>
+              <Slide left={mobile || tablet}>
+                <div className={cn('half-width', {['float-left']: !mobile && !tablet})}>
                   <h2>Public_<br/>ations<strong>:</strong></h2>
                 </div>
               </Slide>
 
               <Fade>
-                <div className={cn('half-width', {['float-left']: !mobile})}>
+                <div className={cn('half-width', {['float-left']: !mobile && !tablet})}>
                   <p>I have written a paper which describes my inspiration and motivation behind some of my projects.</p>
                   <ul>
                     <li>International Conference on Live Interfaces<br/>
