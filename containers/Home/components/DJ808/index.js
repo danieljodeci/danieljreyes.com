@@ -1,5 +1,6 @@
 import React, {Component, Fragment} from 'react'
 import styles from '../../styles/sequencer'
+import homeStyles from '../../styles/home'
 import Knob from './Knob';
 import Button from './Button'
 import Sequencer from './Sequencer'
@@ -7,6 +8,7 @@ import ActivableRenderer from '../../../../hocs/ActivableRenderer';
 import cn from 'classnames';
 import Tone from 'tone';
 import throttle from 'lodash.throttle'
+import { IoMdArrowDown, IoMdArrowUp } from 'react-icons/io'
 
 class DJ808 extends Component {
   genEmptySeq = () => {
@@ -260,13 +262,22 @@ export default class Wrapper extends Component {
   }
 
   render(){
+    const { mobile, onToggle, active } = this.props
     return (
-      <DJ808 
-        {...this.props} 
-        {...this.state}
-        multiPlayer={this.multiPlayer}
-        updateState={state => this.setState(state)}
-      />
+      <Fragment>
+        {mobile ? (
+          <button className="dropdown" onClick={onToggle}>
+            {active ? <IoMdArrowUp /> : <IoMdArrowDown />}
+            <style jsx>{homeStyles}</style>
+          </button>
+        ) : null}
+        <DJ808 
+          {...this.props} 
+          {...this.state}
+          multiPlayer={this.multiPlayer}
+          updateState={state => this.setState(state)}
+        />
+      </Fragment>
     )
   }
 }
@@ -274,5 +285,6 @@ export default class Wrapper extends Component {
 Wrapper.defaultProps = {
   active: false,
   steps: 16, 
-  tempo: 120
+  tempo: 120,
+  onToggle: () => null
 }
