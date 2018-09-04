@@ -34,7 +34,7 @@ export default class About extends Component {
             <Slide left={mobile || tablet} cascade>
               <div className="bio">
                 <h2>Ab_<br />out<strong>:</strong></h2>
-                <p>I am an artist, software developer, entrepeneur, and musician residing in Los Angeles, CA. I am a graduate of CalArts and a founder of BudSpot. I spend my days dwelling upon how I can create things that will make tomorrow feel a bit more comfortable. I love synthesizers and kinetic sound sculptures.</p>
+                <p>I am an artist, software developer, entrepeneur, and musician residing in Los Angeles, CA. I am a graduate of CalArts and a founder of BudSpot. I spend my days dwelling upon how I can create things that will contribute to tomorrow's complacency. I have an obsession with playing synthesizers and building kinetic sound sculptures.</p>
               </div>
             </Slide>
             <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
