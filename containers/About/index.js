@@ -28,7 +28,7 @@ export default class About extends Component {
           <WiggleWorm mobile={mobile} tablet={tablet} size={80} top={50} right={350} color={secondary.neutral} speed={2} />
 
           {/* Bio */}
-          <div className={cn('section-row', {['float-left']: mobile || tablet})}>
+          <div className={cn('section-row', {['float-left']: mobile})}>
             <Element name="about" />
 
             <Slide left={mobile || tablet} cascade>

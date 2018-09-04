@@ -210,6 +210,7 @@ export default css`
     }
   }
 
+
   @media (max-width: 768px){
     .background-text {
       min-height: 560px;
@@ -226,6 +227,52 @@ export default css`
     }
 
     .section-container h1:not(.background-text) {
+      font-size: 200px;
+    }
+  
+    .section-container h2 {
+      font-size: 120px;
+    }
+  
+    .section-container h3 {
+      font-size: 115px;
+    }
+
+    .welcome-animation {
+      min-width: 345px;
+      left: -4px;
+    }
+
+    .description {
+      right: inherit;
+      top: inherit;
+      bottom: -150px;
+      left: 5px;
+      width: 260px;
+      height: 130px;
+      position: relative;
+      transform: rotate(0deg);
+    }
+
+    .knockout-text-container {
+      font: 900 15px 'Futura', sans-serif;
+      font-style: italic;
+      opacity: 0.9;
+    }
+  }
+
+  @media (max-width: 414px){
+    .description {
+      position: absolute;
+      right: -105px;
+      top: 76px;
+      left: inherit;
+      width: 260px;
+      height: 130px;
+      transform: translateY(-50%) rotate(-90deg);
+    }
+
+    .section-container h1:not(.background-text) {
       font-size: 156px;
     }
   
@@ -236,23 +283,6 @@ export default css`
     .section-container h3 {
       font-size: 66px;
     }
+  }
 
-    .welcome-animation {
-      min-width: 345px;
-      left: -4px;
-    }
-
-    .description {
-      right: -105px;
-      top: 76px;
-      left: inherit;
-      width: 260px;
-      height: 130px;
-    }
-
-    .knockout-text-container {
-      font: 900 15px 'Futura', sans-serif;
-      font-style: italic;
-      opacity: 0.9;
-    }
 `

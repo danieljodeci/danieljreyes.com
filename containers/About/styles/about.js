@@ -42,13 +42,13 @@ export default css`
 
   @media (max-width: 768px) {
     section#about {
-      padding-top: 80px;
+      padding-top: 250px;
       padding-bottom: 0;
       height: auto;
     }
   }
 
-  @media (max-width: 375px) {
+  @media (max-width: 414px) {
     section#about {
       padding-top: 80px;
       padding-bottom: 260px;

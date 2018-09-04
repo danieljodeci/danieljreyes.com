@@ -90,7 +90,6 @@ class Home extends Component {
   render(){
     const { introModal, drumVisible, navVisible, isScrolling } = this.state;
     const { mobile, tablet } = this.props
-    console.log({mobile, tablet})
     return (
       <div id="page-content">
         {/* Intro Modal */}

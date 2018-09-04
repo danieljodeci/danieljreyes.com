@@ -77,7 +77,7 @@ export default function PageWrapper(WrappedComponent, {
       return (
         <div className="app">
           <Helmet {...this.getMetaData()} />
-          <Media query={{maxWidth: 375}} defaultMatches={isMobile != null && isMobile != 'iPad'}>
+          <Media query={{maxWidth: 414}} defaultMatches={isMobile != null && isMobile != 'iPad'}>
             {mobile => (
               <Media query={{maxWidth: 768}} defaultMatches={isMobile == 'iPad'}>
                 {tablet => <WrappedComponent {...this.props} mobile={mobile} tablet={tablet} />}

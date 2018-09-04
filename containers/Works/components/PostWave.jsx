@@ -49,7 +49,7 @@ export default class PostWave extends Component {
               })}>
 
                 {/* Project Media */}
-                <div className="project-media" style={{height: mobile || tablet ? 190 : 295}}>
+                <div className="project-media" style={{height: mobile ? 190 : tablet ? 410 : 295}}>
                   <Video
                     src="https://storage.googleapis.com/budspot-storage/Post-Wave.mp4"
                     thumbnail="/static/images/post-wave_thumbnail.png"

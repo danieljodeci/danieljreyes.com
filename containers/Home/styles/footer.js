@@ -98,7 +98,13 @@ export default css`
     }
 
     .bottom-text {
-      bottom: -90px;
+      bottom: -5px;
+    }
+
+    @media(max-width: 414px){
+      .bottom-text {
+        bottom: -90px;
+      }
     }
   }
 `

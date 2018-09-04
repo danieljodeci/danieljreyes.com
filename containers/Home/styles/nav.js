@@ -41,7 +41,7 @@ export default css`
     transition: all 400ms ease;
   }
 
-  @media (max-width: 768px){
+  @media (max-width: 414px){
     nav {
       display: none;
     }

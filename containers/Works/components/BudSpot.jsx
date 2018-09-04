@@ -47,7 +47,7 @@ export default class BudSpot extends Component {
               })}>
 
                 {/* Project Media */}
-                <div className="project-media" style={{height: 600}}>
+                <div className="project-media" style={{height: 600, maxWidth: 330}}>
                   <Video
                     src="https://storage.googleapis.com/budspot-storage/budspot_demo.mp4"
                     thumbnail="/static/images/budspot_demo_thumbnail.png"

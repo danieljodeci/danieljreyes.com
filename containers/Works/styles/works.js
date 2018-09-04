@@ -233,11 +233,11 @@ export default css`
     font-size: 30px;
   }
 
-  @media (min-width: 768px){
-    .project-container {
-        width: 750px;
-    }
-  }
+  // @media (min-width: 768px){
+  //   .project-container {
+  //       width: 750px;
+  //   }
+  // }
 
   @media (min-width: 992px){
     .project-container {
@@ -280,6 +280,11 @@ export default css`
     .left.project em {
       left: -25px;
       opacity: 1;
+    }
+
+    .project img {
+      margin-left: auto;
+      margin-right: auto;
     }
 
   }

@@ -107,5 +107,10 @@ export default css`
       line-height: 90px;
       margin-bottom: 40px;
     }
+
+    .project {
+      display: flex;
+      justify-content: center;
+    }
   }
 `

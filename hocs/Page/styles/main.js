@@ -188,6 +188,9 @@ export default global`
     float: left;
   }
 
+  .intro-container {
+    margin-top: 65px;
+  }
 
   .skills > ul > li > ul {
     display: flex;
@@ -239,6 +242,16 @@ export default global`
     }
   }
 
+  @media (max-width: 1024px) {
+    .section-row {
+      display: block;
+    }
+
+    .intro-container {
+      margin-top: 200px;
+    }
+  }
+
   @media (max-width: 768px) {
     .skills {
       position: relative;
@@ -256,6 +269,10 @@ export default global`
       margin: 0;
       padding: 50px 0;
       float: none;
+    }
+    
+    .intro-container {
+      margin-top: 65px;
     }
 
   }

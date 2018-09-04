@@ -49,7 +49,7 @@ export default class Introduction extends Component {
     return (
       <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave}>
         <section id="intro">
-          <div className="section-container" style={{marginTop: 65}}>
+          <div className="section-container intro-container">
             <div className={cn('section-row', {['display-block']: mobile || tablet})}>
               <Element name="intro" />
               {/* Text Animation */}
@@ -127,8 +127,8 @@ export default class Introduction extends Component {
                 mobile={mobile}
                 tablet={tablet}
                 size={350} 
-                left={250} 
-                bottom={-300} 
+                left={tablet ? 400 : 250} 
+                bottom={tablet ? -500 : -300} 
                 color={white.neutral} 
                 speed={-3} 
                 animate 
