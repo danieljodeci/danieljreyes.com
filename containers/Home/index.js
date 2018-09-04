@@ -37,7 +37,7 @@ class Home extends Component {
   }
 
   componentDidMount(){
-    if(!this.props.mobile && !this.props.tablet) SmoothScroll()
+    if(!this.props.isMobile) SmoothScroll()
     this.handleScroll = throttle(e => {
       if(!this.state.introModal && !this.props.mobile && !this.props.tablet){
         if(window.scrollY > 0 && this.state.drumVisible){
