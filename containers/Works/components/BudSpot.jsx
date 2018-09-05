@@ -58,7 +58,7 @@ export default class BudSpot extends Component {
                 {/* Description */}
                 <div className="project-description">
                   <h3>BudSpot<strong>.</strong></h3>
-                  <p><a href="https://budspot.com">BudSpot</a> is a peer to peer experience marketplace that aims to connect hosts offering social locations to the general public. BudSpot's platform allows hosts to monetize their residential space as a place for guests to host social experiences. Hosts can create menus, provide amenities, manage their session times, and set their own price per session. Currently operating in Los Angeles, CA.</p>
+                  <p><a href="https://budspot.com">BudSpot</a> is a peer to peer experience marketplace that aims to connect hosts offering social locations to the general public. BudSpot's platform allows hosts to monetize their residential space as a place for guests to partake social experiences. Hosts can create menus, provide amenities, manage their session times, and set their own prices. Currently operating in Los Angeles, CA.</p>
                   <p>I lead the development of the fully isomorphic PWA (progressive web application) using the MERN stack. The app contains a multitude of third party API integrations such as: </p>
                   <ul>
                     <li><p>Twilio for two-factor authentication and text message notifications</p></li>
