@@ -91,7 +91,7 @@ class DJ808 extends Component {
           }}
         />
         <div className={cn('control-panel', {['flex-row']: !mobile && !tablet, ['flex-column']: mobile || tablet})}>
-          {!mobile && !tablet && (
+          {(!mobile && !tablet) && (
             <div style={{marginRight: 30, display: 'flex'}}>
               <Knob
                 onChange={volume => {
@@ -121,7 +121,7 @@ class DJ808 extends Component {
               />
             </div>
           )}
-          {mobile || tablet ? (
+          {(mobile || tablet) ? (
             <div className="flex-row align-center">
               <Knob
                 onChange={volume => {
@@ -171,7 +171,7 @@ class DJ808 extends Component {
             />
           )}
 
-          {!mobile && !tablet && (
+          {(!mobile && !tablet) && (
             <Fragment>
               <div style={{marginLeft: 60}}>
                 <Button 
@@ -194,7 +194,7 @@ class DJ808 extends Component {
               </div>
             </Fragment>
           )}
-          {mobile || tablet && (
+          {(mobile || tablet) && (
             <div className="flex-row align-center" style={{marginTop: 30}}>
               <Button 
                 big
