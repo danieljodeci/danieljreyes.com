@@ -7,6 +7,7 @@ import Modal from '../../Home/components/Modal';
 import {IoMdVolumeOff, IoMdVolumeHigh} from 'react-icons/io'
 import Router from 'next/router'
 import Video from './Video'
+import Fade from 'react-reveal/Fade'
 
 // CSS
 import styles from '../styles/works'
@@ -81,16 +82,18 @@ export default class Robopiano extends Component {
           </div>
         </Modal>
         <Parallax className="project-section" speed={mobile || tablet ? 0 : 3}>
-          <figure className="project left" onClick={() => {
-            this.setState({active: true}, () => {
-              Router.push('/works/robopiano')
-            })
-          }}>
-            <em>view project <IoMdArrowForward /></em>
-            <img src="/static/images/robopiano.jpg" />
-            <figcaption>Robopiano</figcaption>
-          </figure>
-          <style jsx>{styles}</style>
+          <Fade>
+            <figure className="project left" onClick={() => {
+              this.setState({active: true}, () => {
+                Router.push('/works/robopiano')
+              })
+            }}>
+              <em>view project <IoMdArrowForward /></em>
+              <img src="/static/images/robopiano.jpg" />
+              <figcaption>Robopiano</figcaption>
+            </figure>
+            <style jsx>{styles}</style>
+          </Fade>
         </Parallax>
       </Fragment>
     )

@@ -5,6 +5,7 @@ import Parallax from 'react-rellax';
 import { IoMdArrowForward } from 'react-icons/io';
 import Modal from '../../Home/components/Modal';
 import Router from 'next/router'
+import Fade from 'react-reveal/Fade'
 
 // CSS
 import styles from '../styles/works'
@@ -86,16 +87,18 @@ export default class ResonantSpectra extends Component {
           </div>
         </Modal>
         <Parallax className="project-section" speed={0}>
-          <figure className="project right" onClick={() => {
-            this.setState({active: true}, () => {
-              Router.push('/works/resonant-spectra')
-            })
-          }}>
-            <em>view project <IoMdArrowForward /></em>
-            <img src="/static/images/resonant_spectra.jpg" />
-            <figcaption>Resonant Spectra</figcaption>
-          </figure>
-          <style jsx>{styles}</style>
+          <Fade>
+            <figure className="project right" onClick={() => {
+              this.setState({active: true}, () => {
+                Router.push('/works/resonant-spectra')
+              })
+            }}>
+              <em>view project <IoMdArrowForward /></em>
+              <img src="/static/images/resonant_spectra.jpg" />
+              <figcaption>Resonant Spectra</figcaption>
+            </figure>
+            <style jsx>{styles}</style>
+          </Fade>
         </Parallax>
       </Fragment>
     )

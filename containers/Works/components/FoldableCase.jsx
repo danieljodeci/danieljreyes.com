@@ -5,6 +5,7 @@ import Parallax from 'react-rellax';
 import { IoMdArrowForward } from 'react-icons/io';
 import Modal from '../../Home/components/Modal';
 import Router from 'next/router'
+import Fade from 'react-reveal/Fade'
 
 // CSS
 import styles from '../styles/works'
@@ -78,16 +79,18 @@ export default class FoldableCase extends Component {
           </div>
         </Modal>
         <Parallax className="project-section" speed={mobile || tablet ? 0 : 1}>
-          <figure className="project left" onClick={() => {
-            this.setState({active: true}, () => {
-              Router.push('/works/foldable-case')
-            })
-          }}>
-            <em>view project <IoMdArrowForward /></em>
-            <img src="/static/images/foldable_case.jpg" />
-            <figcaption>9U 104HP</figcaption>
-          </figure>
-          <style jsx>{styles}</style>
+          <Fade>
+            <figure className="project left" onClick={() => {
+              this.setState({active: true}, () => {
+                Router.push('/works/foldable-case')
+              })
+            }}>
+              <em>view project <IoMdArrowForward /></em>
+              <img src="/static/images/foldable_case.jpg" />
+              <figcaption>9U 104HP</figcaption>
+            </figure>
+            <style jsx>{styles}</style>
+          </Fade>
         </Parallax>
       </Fragment>
     )

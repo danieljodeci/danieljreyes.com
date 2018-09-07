@@ -65,18 +65,14 @@ export default class Works extends Component {
 
             {/* Works intro... */}
             <Lazyload height={500}>
-              <Fade>
-                <Intro  {...this.props} />
-              </Fade>
+              <Intro  {...this.props} />
             </Lazyload>
 
             <Waypoint onEnter={this.props.onEnter} onLeave={this.props.onLeave} />
 
             {/* BudSpot */}
             <Lazyload height={500}>
-              <Fade>
-                <BudSpot {...this.props} />
-              </Fade>
+              <BudSpot {...this.props} />
             </Lazyload>
 
           </div>
@@ -85,44 +81,32 @@ export default class Works extends Component {
           <div className={cn('section-row', {['display-block']: mobile || tablet})}>
             {/* Robopiano */}
             <Lazyload height={500}>
-              <Fade>
-                <Robopiano {...this.props} />
-              </Fade>
+              <Robopiano {...this.props} />
             </Lazyload>
 
             {/* HPISO16 */}
             <Lazyload height={500}>
-              <Fade>
-                <HPISO16 {...this.props} />
-              </Fade>
+              <HPISO16 {...this.props} />
             </Lazyload>
 
             {/* HPISO16 */}
             <Lazyload height={500}>
-              <Fade>
-                <FoldableCase {...this.props} />
-              </Fade>
+              <FoldableCase {...this.props} />
             </Lazyload>
 
             {/* Resonant Spectra */}
             <Lazyload height={500}>
-              <Fade>
-                <ResonantSpectra {...this.props} />
-              </Fade>
+              <ResonantSpectra {...this.props} />
             </Lazyload>
 
             {/* Artifacts */}
             <Lazyload height={500}>
-              <Fade>
-                <Artifacts {...this.props} />
-              </Fade>
+              <Artifacts {...this.props} />
             </Lazyload>
 
             {/* Post-Wave */}
             <Lazyload height={500}>
-              <Fade>
-                <PostWave {...this.props} />
-              </Fade>
+              <PostWave {...this.props} />
             </Lazyload>
 
           </div>

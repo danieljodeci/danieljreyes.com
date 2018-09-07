@@ -6,6 +6,7 @@ import { IoMdArrowForward } from 'react-icons/io';
 import Modal from '../../Home/components/Modal';
 import Router from 'next/router'
 import Video from './Video'
+import Fade from 'react-reveal/Fade';
 
 // CSS
 import styles from '../styles/works'
@@ -78,16 +79,18 @@ export default class BudSpot extends Component {
           </div>
         </Modal>
         <Parallax className="project-section" speed={mobile || tablet ? 0 : 4}>
-          <figure className="project right" onClick={() => {
-            this.setState({active: true}, () => {
-              Router.push('/works/budspot')
-            })
-          }}>
-            <em>view project <IoMdArrowForward /></em>
-            <img src="/static/images/budspot.png" />
-            <figcaption>BudSpot<strong>.</strong></figcaption>
-          </figure>
-          <style jsx>{styles}</style>
+          <Fade>
+            <figure className="project right" onClick={() => {
+              this.setState({active: true}, () => {
+                Router.push('/works/budspot')
+              })
+            }}>
+              <em>view project <IoMdArrowForward /></em>
+              <img src="/static/images/budspot.png" />
+              <figcaption>BudSpot<strong>.</strong></figcaption>
+            </figure>
+            <style jsx>{styles}</style>
+          </Fade>
         </Parallax>
       </Fragment>
     )

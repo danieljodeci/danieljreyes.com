@@ -5,6 +5,7 @@ import Parallax from 'react-rellax';
 import { IoMdArrowForward } from 'react-icons/io';
 import Modal from '../../Home/components/Modal';
 import Router from 'next/router'
+import Fade from 'react-reveal/Fade'
 
 // CSS
 import styles from '../styles/works'
@@ -81,16 +82,18 @@ export default class HPISO16 extends Component {
           </div>
         </Modal>
         <Parallax className="project-section" speed={mobile || tablet ? 0 : 1}>
-          <figure className="project right" onClick={() => {
-            this.setState({active: true}, () => {
-              Router.push('/works/hpiso16')
-            })
-          }}>
-            <em>view project <IoMdArrowForward /></em>
-            <img src="/static/images/hpiso16.jpg" />
-            <figcaption>HPISO16</figcaption>
-          </figure>
-          <style jsx>{styles}</style>
+          <Fade>
+            <figure className="project right" onClick={() => {
+              this.setState({active: true}, () => {
+                Router.push('/works/hpiso16')
+              })
+            }}>
+              <em>view project <IoMdArrowForward /></em>
+              <img src="/static/images/hpiso16.jpg" />
+              <figcaption>HPISO16</figcaption>
+            </figure>
+            <style jsx>{styles}</style>
+          </Fade>
         </Parallax>
       </Fragment>
     )
