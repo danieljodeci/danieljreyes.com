@@ -60,6 +60,8 @@ export default class Skills extends Component {
                   <li><span>React</span></li>
                   <li><span>Redux</span></li>
                   <li><span>Redux-saga</span></li>
+                  <li><span>HLS.js</span></li>
+                  <li><span>JW Player</span></li>
                   <li><span>Webpack</span></li>
                   <li><span>Workbox</span></li>
                   <li><span>Service Workers</span></li>
@@ -82,6 +84,7 @@ export default class Skills extends Component {
                   <li><span>JWT</span></li>
                   <li><span>Socket.io</span></li>
                   <li><span>Google Cloud Console</span></li>
+                  <li><span>AWS</span></li>
                   <li><span>GraphQL</span></li>
                   <li><span>SQL</span></li>
                 </ul>
