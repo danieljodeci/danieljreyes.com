@@ -15,7 +15,7 @@ app
     server.use((req, res, next) => {
       const hostname = req.hostname === 'www.danieljodeci.com' ? 'danieljodeci.com' : req.hostname;
 
-      if (req.headers['x-forwarded-proto'] === 'http' || req.hostname === 'www.danieljodeci.com') {
+      if (req.headers['x-forwarded-proto'] === 'http' || req.hostname.includes('danieljodeci')) {
         res.redirect(301, `https://${hostname}${req.url}`);
         return;
       }
