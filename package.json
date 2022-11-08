@@ -14,7 +14,7 @@
     "classnames": "^2.2.6",
     "lodash.throttle": "^4.1.1",
     "mobile-detect": "^1.4.2",
-    "next": "^9.3.2",
+    "next": "^13.0.2",
     "p5": "^0.6.1",
     "react": "^16.14.0",
     "react-anime": "^2.0.1",
